@@ -1177,15 +1177,52 @@
   canvas.style.height = size + 'px';
   ctx.scale(dpr, dpr);
 
-  // Real population-density hotspots [lon, lat, intensity 0-1] — drives the heat glow overlay
-  const HOTSPOTS = [
-    [77,29,1.0],[73,19,0.95],[88,23,0.9],[90,24,0.88],[80,13,0.78],[77,13,0.75],[67,25,0.8],
-    [121,31,0.95],[116,40,0.92],[113,23,0.88],[104,31,0.72],[121,14,0.72],[107,-6,0.82],
-    [140,36,0.88],[135,35,0.8],[127,38,0.78],[103,1,0.68],[100,14,0.66],[106,11,0.62],
-    [3,6,0.8],[36,-1,0.55],[31,30,0.7],[13,52,0.62],[-0.1,51,0.72],[2,48,0.68],[12,45,0.6],
-    [37,56,0.58],[4,52,0.6],[-74,41,0.7],[-87,42,0.58],[-118,34,0.6],[-43,-23,0.66],
-    [-46,-24,0.68],[-99,19,0.68],[151,-34,0.42],[120,30,0.68],[118,32,0.7],[126,45,0.5],
+  // Real major-city coordinates [lon, lat, intensity 0-1] — anchors for the night-lights layer
+  const CITIES = [
+    [-74.0,40.7,0.95],[-118.2,34.0,0.85],[-87.6,41.9,0.75],[-79.4,43.7,0.65],[-99.1,19.4,0.9],
+    [-95.4,29.8,0.55],[-80.2,25.8,0.55],[-122.4,37.8,0.6],[-77.0,38.9,0.5],[-84.4,33.7,0.5],
+    [-123.1,49.3,0.4],[-73.6,45.5,0.45],[-96.8,32.8,0.45],[-112.1,33.4,0.4],[-71.1,42.4,0.5],
+    [-46.6,-23.5,0.9],[-43.2,-22.9,0.75],[-58.4,-34.6,0.8],[-74.1,4.6,0.65],[-77.0,-12.0,0.6],
+    [-70.6,-33.4,0.55],[-66.9,10.5,0.5],[-68.1,-16.5,0.35],[-56.2,-34.9,0.35],
+    [-0.1,51.5,0.85],[2.35,48.85,0.8],[13.4,52.5,0.65],[-3.7,40.4,0.65],[12.5,41.9,0.6],
+    [37.6,55.75,0.8],[29.0,41.0,0.8],[4.9,52.4,0.5],[30.5,50.45,0.5],[21.0,52.2,0.45],
+    [9.2,45.5,0.5],[19.1,47.5,0.4],[16.4,48.2,0.4],[23.7,37.98,0.4],[14.4,50.1,0.4],
+    [3.4,6.5,0.85],[31.2,30.0,0.8],[15.3,-4.3,0.6],[28.0,-26.2,0.55],[36.8,-1.3,0.5],
+    [-7.6,33.6,0.45],[38.7,9.0,0.45],[32.5,15.6,0.4],[7.5,9.1,0.4],[29.0,-1.9,0.35],
+    [13.2,-8.8,0.4],[39.3,-6.8,0.35],
+    [55.3,25.2,0.6],[46.7,24.6,0.55],[51.4,35.7,0.6],[77.2,28.6,1.0],[72.8,19.1,0.95],
+    [88.4,22.6,0.8],[77.6,13.0,0.75],[80.3,13.1,0.7],[67.0,24.9,0.8],[90.4,23.8,0.85],
+    [74.3,31.5,0.65],[78.5,17.4,0.6],[72.6,23.0,0.55],[85.3,27.7,0.4],
+    [116.4,39.9,0.9],[121.5,31.2,0.95],[113.3,23.1,0.85],[114.1,22.5,0.8],[104.1,30.7,0.65],
+    [139.7,35.7,0.95],[135.5,34.7,0.7],[127.0,37.5,0.85],[121.0,14.6,0.75],[106.8,-6.2,0.9],
+    [100.5,13.75,0.75],[106.7,10.8,0.65],[103.8,1.35,0.6],[114.2,22.3,0.65],[121.6,25.0,0.55],
+    [151.2,-33.9,0.5],[144.96,-37.8,0.45],[153.0,-27.5,0.3],
   ];
+
+  // Deterministic PRNG so the "urban sprawl" scatter is stable across frames
+  function mulberry32(seed) {
+    return function () {
+      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+      let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  // Expand each city into a small cluster of lights to read as real urban sprawl, not a single dot
+  const LIGHTS = [];
+  CITIES.forEach(([lon, lat, intensity], idx) => {
+    LIGHTS.push([lon, lat, intensity, 1.5]);
+    const rand = mulberry32(idx * 977 + 13);
+    const sprawl = 3 + Math.floor(intensity * 5);
+    for (let k = 0; k < sprawl; k++) {
+      const spread = 2.6 / Math.max(0.25, Math.cos(lat * Math.PI / 180));
+      const dLon = (rand() - 0.5) * spread;
+      const dLat = (rand() - 0.5) * 1.8;
+      const li = intensity * (0.2 + rand() * 0.35);
+      LIGHTS.push([lon + dLon, lat + dLat, li, 0.6 + rand() * 0.5]);
+    }
+  });
 
   function hashStr(s) {
     let h = 0;
@@ -1193,31 +1230,38 @@
     return h;
   }
 
-  // Realistic muted terrain base — subtle per-country tonal variance instead of flat cartoon fills
-  const LAND_BASE = [26, 58, 46];
+  // Realistic dark slate terrain — subtle per-country tonal variance, no flat cartoon fills
+  const LAND_BASE = [17, 27, 30];
   function terrainColor(name) {
-    const j = ((Math.abs(hashStr(name)) % 21) - 10) / 100; // ±10%
+    const j = ((Math.abs(hashStr(name)) % 17) - 8) / 100; // ±8%
     const r = Math.max(0, Math.min(255, Math.round(LAND_BASE[0] * (1 + j))));
     const g = Math.max(0, Math.min(255, Math.round(LAND_BASE[1] * (1 + j))));
     const b = Math.max(0, Math.min(255, Math.round(LAND_BASE[2] * (1 + j))));
     return `rgb(${r},${g},${b})`;
   }
 
-  function drawHeat(lon, lat, intensity) {
+  // Pre-rendered glow sprite — blitting an image per light point is far cheaper than
+  // building a gradient (or using shadowBlur) hundreds of times per animation frame
+  const glowSprite = document.createElement('canvas');
+  glowSprite.width = glowSprite.height = 48;
+  (function () {
+    const gctx = glowSprite.getContext('2d');
+    const gr = gctx.createRadialGradient(24, 24, 0, 24, 24, 24);
+    gr.addColorStop(0,    'rgba(255,244,214,1)');
+    gr.addColorStop(0.25, 'rgba(255,214,140,0.85)');
+    gr.addColorStop(0.6,  'rgba(255,170,90,0.28)');
+    gr.addColorStop(1,    'rgba(255,170,90,0)');
+    gctx.fillStyle = gr;
+    gctx.fillRect(0, 0, 48, 48);
+  })();
+
+  function drawLight(lon, lat, intensity, sizeFactor) {
     const p = project(lon, lat, rotY);
-    if (!p || p[2] < 0.03) return;
-    const fade = Math.min(1, (p[2] - 0.03) / 0.2);
-    const blobR = R * 0.16 * intensity;
-    const a = 0.55 * fade * intensity;
-    const gr = ctx.createRadialGradient(p[0], p[1], 0, p[0], p[1], blobR);
-    gr.addColorStop(0,    `rgba(255,150,60,${a})`);
-    gr.addColorStop(0.35, `rgba(255,90,60,${a * 0.55})`);
-    gr.addColorStop(0.7,  `rgba(230,50,50,${a * 0.16})`);
-    gr.addColorStop(1,    'rgba(230,50,50,0)');
-    ctx.beginPath();
-    ctx.arc(p[0], p[1], blobR, 0, Math.PI * 2);
-    ctx.fillStyle = gr;
-    ctx.fill();
+    if (!p || p[2] < 0.02) return;
+    const fade = Math.min(1, (p[2] - 0.02) / 0.22);
+    const rad = R * 0.017 * sizeFactor * (0.7 + intensity * 0.6);
+    ctx.globalAlpha = Math.min(1, intensity * fade * 1.1);
+    ctx.drawImage(glowSprite, p[0] - rad, p[1] - rad, rad * 2, rad * 2);
   }
 
   const projection = d3.geoOrthographic().scale(R).translate([cx, cy]).clipAngle(90).precision(0.1);
@@ -1298,13 +1342,14 @@
         ctx.stroke();
       }
 
-      // Population-density heat glow, clipped to the sphere so blobs don't bleed past the limb
+      // Night-lights population layer, clipped to the sphere and additively blended
       ctx.save();
       ctx.beginPath();
       ctx.arc(cx, cy, R, 0, Math.PI * 2);
       ctx.clip();
-      ctx.globalCompositeOperation = 'screen';
-      for (const [lon, lat, intensity] of HOTSPOTS) drawHeat(lon, lat, intensity);
+      ctx.globalCompositeOperation = 'lighter';
+      for (const [lon, lat, intensity, sizeFactor] of LIGHTS) drawLight(lon, lat, intensity, sizeFactor);
+      ctx.globalAlpha = 1;
       ctx.globalCompositeOperation = 'source-over';
       ctx.restore();
     }
