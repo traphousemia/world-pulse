@@ -856,6 +856,46 @@
           <span class="cause-name">Fire &amp; burns</span>
           <span class="cause-value" id="causeFire">&mdash;</span>
         </div>
+        <div class="cause-row">
+          <span class="cause-name">Neonatal conditions</span>
+          <span class="cause-value" id="causeNeonatal">&mdash;</span>
+        </div>
+        <div class="cause-row">
+          <span class="cause-name">Alzheimer's &amp; dementia</span>
+          <span class="cause-value" id="causeAlzheimers">&mdash;</span>
+        </div>
+        <div class="cause-row">
+          <span class="cause-name">Kidney disease</span>
+          <span class="cause-value" id="causeKidney">&mdash;</span>
+        </div>
+        <div class="cause-row">
+          <span class="cause-name">Diarrhoeal disease</span>
+          <span class="cause-value" id="causeDiarrhoeal">&mdash;</span>
+        </div>
+        <div class="cause-row">
+          <span class="cause-name">Digestive disease (liver/cirrhosis)</span>
+          <span class="cause-value" id="causeDigestive">&mdash;</span>
+        </div>
+        <div class="cause-row">
+          <span class="cause-name">Tuberculosis</span>
+          <span class="cause-value" id="causeTuberculosis">&mdash;</span>
+        </div>
+        <div class="cause-row">
+          <span class="cause-name">Malaria</span>
+          <span class="cause-value" id="causeMalaria">&mdash;</span>
+        </div>
+        <div class="cause-row">
+          <span class="cause-name">HIV/AIDS</span>
+          <span class="cause-value" id="causeHiv">&mdash;</span>
+        </div>
+        <div class="cause-row">
+          <span class="cause-name">Falls</span>
+          <span class="cause-value" id="causeFalls">&mdash;</span>
+        </div>
+        <div class="cause-row">
+          <span class="cause-name">Poisoning</span>
+          <span class="cause-value" id="causePoisoning">&mdash;</span>
+        </div>
         <div class="cause-row cause-row-static">
           <span class="cause-name">Seasonal influenza</span>
           <span class="cause-value cause-range">290,000&ndash;650,000 <small>/ year</small></span>
@@ -865,7 +905,7 @@
           <span class="cause-value cause-range">~100,000&ndash;200,000+ <small>/ year, varies</small></span>
         </div>
       </div>
-      <p class="cause-source">Sources: World Health Organization Global Health Estimates, UNODC Global Study on Homicide, Uppsala Conflict Data Program (UCDP). Cause categories are independent published estimates and will not sum exactly to the total death counter above &mdash; some overlap and rounding is expected. Influenza and war/conflict deaths vary too much year-to-year to model as a steady per-second rate, so they're shown as published annual ranges instead.</p>
+      <p class="cause-source">Sources: World Health Organization Global Health Estimates, WHO Global Tuberculosis Report, WHO World Malaria Report, UNAIDS, UNODC Global Study on Homicide, Uppsala Conflict Data Program (UCDP). Cause categories are independent published estimates and will not sum exactly to the total death counter above &mdash; some overlap and rounding is expected. Influenza and war/conflict deaths vary too much year-to-year to model as a steady per-second rate, so they're shown as published annual ranges instead.</p>
 
       <!-- In-content Ad -->
       <div class="ad-slot-inline" id="ad-mid1b">
@@ -1304,6 +1344,16 @@
     homicide: 0.008,
     drowning: 0.004,
     fire: 0.003,
+    neonatal: 0.037,
+    alzheimers: 0.028,
+    kidney: 0.023,
+    diarrhoeal: 0.025,
+    digestive: 0.021,
+    tuberculosis: 0.018,
+    malaria: 0.008,
+    hiv: 0.008,
+    falls: 0.007,
+    poisoning: 0.002,
   };
   const CAUSE_PER_SEC = {};
   for (const key in CAUSE_SHARE) {
@@ -1359,6 +1409,16 @@
     causeHomicide: document.getElementById('causeHomicide'),
     causeDrowning: document.getElementById('causeDrowning'),
     causeFire: document.getElementById('causeFire'),
+    causeNeonatal: document.getElementById('causeNeonatal'),
+    causeAlzheimers: document.getElementById('causeAlzheimers'),
+    causeKidney: document.getElementById('causeKidney'),
+    causeDiarrhoeal: document.getElementById('causeDiarrhoeal'),
+    causeDigestive: document.getElementById('causeDigestive'),
+    causeTuberculosis: document.getElementById('causeTuberculosis'),
+    causeMalaria: document.getElementById('causeMalaria'),
+    causeHiv: document.getElementById('causeHiv'),
+    causeFalls: document.getElementById('causeFalls'),
+    causePoisoning: document.getElementById('causePoisoning'),
   };
 
   function fmt(n) {
@@ -1400,6 +1460,16 @@
     els.causeHomicide.textContent = fmt(CAUSE_PER_SEC.homicide * secThisYear);
     els.causeDrowning.textContent = fmt(CAUSE_PER_SEC.drowning * secThisYear);
     els.causeFire.textContent = fmt(CAUSE_PER_SEC.fire * secThisYear);
+    els.causeNeonatal.textContent = fmt(CAUSE_PER_SEC.neonatal * secThisYear);
+    els.causeAlzheimers.textContent = fmt(CAUSE_PER_SEC.alzheimers * secThisYear);
+    els.causeKidney.textContent = fmt(CAUSE_PER_SEC.kidney * secThisYear);
+    els.causeDiarrhoeal.textContent = fmt(CAUSE_PER_SEC.diarrhoeal * secThisYear);
+    els.causeDigestive.textContent = fmt(CAUSE_PER_SEC.digestive * secThisYear);
+    els.causeTuberculosis.textContent = fmt(CAUSE_PER_SEC.tuberculosis * secThisYear);
+    els.causeMalaria.textContent = fmt(CAUSE_PER_SEC.malaria * secThisYear);
+    els.causeHiv.textContent = fmt(CAUSE_PER_SEC.hiv * secThisYear);
+    els.causeFalls.textContent = fmt(CAUSE_PER_SEC.falls * secThisYear);
+    els.causePoisoning.textContent = fmt(CAUSE_PER_SEC.poisoning * secThisYear);
 
     requestAnimationFrame(tick);
   }
