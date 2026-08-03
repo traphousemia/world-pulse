@@ -1152,8 +1152,11 @@
   <p style="margin-top:12px;font-size:12px;color:var(--muted)">&copy; <span id="year"></span> World Pulse. All rights reserved.</p>
 </footer>
 
+<script src="/vendor/d3-array.min.js"></script>
+<script src="/vendor/d3-geo.min.js"></script>
+<script src="/vendor/topojson-client.min.js"></script>
 <script>
-// ── 3D Globe with continents ──
+// ─── 3D Globe with real country borders + population-density heatmap ───
 (function() {
   const canvas = document.getElementById('globeCanvas');
   const ctx = canvas.getContext('2d');
@@ -1161,41 +1164,35 @@
   const R = size * 0.47;
   const cx = size / 2, cy = size / 2;
   let rotY = 0;
+  let countries = null;
 
-  // Simplified continent outlines as [lon, lat] pairs
-  // Reduced polygon data for all 7 continents
-  const continents = [
-    // North America
-    [[-130,50],[-125,60],[-120,65],[-110,68],[-100,70],[-90,68],[-85,72],[-75,75],[-65,72],[-60,65],[-65,60],[-70,55],[-75,48],[-80,42],[-82,35],[-85,30],[-90,28],[-95,28],[-100,25],[-105,22],[-110,25],[-115,30],[-120,35],[-125,42],[-130,50]],
-    // South America
-    [[-80,10],[-75,12],[-70,12],[-65,10],[-60,5],[-55,3],[-50,0],[-45,-5],[-42,-10],[-40,-15],[-38,-20],[-40,-25],[-45,-28],[-50,-30],[-55,-35],[-60,-40],[-65,-45],[-70,-50],[-75,-52],[-75,-48],[-72,-42],[-70,-35],[-70,-28],[-72,-20],[-75,-15],[-78,-5],[-80,0],[-80,5],[-80,10]],
-    // Europe
-    [[-10,36],[-5,38],[0,40],[2,43],[5,44],[8,46],[10,48],[12,50],[15,52],[18,55],[20,58],[22,60],[25,62],[28,65],[30,68],[33,70],[35,68],[38,65],[40,62],[42,58],[38,55],[35,52],[32,48],[30,45],[28,42],[25,38],[22,36],[18,35],[15,37],[12,38],[8,44],[5,46],[2,48],[0,48],[-3,44],[-5,42],[-8,38],[-10,36]],
-    // Africa
-    [[-15,30],[-12,33],[-5,35],[0,37],[5,37],[10,37],[12,35],[15,32],[20,32],[25,30],[30,30],[33,28],[35,25],[38,20],[42,15],[45,12],[48,8],[50,5],[48,0],[45,-5],[42,-10],[40,-15],[38,-20],[35,-25],[33,-30],[30,-33],[28,-34],[25,-32],[22,-28],[18,-25],[15,-20],[12,-15],[10,-5],[8,0],[5,5],[3,6],[5,8],[2,5],[0,5],[-5,5],[-8,8],[-10,10],[-15,12],[-18,15],[-18,20],[-16,25],[-15,30]],
-    // Asia
-    [[30,42],[35,45],[38,48],[40,52],[42,55],[45,58],[48,60],[52,62],[55,65],[60,68],[65,70],[70,72],[75,70],[80,68],[85,65],[90,62],[95,60],[100,55],[105,50],[110,45],[115,40],[120,35],[125,30],[128,35],[130,40],[135,45],[140,48],[142,45],[140,40],[135,35],[130,30],[125,25],[120,22],[115,18],[110,15],[105,12],[100,10],[95,8],[90,12],[85,15],[80,18],[75,22],[70,25],[65,28],[60,30],[55,28],[50,25],[45,30],[42,35],[38,38],[35,40],[30,42]],
-    // Australia
-    [[115,-12],[120,-14],[125,-15],[130,-14],[135,-12],[138,-16],[140,-18],[142,-20],[145,-22],[148,-24],[150,-26],[152,-28],[153,-30],[150,-33],[148,-35],[145,-38],[140,-38],[135,-35],[132,-33],[128,-32],[125,-30],[122,-28],[118,-25],[115,-22],[114,-20],[116,-16],[115,-12]],
-    // Antarctica (simplified ring)
-    [[-180,-65],[-150,-70],[-120,-72],[-90,-75],[-60,-72],[-30,-70],[0,-68],[30,-70],[60,-72],[90,-75],[120,-72],[150,-70],[180,-65]]
-  ];
+  // Approximate population density (people per km²) by country, used to color the heatmap
+  const DENSITY = {"Afghanistan":62,"Albania":98,"Algeria":19,"Angola":26,"Antarctica":0,"Argentina":17,"Armenia":102,"Australia":3.3,"Austria":109,"Azerbaijan":123,"Bahamas":39,"Bangladesh":1265,"Belarus":45,"Belgium":383,"Belize":17,"Benin":115,"Bhutan":21,"Bolivia":11,"Bosnia and Herz.":60,"Botswana":4,"Brazil":25,"Brunei":83,"Bulgaria":62,"Burkina Faso":79,"Burundi":463,"Cambodia":96,"Cameroon":58,"Canada":4.2,"Central African Rep.":8,"Chad":14,"Chile":26,"China":149,"Colombia":46,"Congo":17,"Costa Rica":100,"Croatia":68,"Cuba":100,"Cyprus":130,"Czechia":139,"C\u00f4te d'Ivoire":84,"Dem. Rep. Congo":44,"Denmark":138,"Djibouti":43,"Dominican Rep.":227,"Ecuador":71,"Egypt":105,"El Salvador":305,"Eq. Guinea":51,"Eritrea":34,"Estonia":30,"Ethiopia":115,"Falkland Is.":0.3,"Fiji":49,"Finland":18,"Fr. S. Antarctic Lands":0,"France":119,"Gabon":9,"Gambia":232,"Georgia":64,"Germany":240,"Ghana":141,"Greece":80,"Greenland":0.03,"Guatemala":158,"Guinea":54,"Guinea-Bissau":70,"Guyana":4,"Haiti":414,"Honduras":90,"Hungary":105,"Iceland":3.7,"India":464,"Indonesia":151,"Iran":53,"Iraq":96,"Ireland":73,"Israel":400,"Italy":196,"Jamaica":267,"Japan":336,"Jordan":117,"Kazakhstan":7,"Kenya":94,"Kosovo":159,"Kuwait":240,"Kyrgyzstan":35,"Laos":32,"Latvia":29,"Lebanon":550,"Lesotho":73,"Liberia":55,"Libya":4,"Lithuania":42,"Luxembourg":260,"Macedonia":82,"Madagascar":48,"Malawi":208,"Malaysia":99,"Mali":18,"Mauritania":4.7,"Mexico":66,"Moldova":89,"Mongolia":2.1,"Montenegro":46,"Morocco":84,"Mozambique":40,"Myanmar":82,"N. Cyprus":100,"Namibia":3.1,"Nepal":203,"Netherlands":508,"New Caledonia":15,"New Zealand":19,"Nicaragua":56,"Niger":21,"Nigeria":226,"North Korea":214,"Norway":15,"Oman":17,"Pakistan":287,"Palestine":847,"Panama":58,"Papua New Guinea":20,"Paraguay":18,"Peru":27,"Philippines":368,"Poland":122,"Portugal":111,"Puerto Rico":350,"Qatar":227,"Romania":80,"Russia":8.8,"Rwanda":525,"S. Sudan":18,"Saudi Arabia":16,"Senegal":89,"Serbia":78,"Sierra Leone":111,"Slovakia":113,"Slovenia":103,"Solomon Is.":24,"Somalia":26,"Somaliland":25,"South Africa":49,"South Korea":527,"Spain":94,"Sri Lanka":342,"Sudan":25,"Suriname":3.7,"Sweden":26,"Switzerland":219,"Syria":118,"Taiwan":673,"Tajikistan":70,"Tanzania":70,"Thailand":137,"Timor-Leste":89,"Togo":158,"Trinidad and Tobago":273,"Tunisia":79,"Turkey":111,"Turkmenistan":13,"Uganda":216,"Ukraine":66,"United Arab Emirates":118,"United Kingdom":281,"United States of America":36,"Uruguay":20,"Uzbekistan":82,"Vanuatu":26,"Venezuela":32,"Vietnam":314,"W. Sahara":2.2,"Yemen":56,"Zambia":26,"Zimbabwe":38,"eSwatini":67};
 
-  // Greenland, Japan, Indonesia, UK, etc. (islands)
-  const islands = [
-    // Greenland
-    [[-55,60],[-50,63],[-45,68],[-40,72],[-35,75],[-30,78],[-35,80],[-40,82],[-50,83],[-55,80],[-58,75],[-55,70],[-55,60]],
-    // UK+Ireland
-    [[-8,50],[-5,52],[-3,55],[0,56],[-1,58],[-3,57],[-5,56],[-8,54],[-10,52],[-8,50]],
-    // Japan
-    [[130,31],[132,33],[134,35],[136,37],[138,38],[140,40],[142,43],[140,44],[138,42],[136,38],[134,36],[132,34],[130,31]],
-    // Indonesia (Java-Sumatra simplified)
-    [[95,-5],[100,-6],[105,-7],[110,-7],[115,-8],[118,-8],[120,-5],[115,-2],[110,-2],[105,-3],[100,-2],[95,-5]],
-    // New Zealand
-    [[166,-35],[168,-37],[172,-40],[174,-42],[172,-44],[170,-45],[168,-44],[166,-42],[168,-38],[166,-35]],
-    // Madagascar
-    [[44,-13],[46,-16],[48,-20],[49,-23],[48,-25],[46,-24],[44,-20],[43,-16],[44,-13]],
-  ];
+  function densityColor(v) {
+    const stops = [
+      [0,   [59,130,246]],   // blue   — very low density
+      [10,  [6,182,212]],    // cyan
+      [50,  [132,204,22]],   // lime
+      [120, [234,179,8]],    // yellow
+      [300, [249,115,22]],   // orange
+      [700, [239,68,68]],    // red    — very high density
+    ];
+    let lo = stops[0], hi = stops[stops.length - 1];
+    for (let i = 0; i < stops.length - 1; i++) {
+      if (v >= stops[i][0] && v <= stops[i+1][0]) { lo = stops[i]; hi = stops[i+1]; break; }
+      if (v > stops[stops.length-1][0]) { lo = hi = stops[stops.length-1]; }
+    }
+    const span = hi[0] - lo[0] || 1;
+    const t = Math.max(0, Math.min(1, (v - lo[0]) / span));
+    const r = Math.round(lo[1][0] + (hi[1][0]-lo[1][0]) * t);
+    const g = Math.round(lo[1][1] + (hi[1][1]-lo[1][1]) * t);
+    const b = Math.round(lo[1][2] + (hi[1][2]-lo[1][2]) * t);
+    return `rgb(${r},${g},${b})`;
+  }
+
+  const projection = d3.geoOrthographic().scale(R).translate([cx, cy]).clipAngle(90).precision(0.3);
+  const path = d3.geoPath(projection, ctx);
 
   function project(lon, lat, roty) {
     const phi = lat * Math.PI / 180;
@@ -1205,27 +1202,6 @@
     const z3 = Math.cos(phi) * Math.cos(lam);
     if (z3 < -0.05) return null; // behind globe
     return [cx + x3 * R, cy + y3 * R, z3];
-  }
-
-  function drawPoly(pts, roty, fill, stroke) {
-    const projected = pts.map(p => project(p[0], p[1], roty));
-    // skip if most points are behind the globe
-    const visible = projected.filter(p => p !== null);
-    if (visible.length < 3) return;
-
-    ctx.beginPath();
-    let started = false;
-    for (const p of projected) {
-      if (p === null) {
-        started = false;
-        continue;
-      }
-      if (!started) { ctx.moveTo(p[0], p[1]); started = true; }
-      else ctx.lineTo(p[0], p[1]);
-    }
-    ctx.closePath();
-    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
-    if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = 0.8; ctx.stroke(); }
   }
 
   function drawGlobe() {
@@ -1279,11 +1255,21 @@
       ctx.stroke();
     }
 
-    // Draw continents
-    const landFill = '#1e5a3a';
-    const landStroke = '#2e8b57';
-    for (const c of continents) drawPoly(c, rotY, landFill, landStroke);
-    for (const isl of islands) drawPoly(isl, rotY, landFill, landStroke);
+    // Draw real country borders, filled by population-density heatmap
+    if (countries) {
+      projection.rotate([rotY, 0]);
+      for (const f of countries) {
+        const name = f.properties && f.properties.name;
+        const dens = DENSITY[name] != null ? DENSITY[name] : 20;
+        ctx.beginPath();
+        path(f);
+        ctx.fillStyle = densityColor(dens);
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(10,10,18,0.55)';
+        ctx.lineWidth = 0.4;
+        ctx.stroke();
+      }
+    }
 
     // Specular highlight
     const spec = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, 0, cx, cy, R);
@@ -1298,6 +1284,12 @@
     rotY += 0.15;
     requestAnimationFrame(drawGlobe);
   }
+
+  fetch('/data/world-110m.json')
+    .then(r => r.json())
+    .then(topo => { countries = topojson.feature(topo, topo.objects.countries).features; })
+    .catch(() => {});
+
   drawGlobe();
 })();
 </script>
