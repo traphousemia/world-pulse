@@ -208,9 +208,9 @@
   .hero {
     position: relative;
     width: 100%;
-    height: 55vh;
-    min-height: 400px;
-    max-height: 560px;
+    height: 60vh;
+    min-height: 440px;
+    max-height: 620px;
     overflow: hidden;
     background:
       radial-gradient(ellipse at 50% 50%, rgba(56,189,248,0.05), transparent 60%),
@@ -249,8 +249,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 460px;
-    height: 460px;
+    width: 500px;
+    height: 500px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 1px solid rgba(56,189,248,0.12);
@@ -262,8 +262,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 560px;
-    height: 560px;
+    width: 620px;
+    height: 620px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 1px solid rgba(56,189,248,0.05);
@@ -689,8 +689,8 @@
     .core-pop { font-size: 22px; }
     .stat-num { font-size: 20px; }
     #globeCanvas { transform: translate(-50%, -50%) scale(0.75); }
-    .core-ring { width: 340px; height: 340px; }
-    .core-ring-outer { width: 440px; height: 440px; }
+    .core-ring { width: 375px; height: 375px; }
+    .core-ring-outer { width: 465px; height: 465px; }
   }
   @media (max-width: 480px) {
     .header { padding: 12px 16px; display: flex; justify-content: space-between; }
@@ -701,8 +701,8 @@
     .stat-cell { padding: 16px 12px; }
     .stat-num { font-size: 17px; }
     #globeCanvas { transform: translate(-50%, -50%) scale(0.6); }
-    .core-ring { width: 270px; height: 270px; }
-    .core-ring-outer { width: 360px; height: 360px; }
+    .core-ring { width: 300px; height: 300px; }
+    .core-ring-outer { width: 375px; height: 375px; }
   }
 </style>
 <script type="application/ld+json">
@@ -819,7 +819,7 @@
   <div class="core-ring"></div>
 
   <!-- 3D Globe -->
-  <canvas id="globeCanvas" width="400" height="400"></canvas>
+  <canvas id="globeCanvas" width="440" height="440"></canvas>
 
   <!-- Population text overlay -->
   <div class="core">
@@ -1160,7 +1160,7 @@
 (function() {
   const canvas = document.getElementById('globeCanvas');
   const ctx = canvas.getContext('2d');
-  const size = 400;
+  const size = 440;
   const R = size * 0.47;
   const cx = size / 2, cy = size / 2;
   let rotY = 0;
