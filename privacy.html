@@ -311,7 +311,6 @@
   const size = 56;
   const R = size * 0.47;
   const cx = size / 2, cy = size / 2;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let rot = 0;
   let countries = null;
 
@@ -341,13 +340,11 @@
       }
     }
 
-    if (!reduceMotion) {
-      rot += 1.1;
-      requestAnimationFrame(draw);
-    }
+    rot += 1.1;
+    requestAnimationFrame(draw);
   }
 
-  loadCountries().then(features => { countries = features; draw(); }).catch(() => {});
+  loadCountries().then(features => { countries = features; }).catch(() => {});
   draw();
 })();
 </script>
