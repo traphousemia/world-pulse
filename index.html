@@ -257,6 +257,7 @@
     background: radial-gradient(circle, rgba(56,189,248,0.06) 0%, transparent 70%);
     animation: pulseRing 3.5s ease-in-out infinite;
     z-index: 1;
+    pointer-events: none;
   }
   .core-ring-outer {
     position: absolute;
@@ -269,6 +270,7 @@
     border: 1px solid rgba(56,189,248,0.05);
     animation: pulseRing 3.5s ease-in-out infinite 0.5s;
     z-index: 1;
+    pointer-events: none;
   }
   @keyframes pulseRing {
     0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
@@ -284,6 +286,7 @@
     z-index: 1;
     opacity: 0.45;
     border-radius: 50%;
+    pointer-events: none;
   }
 
   .core {
