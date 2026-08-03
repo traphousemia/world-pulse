@@ -1643,7 +1643,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     }
   }
 
-  loadCountries().then(features => { countries = features; }).catch(() => {});
+  loadCountries().then(features => { countries = features; draw(); }).catch(() => {});
   draw();
 })();
 </script>
