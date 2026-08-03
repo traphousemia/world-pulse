@@ -9,9 +9,22 @@
 <meta property="og:title" content="World Pulse — Live World Population, Death Toll &amp; Births Counter">
 <meta property="og:description" content="Watch world population, the world death toll, and births update in real time — plus a live breakdown of deaths by cause.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://worldpulse.fyi/">
+<meta property="og:image" content="https://worldpulse.fyi/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="World Pulse — Live World Population, Death Toll &amp; Births Counter">
+<meta name="twitter:description" content="Watch world population, the world death toll, and births update in real time.">
+<meta name="twitter:image" content="https://worldpulse.fyi/og-image.png">
 <meta name="robots" content="index, follow">
 <meta name="author" content="World Pulse">
+<link rel="canonical" href="https://worldpulse.fyi/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1766368165161679" crossorigin="anonymous"></script>
 <style>
   :root {
@@ -101,6 +114,39 @@
     align-items: center;
     gap: 16px;
   }
+  .menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 6px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10,10,18,0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 16px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
   .live-badge {
     display: flex;
     align-items: center;
@@ -648,6 +694,7 @@
   @media (max-width: 480px) {
     .header { padding: 12px 16px; }
     .header-nav { display: none; }
+    .menu-toggle { display: flex; }
     .content { padding: 0 16px; }
     .stat-cell { padding: 16px 12px; }
     .stat-num { font-size: 17px; }
@@ -739,7 +786,18 @@
   </nav>
   <div class="header-right">
     <div class="live-badge"><span class="live-dot"></span> Live</div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/>
+      </svg>
+    </button>
   </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </nav>
 </header>
 
 <!-- Region picker — right under the header -->
@@ -763,7 +821,7 @@
 
   <!-- Population text overlay -->
   <div class="core">
-    <div class="core-label"><span class="core-dot"></span> <span id="regionLabel">World</span> Population</div>
+    <h1 class="core-label"><span class="core-dot"></span> <span id="regionLabel">World</span> Population</h1>
     <div class="core-pop" id="populationHero">&mdash;</div>
   </div>
 </div>
@@ -857,10 +915,6 @@
           <span class="cause-value" id="causeFire">&mdash;</span>
         </div>
         <div class="cause-row">
-          <span class="cause-name">Neonatal conditions</span>
-          <span class="cause-value" id="causeNeonatal">&mdash;</span>
-        </div>
-        <div class="cause-row">
           <span class="cause-name">Alzheimer's &amp; dementia</span>
           <span class="cause-value" id="causeAlzheimers">&mdash;</span>
         </div>
@@ -875,10 +929,6 @@
         <div class="cause-row">
           <span class="cause-name">Digestive disease (liver/cirrhosis)</span>
           <span class="cause-value" id="causeDigestive">&mdash;</span>
-        </div>
-        <div class="cause-row">
-          <span class="cause-name">Tuberculosis</span>
-          <span class="cause-value" id="causeTuberculosis">&mdash;</span>
         </div>
         <div class="cause-row">
           <span class="cause-name">Malaria</span>
@@ -905,7 +955,7 @@
           <span class="cause-value cause-range">~100,000&ndash;200,000+ <small>/ year, varies</small></span>
         </div>
       </div>
-      <p class="cause-source">Sources: World Health Organization Global Health Estimates, WHO Global Tuberculosis Report, WHO World Malaria Report, UNAIDS, UNODC Global Study on Homicide, Uppsala Conflict Data Program (UCDP). Cause categories are independent published estimates and will not sum exactly to the total death counter above &mdash; some overlap and rounding is expected. Influenza and war/conflict deaths vary too much year-to-year to model as a steady per-second rate, so they're shown as published annual ranges instead.</p>
+      <p class="cause-source">Sources: World Health Organization Global Health Estimates, WHO World Malaria Report, UNAIDS, UNODC Global Study on Homicide, Uppsala Conflict Data Program (UCDP). Cause categories are independent published estimates and will not sum exactly to the total death counter above &mdash; some overlap and rounding is expected. Influenza and war/conflict deaths vary too much year-to-year to model as a steady per-second rate, so they're shown as published annual ranges instead.</p>
 
       <!-- In-content Ad -->
       <div class="ad-slot-inline" id="ad-mid1b">
@@ -1344,12 +1394,10 @@
     homicide: 0.008,
     drowning: 0.004,
     fire: 0.003,
-    neonatal: 0.037,
     alzheimers: 0.028,
     kidney: 0.023,
     diarrhoeal: 0.025,
     digestive: 0.021,
-    tuberculosis: 0.018,
     malaria: 0.008,
     hiv: 0.008,
     falls: 0.007,
@@ -1409,12 +1457,10 @@
     causeHomicide: document.getElementById('causeHomicide'),
     causeDrowning: document.getElementById('causeDrowning'),
     causeFire: document.getElementById('causeFire'),
-    causeNeonatal: document.getElementById('causeNeonatal'),
     causeAlzheimers: document.getElementById('causeAlzheimers'),
     causeKidney: document.getElementById('causeKidney'),
     causeDiarrhoeal: document.getElementById('causeDiarrhoeal'),
     causeDigestive: document.getElementById('causeDigestive'),
-    causeTuberculosis: document.getElementById('causeTuberculosis'),
     causeMalaria: document.getElementById('causeMalaria'),
     causeHiv: document.getElementById('causeHiv'),
     causeFalls: document.getElementById('causeFalls'),
@@ -1460,12 +1506,10 @@
     els.causeHomicide.textContent = fmt(CAUSE_PER_SEC.homicide * secThisYear);
     els.causeDrowning.textContent = fmt(CAUSE_PER_SEC.drowning * secThisYear);
     els.causeFire.textContent = fmt(CAUSE_PER_SEC.fire * secThisYear);
-    els.causeNeonatal.textContent = fmt(CAUSE_PER_SEC.neonatal * secThisYear);
     els.causeAlzheimers.textContent = fmt(CAUSE_PER_SEC.alzheimers * secThisYear);
     els.causeKidney.textContent = fmt(CAUSE_PER_SEC.kidney * secThisYear);
     els.causeDiarrhoeal.textContent = fmt(CAUSE_PER_SEC.diarrhoeal * secThisYear);
     els.causeDigestive.textContent = fmt(CAUSE_PER_SEC.digestive * secThisYear);
-    els.causeTuberculosis.textContent = fmt(CAUSE_PER_SEC.tuberculosis * secThisYear);
     els.causeMalaria.textContent = fmt(CAUSE_PER_SEC.malaria * secThisYear);
     els.causeHiv.textContent = fmt(CAUSE_PER_SEC.hiv * secThisYear);
     els.causeFalls.textContent = fmt(CAUSE_PER_SEC.falls * secThisYear);
@@ -1526,6 +1570,23 @@
 <script>
 // ── Footer year ──
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ── Mobile menu toggle ──
+(function () {
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mobileMenu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  menu.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
 
 // ── Cookie consent ──
 // NOTE: This is a lightweight notice-and-choice banner. It is NOT a full

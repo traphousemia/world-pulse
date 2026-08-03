@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+    <radialGradient id="globe" cx="200" cy="190" r="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7DD3FC"/>
+      <stop offset="1" stop-color="#1e3a8a"/>
+    </radialGradient>
+    <radialGradient id="spec" cx="190" cy="180" r="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="round">
+      <rect x="0" y="0" width="512" height="512" rx="112" ry="112"/>
+    </clipPath>
+    <clipPath id="circle">
+      <circle cx="256" cy="256" r="200"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect x="0" y="0" width="512" height="512" fill="url(#bg)"/>
+    <g clip-path="url(#circle)">
+      <circle cx="256" cy="256" r="200" fill="url(#globe)"/>
+      <!-- simplified continents -->
+      <path d="M120 190 Q150 150 210 160 Q250 145 260 180 Q290 190 270 220 Q290 250 250 260 Q220 290 190 260 Q150 270 140 230 Q110 220 120 190Z" fill="#34D399"/>
+      <path d="M300 240 Q340 220 380 250 Q400 280 370 310 Q400 340 370 370 Q330 390 310 360 Q280 350 290 310 Q270 280 300 240Z" fill="#34D399"/>
+      <path d="M170 320 Q200 310 220 340 Q230 370 200 385 Q175 395 160 370 Q145 345 170 320Z" fill="#34D399"/>
+      <path d="M340 150 Q365 140 380 160 Q375 180 355 178 Q335 172 340 150Z" fill="#34D399"/>
+      <circle cx="256" cy="256" r="200" fill="url(#spec)"/>
+    </g>
+  </g>
+</svg>
