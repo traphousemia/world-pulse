@@ -693,8 +693,9 @@
     .core-ring-outer { width: 400px; height: 400px; }
   }
   @media (max-width: 480px) {
-    .header { padding: 12px 16px; }
+    .header { padding: 12px 16px; display: flex; justify-content: space-between; }
     .header-nav { display: none; }
+    .header-right { grid-column: unset; justify-self: unset; }
     .menu-toggle { display: flex; }
     .content { padding: 0 16px; }
     .stat-cell { padding: 16px 12px; }
