@@ -249,8 +249,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 380px;
-    height: 380px;
+    width: 460px;
+    height: 460px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 1px solid rgba(56,189,248,0.12);
@@ -262,8 +262,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 520px;
-    height: 520px;
+    width: 560px;
+    height: 560px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 1px solid rgba(56,189,248,0.05);
@@ -689,8 +689,8 @@
     .core-pop { font-size: 22px; }
     .stat-num { font-size: 20px; }
     #globeCanvas { transform: translate(-50%, -50%) scale(0.75); }
-    .core-ring { width: 300px; height: 300px; }
-    .core-ring-outer { width: 400px; height: 400px; }
+    .core-ring { width: 340px; height: 340px; }
+    .core-ring-outer { width: 440px; height: 440px; }
   }
   @media (max-width: 480px) {
     .header { padding: 12px 16px; display: flex; justify-content: space-between; }
@@ -701,8 +701,8 @@
     .stat-cell { padding: 16px 12px; }
     .stat-num { font-size: 17px; }
     #globeCanvas { transform: translate(-50%, -50%) scale(0.6); }
-    .core-ring { width: 240px; height: 240px; }
-    .core-ring-outer { width: 320px; height: 320px; }
+    .core-ring { width: 270px; height: 270px; }
+    .core-ring-outer { width: 360px; height: 360px; }
   }
 </style>
 <script type="application/ld+json">
@@ -819,7 +819,7 @@
   <div class="core-ring"></div>
 
   <!-- 3D Globe -->
-  <canvas id="globeCanvas" width="340" height="340"></canvas>
+  <canvas id="globeCanvas" width="400" height="400"></canvas>
 
   <!-- Population text overlay -->
   <div class="core">
@@ -1160,11 +1160,19 @@
 (function() {
   const canvas = document.getElementById('globeCanvas');
   const ctx = canvas.getContext('2d');
-  const size = 340;
+  const size = 400;
   const R = size * 0.47;
   const cx = size / 2, cy = size / 2;
   let rotY = 0;
   let countries = null;
+
+  // Render at native device resolution for crisp, hyper-detailed borders
+  const dpr = Math.min(window.devicePixelRatio || 1, 3);
+  canvas.width = size * dpr;
+  canvas.height = size * dpr;
+  canvas.style.width = size + 'px';
+  canvas.style.height = size + 'px';
+  ctx.scale(dpr, dpr);
 
   // Approximate population density (people per km²) by country, used to color the heatmap
   const DENSITY = {"Afghanistan":62,"Albania":98,"Algeria":19,"Angola":26,"Antarctica":0,"Argentina":17,"Armenia":102,"Australia":3.3,"Austria":109,"Azerbaijan":123,"Bahamas":39,"Bangladesh":1265,"Belarus":45,"Belgium":383,"Belize":17,"Benin":115,"Bhutan":21,"Bolivia":11,"Bosnia and Herz.":60,"Botswana":4,"Brazil":25,"Brunei":83,"Bulgaria":62,"Burkina Faso":79,"Burundi":463,"Cambodia":96,"Cameroon":58,"Canada":4.2,"Central African Rep.":8,"Chad":14,"Chile":26,"China":149,"Colombia":46,"Congo":17,"Costa Rica":100,"Croatia":68,"Cuba":100,"Cyprus":130,"Czechia":139,"C\u00f4te d'Ivoire":84,"Dem. Rep. Congo":44,"Denmark":138,"Djibouti":43,"Dominican Rep.":227,"Ecuador":71,"Egypt":105,"El Salvador":305,"Eq. Guinea":51,"Eritrea":34,"Estonia":30,"Ethiopia":115,"Falkland Is.":0.3,"Fiji":49,"Finland":18,"Fr. S. Antarctic Lands":0,"France":119,"Gabon":9,"Gambia":232,"Georgia":64,"Germany":240,"Ghana":141,"Greece":80,"Greenland":0.03,"Guatemala":158,"Guinea":54,"Guinea-Bissau":70,"Guyana":4,"Haiti":414,"Honduras":90,"Hungary":105,"Iceland":3.7,"India":464,"Indonesia":151,"Iran":53,"Iraq":96,"Ireland":73,"Israel":400,"Italy":196,"Jamaica":267,"Japan":336,"Jordan":117,"Kazakhstan":7,"Kenya":94,"Kosovo":159,"Kuwait":240,"Kyrgyzstan":35,"Laos":32,"Latvia":29,"Lebanon":550,"Lesotho":73,"Liberia":55,"Libya":4,"Lithuania":42,"Luxembourg":260,"Macedonia":82,"Madagascar":48,"Malawi":208,"Malaysia":99,"Mali":18,"Mauritania":4.7,"Mexico":66,"Moldova":89,"Mongolia":2.1,"Montenegro":46,"Morocco":84,"Mozambique":40,"Myanmar":82,"N. Cyprus":100,"Namibia":3.1,"Nepal":203,"Netherlands":508,"New Caledonia":15,"New Zealand":19,"Nicaragua":56,"Niger":21,"Nigeria":226,"North Korea":214,"Norway":15,"Oman":17,"Pakistan":287,"Palestine":847,"Panama":58,"Papua New Guinea":20,"Paraguay":18,"Peru":27,"Philippines":368,"Poland":122,"Portugal":111,"Puerto Rico":350,"Qatar":227,"Romania":80,"Russia":8.8,"Rwanda":525,"S. Sudan":18,"Saudi Arabia":16,"Senegal":89,"Serbia":78,"Sierra Leone":111,"Slovakia":113,"Slovenia":103,"Solomon Is.":24,"Somalia":26,"Somaliland":25,"South Africa":49,"South Korea":527,"Spain":94,"Sri Lanka":342,"Sudan":25,"Suriname":3.7,"Sweden":26,"Switzerland":219,"Syria":118,"Taiwan":673,"Tajikistan":70,"Tanzania":70,"Thailand":137,"Timor-Leste":89,"Togo":158,"Trinidad and Tobago":273,"Tunisia":79,"Turkey":111,"Turkmenistan":13,"Uganda":216,"Ukraine":66,"United Arab Emirates":118,"United Kingdom":281,"United States of America":36,"Uruguay":20,"Uzbekistan":82,"Vanuatu":26,"Venezuela":32,"Vietnam":314,"W. Sahara":2.2,"Yemen":56,"Zambia":26,"Zimbabwe":38,"eSwatini":67};
@@ -1191,7 +1199,7 @@
     return `rgb(${r},${g},${b})`;
   }
 
-  const projection = d3.geoOrthographic().scale(R).translate([cx, cy]).clipAngle(90).precision(0.3);
+  const projection = d3.geoOrthographic().scale(R).translate([cx, cy]).clipAngle(90).precision(0.1);
   const path = d3.geoPath(projection, ctx);
 
   function project(lon, lat, roty) {
