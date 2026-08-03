@@ -109,6 +109,7 @@
   }
   .header-nav a:hover { color: var(--text); }
   .header-right {
+    grid-column: 3;
     justify-self: end;
     display: flex;
     align-items: center;
@@ -785,12 +786,12 @@
     <a href="privacy.html">Privacy</a>
   </nav>
   <div class="header-right">
-    <div class="live-badge"><span class="live-dot"></span> Live</div>
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/>
       </svg>
     </button>
+    <div class="live-badge"><span class="live-dot"></span> Live</div>
   </div>
   <nav class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
