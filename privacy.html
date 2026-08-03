@@ -299,6 +299,10 @@
   });
 })();
 </script>
+<script src="/vendor/d3-array.min.js"></script>
+<script src="/vendor/d3-geo.min.js"></script>
+<script src="/vendor/topojson-client.min.js"></script>
+<script src="/vendor/globe-common.js"></script>
 <script>
 (function () {
   const canvas = document.querySelector('.logo-globe');
@@ -309,58 +313,41 @@
   const cx = size / 2, cy = size / 2;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let rot = 0;
+  let countries = null;
 
-  const continents = [
-    [[-130,50],[-110,68],[-85,72],[-65,65],[-75,48],[-90,28],[-105,22],[-120,35],[-130,50]],
-    [[-80,10],[-60,5],[-45,-5],[-40,-20],[-55,-35],[-70,-50],[-78,-5],[-80,10]],
-    [[-10,36],[10,48],[30,68],[40,58],[22,36],[0,48],[-10,36]],
-    [[-15,30],[15,32],[35,25],[48,8],[38,-20],[18,-25],[0,5],[-15,12],[-15,30]],
-    [[30,42],[60,68],[95,60],[125,30],[140,48],[110,15],[75,22],[45,30],[30,42]],
-    [[115,-12],[140,-18],[150,-26],[132,-33],[115,-22],[115,-12]],
-  ];
-
-  function project(lon, lat, roty) {
-    const phi = lat * Math.PI / 180;
-    const lam = (lon + roty) * Math.PI / 180;
-    const x3 = Math.cos(phi) * Math.sin(lam);
-    const y3 = -Math.sin(phi);
-    const z3 = Math.cos(phi) * Math.cos(lam);
-    if (z3 < -0.05) return null;
-    return [cx + x3 * R, cy + y3 * R];
-  }
-
-  function drawPoly(pts) {
-    const projected = pts.map(p => project(p[0], p[1], rot));
-    if (projected.filter(p => p).length < 3) return;
-    ctx.beginPath();
-    let started = false;
-    for (const p of projected) {
-      if (!p) { started = false; continue; }
-      if (!started) { ctx.moveTo(p[0], p[1]); started = true; }
-      else ctx.lineTo(p[0], p[1]);
-    }
-    ctx.closePath();
-    ctx.fillStyle = '#34D399';
-    ctx.fill();
-  }
+  const { DENSITY, densityColor, loadCountries } = window.WorldPulseGlobe;
+  const projection = d3.geoOrthographic().scale(R).translate([cx, cy]).clipAngle(90).precision(0.3);
+  const path = d3.geoPath(projection, ctx);
 
   function draw() {
     ctx.clearRect(0, 0, size, size);
     const grad = ctx.createRadialGradient(cx - 7, cy - 7, 3, cx, cy, R);
-    grad.addColorStop(0, '#7DD3FC');
-    grad.addColorStop(1, '#2563EB');
+    grad.addColorStop(0, '#1a3a5c');
+    grad.addColorStop(1, '#0a1a2e');
     ctx.beginPath();
     ctx.arc(cx, cy, R, 0, Math.PI * 2);
     ctx.fillStyle = grad;
     ctx.fill();
 
-    continents.forEach(drawPoly);
+    if (countries) {
+      projection.rotate([rot, 0]);
+      for (const f of countries) {
+        const name = f.properties && f.properties.name;
+        const dens = DENSITY[name] != null ? DENSITY[name] : 20;
+        ctx.beginPath();
+        path(f);
+        ctx.fillStyle = densityColor(dens);
+        ctx.fill();
+      }
+    }
 
     if (!reduceMotion) {
       rot += 1.1;
       requestAnimationFrame(draw);
     }
   }
+
+  loadCountries().then(features => { countries = features; }).catch(() => {});
   draw();
 })();
 </script>

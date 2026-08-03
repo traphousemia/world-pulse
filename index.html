@@ -1158,6 +1158,7 @@
 <script src="/vendor/d3-array.min.js"></script>
 <script src="/vendor/d3-geo.min.js"></script>
 <script src="/vendor/topojson-client.min.js"></script>
+<script src="/vendor/globe-common.js"></script>
 <script>
 // ─── 3D Globe with real country borders + population-density heatmap ───
 (function() {
@@ -1178,29 +1179,7 @@
   ctx.scale(dpr, dpr);
 
   // Approximate population density (people per km²) by country, used to color the heatmap
-  const DENSITY = {"Afghanistan":62,"Albania":98,"Algeria":19,"Angola":26,"Antarctica":0,"Argentina":17,"Armenia":102,"Australia":3.3,"Austria":109,"Azerbaijan":123,"Bahamas":39,"Bangladesh":1265,"Belarus":45,"Belgium":383,"Belize":17,"Benin":115,"Bhutan":21,"Bolivia":11,"Bosnia and Herz.":60,"Botswana":4,"Brazil":25,"Brunei":83,"Bulgaria":62,"Burkina Faso":79,"Burundi":463,"Cambodia":96,"Cameroon":58,"Canada":4.2,"Central African Rep.":8,"Chad":14,"Chile":26,"China":149,"Colombia":46,"Congo":17,"Costa Rica":100,"Croatia":68,"Cuba":100,"Cyprus":130,"Czechia":139,"C\u00f4te d'Ivoire":84,"Dem. Rep. Congo":44,"Denmark":138,"Djibouti":43,"Dominican Rep.":227,"Ecuador":71,"Egypt":105,"El Salvador":305,"Eq. Guinea":51,"Eritrea":34,"Estonia":30,"Ethiopia":115,"Falkland Is.":0.3,"Fiji":49,"Finland":18,"Fr. S. Antarctic Lands":0,"France":119,"Gabon":9,"Gambia":232,"Georgia":64,"Germany":240,"Ghana":141,"Greece":80,"Greenland":0.03,"Guatemala":158,"Guinea":54,"Guinea-Bissau":70,"Guyana":4,"Haiti":414,"Honduras":90,"Hungary":105,"Iceland":3.7,"India":464,"Indonesia":151,"Iran":53,"Iraq":96,"Ireland":73,"Israel":400,"Italy":196,"Jamaica":267,"Japan":336,"Jordan":117,"Kazakhstan":7,"Kenya":94,"Kosovo":159,"Kuwait":240,"Kyrgyzstan":35,"Laos":32,"Latvia":29,"Lebanon":550,"Lesotho":73,"Liberia":55,"Libya":4,"Lithuania":42,"Luxembourg":260,"Macedonia":82,"Madagascar":48,"Malawi":208,"Malaysia":99,"Mali":18,"Mauritania":4.7,"Mexico":66,"Moldova":89,"Mongolia":2.1,"Montenegro":46,"Morocco":84,"Mozambique":40,"Myanmar":82,"N. Cyprus":100,"Namibia":3.1,"Nepal":203,"Netherlands":508,"New Caledonia":15,"New Zealand":19,"Nicaragua":56,"Niger":21,"Nigeria":226,"North Korea":214,"Norway":15,"Oman":17,"Pakistan":287,"Palestine":847,"Panama":58,"Papua New Guinea":20,"Paraguay":18,"Peru":27,"Philippines":368,"Poland":122,"Portugal":111,"Puerto Rico":350,"Qatar":227,"Romania":80,"Russia":8.8,"Rwanda":525,"S. Sudan":18,"Saudi Arabia":16,"Senegal":89,"Serbia":78,"Sierra Leone":111,"Slovakia":113,"Slovenia":103,"Solomon Is.":24,"Somalia":26,"Somaliland":25,"South Africa":49,"South Korea":527,"Spain":94,"Sri Lanka":342,"Sudan":25,"Suriname":3.7,"Sweden":26,"Switzerland":219,"Syria":118,"Taiwan":673,"Tajikistan":70,"Tanzania":70,"Thailand":137,"Timor-Leste":89,"Togo":158,"Trinidad and Tobago":273,"Tunisia":79,"Turkey":111,"Turkmenistan":13,"Uganda":216,"Ukraine":66,"United Arab Emirates":118,"United Kingdom":281,"United States of America":36,"Uruguay":20,"Uzbekistan":82,"Vanuatu":26,"Venezuela":32,"Vietnam":314,"W. Sahara":2.2,"Yemen":56,"Zambia":26,"Zimbabwe":38,"eSwatini":67};
-
-  function densityColor(v) {
-    const stops = [
-      [0,   [59,130,246]],   // blue   — very low density
-      [10,  [6,182,212]],    // cyan
-      [50,  [132,204,22]],   // lime
-      [120, [234,179,8]],    // yellow
-      [300, [249,115,22]],   // orange
-      [700, [239,68,68]],    // red    — very high density
-    ];
-    let lo = stops[0], hi = stops[stops.length - 1];
-    for (let i = 0; i < stops.length - 1; i++) {
-      if (v >= stops[i][0] && v <= stops[i+1][0]) { lo = stops[i]; hi = stops[i+1]; break; }
-      if (v > stops[stops.length-1][0]) { lo = hi = stops[stops.length-1]; }
-    }
-    const span = hi[0] - lo[0] || 1;
-    const t = Math.max(0, Math.min(1, (v - lo[0]) / span));
-    const r = Math.round(lo[1][0] + (hi[1][0]-lo[1][0]) * t);
-    const g = Math.round(lo[1][1] + (hi[1][1]-lo[1][1]) * t);
-    const b = Math.round(lo[1][2] + (hi[1][2]-lo[1][2]) * t);
-    return `rgb(${r},${g},${b})`;
-  }
+  const { DENSITY, densityColor, loadCountries } = window.WorldPulseGlobe;
 
   const projection = d3.geoOrthographic().scale(R).translate([cx, cy]).clipAngle(90).precision(0.1);
   const path = d3.geoPath(projection, ctx);
@@ -1296,10 +1275,7 @@
     requestAnimationFrame(drawGlobe);
   }
 
-  fetch('/data/world-110m.json')
-    .then(r => r.json())
-    .then(topo => { countries = topojson.feature(topo, topo.objects.countries).features; })
-    .catch(() => {});
+  loadCountries().then(features => { countries = features; }).catch(() => {});
 
   drawGlobe();
 })();
@@ -1623,7 +1599,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 <script>
-// ── Mini spinning globe, used as the logo icon ──
+// ── Mini spinning globe, used as the logo icon — real borders + density heatmap ──
 (function () {
   const canvas = document.querySelector('.logo-globe');
   if (!canvas) return;
@@ -1633,58 +1609,41 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const cx = size / 2, cy = size / 2;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let rot = 0;
+  let countries = null;
 
-  const continents = [
-    [[-130,50],[-110,68],[-85,72],[-65,65],[-75,48],[-90,28],[-105,22],[-120,35],[-130,50]],
-    [[-80,10],[-60,5],[-45,-5],[-40,-20],[-55,-35],[-70,-50],[-78,-5],[-80,10]],
-    [[-10,36],[10,48],[30,68],[40,58],[22,36],[0,48],[-10,36]],
-    [[-15,30],[15,32],[35,25],[48,8],[38,-20],[18,-25],[0,5],[-15,12],[-15,30]],
-    [[30,42],[60,68],[95,60],[125,30],[140,48],[110,15],[75,22],[45,30],[30,42]],
-    [[115,-12],[140,-18],[150,-26],[132,-33],[115,-22],[115,-12]],
-  ];
-
-  function project(lon, lat, roty) {
-    const phi = lat * Math.PI / 180;
-    const lam = (lon + roty) * Math.PI / 180;
-    const x3 = Math.cos(phi) * Math.sin(lam);
-    const y3 = -Math.sin(phi);
-    const z3 = Math.cos(phi) * Math.cos(lam);
-    if (z3 < -0.05) return null;
-    return [cx + x3 * R, cy + y3 * R];
-  }
-
-  function drawPoly(pts) {
-    const projected = pts.map(p => project(p[0], p[1], rot));
-    if (projected.filter(p => p).length < 3) return;
-    ctx.beginPath();
-    let started = false;
-    for (const p of projected) {
-      if (!p) { started = false; continue; }
-      if (!started) { ctx.moveTo(p[0], p[1]); started = true; }
-      else ctx.lineTo(p[0], p[1]);
-    }
-    ctx.closePath();
-    ctx.fillStyle = '#34D399';
-    ctx.fill();
-  }
+  const { DENSITY, densityColor, loadCountries } = window.WorldPulseGlobe;
+  const projection = d3.geoOrthographic().scale(R).translate([cx, cy]).clipAngle(90).precision(0.3);
+  const path = d3.geoPath(projection, ctx);
 
   function draw() {
     ctx.clearRect(0, 0, size, size);
     const grad = ctx.createRadialGradient(cx - 7, cy - 7, 3, cx, cy, R);
-    grad.addColorStop(0, '#7DD3FC');
-    grad.addColorStop(1, '#2563EB');
+    grad.addColorStop(0, '#1a3a5c');
+    grad.addColorStop(1, '#0a1a2e');
     ctx.beginPath();
     ctx.arc(cx, cy, R, 0, Math.PI * 2);
     ctx.fillStyle = grad;
     ctx.fill();
 
-    continents.forEach(drawPoly);
+    if (countries) {
+      projection.rotate([rot, 0]);
+      for (const f of countries) {
+        const name = f.properties && f.properties.name;
+        const dens = DENSITY[name] != null ? DENSITY[name] : 20;
+        ctx.beginPath();
+        path(f);
+        ctx.fillStyle = densityColor(dens);
+        ctx.fill();
+      }
+    }
 
     if (!reduceMotion) {
       rot += 1.1;
       requestAnimationFrame(draw);
     }
   }
+
+  loadCountries().then(features => { countries = features; }).catch(() => {});
   draw();
 })();
 </script>
