@@ -49,7 +49,7 @@
   /* ---------- controls ---------- */
   #controls{top:20px;left:22px;display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;max-width:calc(100vw - 44px)}
   #viewtabs{display:flex;background:var(--panel);border:1px solid var(--panel-line);border-radius:9px;overflow:hidden;backdrop-filter:blur(10px)}
-  #viewtabs .seg{background:none;border:none;color:var(--dim);font-family:var(--mono);font-size:11px;padding:9px 14px;cursor:pointer;transition:color .15s,background .15s}
+  #viewtabs .seg{background:none;border:none;color:var(--dim);font-family:var(--mono);font-size:9.5px;padding:6px 10px;cursor:pointer;transition:color .15s,background .15s}
   #viewtabs .seg:hover{color:var(--ink)}
   #viewtabs .seg.active{color:#0b1018;background:var(--amber);font-weight:500}
   #viewtabs .seg:focus-visible{outline:2px solid var(--amber);outline-offset:-2px}
@@ -59,7 +59,7 @@
     transform:translate(-50%,-135%);will-change:transform,left,top}
   .clab.cap{color:var(--amber);border-color:rgba(255,181,71,.45)}
   .btn{background:var(--panel);border:1px solid var(--panel-line);color:var(--ink);border-radius:9px;
-    font-family:var(--mono);font-size:11px;padding:9px 13px;cursor:pointer;backdrop-filter:blur(10px);transition:border-color .15s,color .15s;white-space:nowrap}
+    font-family:var(--mono);font-size:9.5px;padding:6px 10px;cursor:pointer;backdrop-filter:blur(10px);transition:border-color .15s,color .15s;white-space:nowrap}
   .btn:hover{border-color:rgba(255,181,71,.55)}
   .btn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
   .btn.active{color:var(--amber);border-color:rgba(255,181,71,.55)}
@@ -111,13 +111,11 @@
   #tip .t-rate{font-family:var(--mono);font-size:12px;margin-top:4px}
   #tip .t-pop{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:2px}
 
-  #hint{bottom:64px;right:22px;font-family:var(--mono);font-size:9.5px;color:var(--dim);text-align:right;letter-spacing:.05em}
   #fallback{position:fixed;inset:0;display:none;place-items:center;text-align:center;padding:30px;color:var(--dim);font-family:var(--mono);font-size:13px;line-height:1.7}
 
   @media (max-width:860px){
     #panel{top:auto;bottom:158px;left:12px;right:12px;width:auto;max-height:none}
     #searchwrap,#panel .card:not(#detail){display:none}
-    #hint{display:none}
     #controls{flex-wrap:wrap;max-width:calc(100vw - 44px)}
   }
   @media (prefers-reduced-motion:reduce){ .btn{transition:none} }
@@ -151,15 +149,6 @@
     <div id="d-track"><div id="d-marker"></div></div>
   </div>
 
-  <div class="card">
-    <div class="list-title" style="color:var(--grow)"><span class="dot" style="background:var(--grow)"></span>Fastest growing</div>
-    <div class="rows" id="top-list"></div>
-  </div>
-  <div class="card">
-    <div class="list-title" style="color:var(--shrink)"><span class="dot" style="background:var(--shrink)"></span>Fastest shrinking</div>
-    <div class="rows" id="bot-list"></div>
-    <div class="list-note">Rankings limited to countries with &ge;1M people. Click any row to fly there.</div>
-  </div>
 </div>
 
 <div class="hud" id="legend">
@@ -169,8 +158,6 @@
   <div class="nd"><i></i> No data (territories, disputed areas) &middot; values beyond &minus;2 / +4 are clamped</div>
   <div class="nd" style="margin-top:5px">Close-up tiles, when reachable: Sentinel-2 cloudless &copy; EOX (day) &middot; NASA GIBS Black Marble (night)</div>
 </div>
-
-<div class="hud" id="hint">drag to rotate &middot; click a country &middot; zoom in for cities</div>
 
 <div id="citylabels" aria-hidden="true"></div>
 <div class="hud" id="controls">
@@ -600,7 +587,7 @@ cityGeom.setAttribute('position',new THREE.BufferAttribute(cityPos,3));
 const cityMat=new THREE.PointsMaterial({color:0xffc86e,size:2.4,sizeAttenuation:false,transparent:true,opacity:0.9});
 const cityPts=new THREE.Points(cityGeom,cityMat);
 cityPts.renderOrder=5;
-globe.add(cityPts);
+cityPts.visible=false;
 // tiers: population cutoffs; CITIES is sorted by pop desc so a tier is a prefix
 const TIER_POP=[5e6,1e6,25e4,0];
 const tierEnd=TIER_POP.map(t=>{let n=0;while(n<CITIES.length&&CITIES[n][3]>=t)n++;return n;});
@@ -668,8 +655,7 @@ function updateCityLabels(){
 }
 
 /* ================= interaction =================== */
-const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let autoRotate=!reduceMotion, dragging=false, vy=0;
+let autoRotate=true, dragging=false, vy=0;
 let camDist=315;
 const MIN_D=103, MAX_D=650;
 const dragSens=()=>0.0045*Math.max(0.13,(camDist-100)/215);
@@ -833,8 +819,8 @@ function buildRow(iso){
 }
 const big=ranked.filter(([,d])=>d.p>=1e6);
 const topL=document.getElementById('top-list'),botL=document.getElementById('bot-list');
-big.slice(0,5).forEach(([iso])=>topL.appendChild(buildRow(iso)));
-big.slice(-5).reverse().forEach(([iso])=>botL.appendChild(buildRow(iso)));
+if(topL)big.slice(0,5).forEach(([iso])=>topL.appendChild(buildRow(iso)));
+if(botL)big.slice(-5).reverse().forEach(([iso])=>botL.appendChild(buildRow(iso)));
 
 const searchEl=document.getElementById('search'),resEl=document.getElementById('results');
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();

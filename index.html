@@ -243,19 +243,6 @@
     transition: border-color .15s, color .15s;
   }
   .detail-toggle:hover { border-color: var(--blue); color: var(--text); }
-  .detail-toggle-floating {
-    display: none;
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    z-index: 3;
-  }
-  .detail-toggle-floating.active { display: inline-flex; }
-
-  .region-bar.hd-hidden,
-  .ad-slot.hd-hidden {
-    display: none;
-  }
 
   .hd-frame-wrap {
     position: absolute;
@@ -388,6 +375,7 @@
     animation-iteration-count: infinite;
     z-index: 2;
   }
+  .hero.hd-active .particle { display: none; }
   .particle.death { background: var(--red); }
   @keyframes drift {
     0%   { transform: translate(0, 0); }
@@ -880,9 +868,6 @@
   <div class="hd-frame-wrap" id="hdFrameWrap">
     <iframe id="hdFrame" title="High detail globe" loading="lazy"></iframe>
   </div>
-
-  <!-- Floating low-detail switch, shown only while high detail is active -->
-  <button class="detail-toggle detail-toggle-floating" id="detailToggleFloating" type="button">&larr; Low Detail</button>
 </div>
 
 <!-- Stats Bar -->
@@ -1607,11 +1592,9 @@
 // ── Low-detail / high-detail globe toggle — swaps content inside the same hero box ──
 (function () {
   const toggle = document.getElementById('detailToggle');
-  const floatingToggle = document.getElementById('detailToggleFloating');
   const wrap = document.getElementById('hdFrameWrap');
   const frame = document.getElementById('hdFrame');
-  const regionBar = document.querySelector('.region-bar');
-  const adTop = document.getElementById('ad-top');
+  const stage = document.getElementById('stage');
   const lowDetailEls = [
     document.getElementById('globeCanvas'),
     document.querySelector('.core-ring'),
@@ -1624,10 +1607,8 @@
   function setHD(active) {
     hdActive = active;
     wrap.classList.toggle('active', active);
+    stage.classList.toggle('hd-active', active);
     lowDetailEls.forEach(el => { if (el) el.style.visibility = active ? 'hidden' : ''; });
-    regionBar.classList.toggle('hd-hidden', active);
-    if (adTop) adTop.classList.toggle('hd-hidden', active);
-    floatingToggle.classList.toggle('active', active);
     toggle.textContent = active ? '← Low Detail' : 'High Detail →';
     if (active && !hdLoaded) {
       frame.src = 'globe-hd.html';
@@ -1636,7 +1617,6 @@
   }
 
   toggle.addEventListener('click', () => setHD(!hdActive));
-  floatingToggle.addEventListener('click', () => setHD(false));
   window.addEventListener('message', (e) => {
     if (e.data === 'wp-low-detail') setHD(false);
   });
