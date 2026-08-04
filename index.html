@@ -10,13 +10,13 @@
 <meta property="og:description" content="Watch world population, the world death toll, and births update in real time on an interactive 3D globe with a live population heat map — plus a full breakdown of deaths by cause and country.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://worldpulse.fyi/">
-<meta property="og:image" content="https://worldpulse.fyi/og-image.png">
+<meta property="og:image" content="https://worldpulse.fyi/og-image.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="World Pulse — Live World Population, Death Toll &amp; Births Counter">
 <meta name="twitter:description" content="Watch world population, the world death toll, and births update in real time on an interactive 3D globe with a live population heat map.">
-<meta name="twitter:image" content="https://worldpulse.fyi/og-image.png">
+<meta name="twitter:image" content="https://worldpulse.fyi/og-image.png?v=2">
 <meta name="robots" content="index, follow">
 <meta name="author" content="World Pulse">
 <link rel="canonical" href="https://worldpulse.fyi/">
@@ -445,6 +445,14 @@
     letter-spacing: -0.02em;
     margin-bottom: 20px;
   }
+  .page-intro {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 720px;
+    margin: 4px 0 32px;
+  }
+  .page-intro strong { color: var(--text); font-weight: 600; }
 
   /* Rate cards */
   .rate-cards {
@@ -758,9 +766,21 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "World Pulse",
-  "alternateName": "World Pulse — Live World Population & Death Toll Counter",
+  "alternateName": ["World Pulse — Live World Population & Death Toll Counter", "WorldPulse"],
   "description": "Live world population count, world death toll, and births tracker updated every second using World Bank, UN, and WHO data.",
-  "url": "https://worldpulse.fyi/"
+  "url": "https://worldpulse.fyi/",
+  "publisher": { "@id": "https://worldpulse.fyi/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://worldpulse.fyi/#organization",
+  "name": "World Pulse",
+  "url": "https://worldpulse.fyi/",
+  "logo": "https://worldpulse.fyi/icon-512.png",
+  "description": "World Pulse is a live world population and world death toll tracker built on official World Bank and UN Population Division data."
 }
 </script>
 <script type="application/ld+json">
@@ -922,6 +942,8 @@
 <div class="content">
   <div class="content-grid">
     <div class="main-col">
+
+      <p class="page-intro"><strong>World Pulse</strong> is a live <strong>world population</strong> counter and <strong>world death toll</strong> tracker, updated every second from official World Bank and UN data. Watch the current world population, today's births and deaths, and a full breakdown of the world death toll by cause — on an interactive 3D globe with a live population heat map.</p>
 
       <h2 class="section-title" style="margin-top:8px;">Live Rates</h2>
       <div class="live-counters">
