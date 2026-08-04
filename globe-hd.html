@@ -176,7 +176,7 @@
 
 <div id="citylabels" aria-hidden="true"></div>
 <div class="hud" id="controls">
-  <a class="btn" href="index.html">&#8617; World Pulse</a>
+  <a class="btn" href="index.html" id="b-back">&#8617; World Pulse</a>
   <div id="viewtabs" role="tablist" aria-label="Basemap view">
     <button class="seg active" role="tab" aria-selected="true" data-v="night">Night</button>
     <button class="seg" role="tab" aria-selected="false" data-v="day">Day</button>
@@ -900,6 +900,13 @@ document.querySelectorAll('#viewtabs .seg').forEach(tab=>{
 });
 
 /* ---------- buttons ------------------------------ */
+const bBack=document.getElementById('b-back');
+if(window.self!==window.top){
+  bBack.addEventListener('click',(e)=>{
+    e.preventDefault();
+    window.parent.postMessage('wp-low-detail','*');
+  });
+}
 const bRot=document.getElementById('b-rotate');
 bRot.addEventListener('click',()=>{
   autoRotate=!autoRotate;
