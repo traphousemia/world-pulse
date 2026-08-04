@@ -150,7 +150,7 @@
       <div><div class="k">Population</div><div class="v" id="d-pop"></div></div>
       <div><div class="k">Growth rank</div><div class="v" id="d-rank"></div></div>
       <div><div class="k">Net change / yr</div><div class="v" id="d-net"></div></div>
-      <div><div class="k">Data year</div><div class="v" id="d-year"></div></div>
+      <div><div class="k">Deaths / yr</div><div class="v" id="d-year"></div></div>
     </div>
     <div id="d-track"><div id="d-marker"></div></div>
   </div>
@@ -746,11 +746,11 @@ function pickHover(){
   const ll=lonLatAt(pointerX,pointerY);
   hoverCountry=ll?countryAt(ll[0],ll[1]):null;
   if(hoverCountry){
-    const c=hoverCountry, col=scaleColor(c.g);
+    const c=hoverCountry, g=countryGrowth(c), pop=countryPop(c), col=scaleColor(g);
     tip.innerHTML=
       `<div class="t-name"><span class="t-dot" style="background:${col?cssRGB(col,1):'rgba(125,138,158,.6)'}"></span>${c.label}</div>`+
-      `<div class="t-rate" style="color:${c.g==null?'var(--dim)':c.g<0?'var(--shrink)':'var(--grow)'}">${fmtRate(c.g)}${c.g!=null?' / yr':''}</div>`+
-      (c.pop!=null?`<div class="t-pop">pop ${fmtPop(c.pop)} &middot; ${c.year}</div>`:`<div class="t-pop">outside dataset</div>`);
+      `<div class="t-rate" style="color:${g==null?'var(--dim)':g<0?'var(--shrink)':'var(--grow)'}">${fmtRate(g)}${g!=null?' / yr':''}</div>`+
+      (pop!=null?`<div class="t-pop">pop ${fmtPop(pop)}</div>`:`<div class="t-pop">outside dataset</div>`);
     tip.style.display='block';
     const tw=tip.offsetWidth,th=tip.offsetHeight;
     tip.style.left=Math.min(innerWidth-tw-10,pointerX+16)+'px';
@@ -784,15 +784,16 @@ D.track.style.background=(()=> {
 
 function select(c,fly){
   selectedIso=c.i;drawOverlay();
+  const g=countryGrowth(c),pop=countryPop(c),deaths=countryDeathsPerYr(c);
   D.name.textContent=c.label;
-  D.rate.innerHTML=c.g==null?'<span style="color:var(--dim);font-size:15px">no data in dataset</span>'
-    :fmtRate(c.g)+'<small>per year</small>';
-  D.rate.style.color=c.g==null?'':c.g<0?'var(--shrink)':'var(--grow)';
-  D.pop.textContent=fmtPop(c.pop);
+  D.rate.innerHTML=g==null?'<span style="color:var(--dim);font-size:15px">no data in dataset</span>'
+    :fmtRate(g)+'<small>per year</small>';
+  D.rate.style.color=g==null?'':g<0?'var(--shrink)':'var(--grow)';
+  D.pop.textContent=fmtPop(pop);
   D.rank.textContent=rankOf[c.i]?('#'+rankOf[c.i]+' of '+ranked.length):'—';
-  D.net.textContent=fmtNet(c.g,c.pop);
-  D.year.textContent=c.year||'—';
-  const t=c.g==null?null:Math.max(0,Math.min(1,(c.g-DOM_MIN)/(DOM_MAX-DOM_MIN)));
+  D.net.textContent=fmtNet(g,pop);
+  D.year.textContent=deaths!=null?fmtPop(deaths):'—';
+  const t=g==null?null:Math.max(0,Math.min(1,(g-DOM_MIN)/(DOM_MAX-DOM_MIN)));
   D.marker.style.display=t==null?'none':'block';
   if(t!=null)D.marker.style.left='calc('+(t*100).toFixed(1)+'% - 1.5px)';
   D.card.style.display='block';
@@ -838,15 +839,28 @@ const searchEl=document.getElementById('search'),resEl=document.getElementById('
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 for(const c of COUNTRIES)c._q=norm(c.label);
 for(const c of CITIES)c._q=norm(c[0]);
-searchEl.addEventListener('input',()=>{
+const sortedCountries=[...COUNTRIES].sort((a,b)=>a.label.localeCompare(b.label));
+function renderResults(){
   const q=norm(searchEl.value.trim());
   resEl.innerHTML='';
+  if(!q.length){
+    // Empty query + focused: browse every country, like the low-detail dropdown
+    for(const c of sortedCountries){
+      const div=document.createElement('div');
+      div.setAttribute('role','option');
+      div.innerHTML=`${c.label}<span>${fmtRate(countryGrowth(c))}</span>`;
+      div.addEventListener('click',()=>{select(c,true);resEl.style.display='none';searchEl.value=c.label;});
+      resEl.appendChild(div);
+    }
+    resEl.style.display=sortedCountries.length?'block':'none';
+    return;
+  }
   if(q.length<2){resEl.style.display='none';return;}
   const hits=COUNTRIES.filter(c=>c._q.includes(q)).slice(0,5);
   for(const c of hits){
     const div=document.createElement('div');
     div.setAttribute('role','option');
-    div.innerHTML=`${c.label}<span>${fmtRate(c.g)}</span>`;
+    div.innerHTML=`${c.label}<span>${fmtRate(countryGrowth(c))}</span>`;
     div.addEventListener('click',()=>{select(c,true);resEl.style.display='none';searchEl.value=c.label;});
     resEl.appendChild(div);
   }
@@ -868,7 +882,9 @@ searchEl.addEventListener('input',()=>{
   }
   if(!hits.length&&!cityHits.length){resEl.style.display='none';return;}
   resEl.style.display='block';
-});
+}
+searchEl.addEventListener('input',renderResults);
+searchEl.addEventListener('focus',renderResults);
 searchEl.addEventListener('keydown',e=>{
   if(e.key==='Enter'&&resEl.firstChild)resEl.firstChild.click();
   if(e.key==='Escape'){resEl.style.display='none';searchEl.blur();}
@@ -902,23 +918,45 @@ if(window.self!==window.top){
   bBack.style.display='none';
 }
 
+/* ---------- live data synced from World Pulse (parent page) ------ */
+let wpSync=null;
+const wpFmt=n=>Math.round(n).toLocaleString('en-US');
+function wpLivePop(d,sinceMs){
+  const elapsedSec=(Date.now()-sinceMs)/1000;
+  const perSec=d.pop*(d.birthRate-d.deathRate)/1000/(365.25*24*3600);
+  return d.pop+perSec*elapsedSec;
+}
+function countryPop(c){return c._wp?wpLivePop(c._wp,c._wpStart):c.pop;}
+function countryGrowth(c){return c._wp?(c._wp.birthRate-c._wp.deathRate)/10:c.g;}
+function countryDeathsPerYr(c){return c._wp?Math.round(countryPop(c)*c._wp.deathRate/1000):null;}
+
 /* ---------- live world population ---------------- */
 (function(){
   const el=document.getElementById('wp-count');
   if(!el)return;
   let basePop=0;
   for(const iso in POP)basePop+=POP[iso].p||0;
-  // approximate current global rate (~0.9%/yr) applied to the 2023 base so the
-  // counter keeps ticking forward from today instead of freezing at old data
-  const perSecond=basePop*0.009/(365.25*24*3600);
-  const start=Date.now();
-  function fmt(n){return Math.round(n).toLocaleString('en-US');}
+  let perSecond=basePop*0.009/(365.25*24*3600);
+  let start=Date.now();
   function tick(){
     const elapsed=(Date.now()-start)/1000;
-    el.textContent=fmt(basePop+perSecond*elapsed);
+    el.textContent=wpFmt(basePop+perSecond*elapsed);
     requestAnimationFrame(tick);
   }
   tick();
+  window.addEventListener('message',(e)=>{
+    if(!e.data||e.data.type!=='wp-sync')return;
+    wpSync=e.data;
+    for(const c of COUNTRIES){
+      const d=wpSync.countries[c.i];
+      if(d){c._wp=d;c._wpStart=Date.now();}
+    }
+    if(wpSync.world&&wpSync.world.pop){
+      basePop=wpSync.world.pop;
+      perSecond=basePop*(wpSync.world.birthRate-wpSync.world.deathRate)/1000/(365.25*24*3600);
+      start=Date.now();
+    }
+  });
 })();
 
 const bRot=document.getElementById('b-rotate');
