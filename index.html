@@ -1811,6 +1811,9 @@
   window.addEventListener('message', (e) => {
     if (e.data === 'wp-low-detail') setHD(false);
   });
+
+  // High detail is the default view on load
+  setHD(true);
 })();
 </script>
 
