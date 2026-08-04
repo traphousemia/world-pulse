@@ -1797,6 +1797,7 @@
     stage.classList.toggle('hd-active', active);
     lowDetailEls.forEach(el => { if (el) el.style.visibility = active ? 'hidden' : ''; });
     regionBar.classList.toggle('hd-hidden', active);
+    if (adTop) adTop.classList.toggle('hd-hidden', active);
     toggle.textContent = active ? '← Low Detail' : 'High Detail →';
     if (active && !hdLoaded) {
       frame.addEventListener('load', () => {
