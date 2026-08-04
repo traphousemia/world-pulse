@@ -11,6 +11,36 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://worldpulse.fyi/articles.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://worldpulse.fyi/world-population-clock-explained.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://worldpulse.fyi/world-death-toll-causes-of-death.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://worldpulse.fyi/birth-rate-vs-death-rate.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://worldpulse.fyi/population-heat-map-explained.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://worldpulse.fyi/when-will-population-peak.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://worldpulse.fyi/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
