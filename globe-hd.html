@@ -936,14 +936,19 @@ if(window.self!==window.top){
 }
 
 /* ---------- live data synced from World Pulse (parent page) ------ */
+// Population baselines are "as of" a fixed epoch (matches the low-detail
+// page), so live figures must be projected forward from that same epoch —
+// not from whenever the sync message happened to arrive — or the two
+// views drift apart by however long the epoch has already been running.
 let wpSync=null;
 const wpFmt=n=>Math.round(n).toLocaleString('en-US');
-function wpLivePop(d,sinceMs){
-  const elapsedSec=(Date.now()-sinceMs)/1000;
+function wpLivePop(d){
+  if(!wpSync||!wpSync.epoch)return d.pop;
+  const elapsedSec=(Date.now()-wpSync.epoch)/1000;
   const perSec=d.pop*(d.birthRate-d.deathRate)/1000/(365.25*24*3600);
   return d.pop+perSec*elapsedSec;
 }
-function countryPop(c){return c._wp?wpLivePop(c._wp,c._wpStart):c.pop;}
+function countryPop(c){return c._wp?wpLivePop(c._wp):c.pop;}
 function countryGrowth(c){return c._wp?(c._wp.birthRate-c._wp.deathRate)/10:c.g;}
 function countryDeathsPerYr(c){return c._wp?Math.round(countryPop(c)*c._wp.deathRate/1000):null;}
 
@@ -954,9 +959,9 @@ function countryDeathsPerYr(c){return c._wp?Math.round(countryPop(c)*c._wp.death
   let basePop=0;
   for(const iso in POP)basePop+=POP[iso].p||0;
   let perSecond=basePop*0.009/(365.25*24*3600);
-  let start=Date.now();
+  let epoch=Date.now();
   function tick(){
-    const elapsed=(Date.now()-start)/1000;
+    const elapsed=(Date.now()-epoch)/1000;
     el.textContent=wpFmt(basePop+perSecond*elapsed);
     requestAnimationFrame(tick);
   }
@@ -966,12 +971,12 @@ function countryDeathsPerYr(c){return c._wp?Math.round(countryPop(c)*c._wp.death
     wpSync=e.data;
     for(const c of COUNTRIES){
       const d=wpSync.countries[c.i];
-      if(d){c._wp=d;c._wpStart=Date.now();}
+      if(d)c._wp=d;
     }
-    if(wpSync.world&&wpSync.world.pop){
+    if(wpSync.world&&wpSync.world.pop&&wpSync.epoch){
       basePop=wpSync.world.pop;
       perSecond=basePop*(wpSync.world.birthRate-wpSync.world.deathRate)/1000/(365.25*24*3600);
-      start=Date.now();
+      epoch=wpSync.epoch;
     }
     recomputeRanking();
     if(selectedIso){

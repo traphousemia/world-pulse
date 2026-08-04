@@ -1625,6 +1625,7 @@
   window.WP_setRegion = setRegion;
 
   const EPOCH = new Date('2025-01-01T00:00:00Z').getTime();
+  window.WP_EPOCH = EPOCH;
   function yearStartMs() {
     const now = new Date();
     return new Date(Date.UTC(now.getUTCFullYear(), 0, 1)).getTime();
@@ -1790,7 +1791,7 @@
       if (!r) continue;
       byIso3[iso3[key]] = { label: r.label, flag: r.flag, pop: r.pop, birthRate: r.birthRate, deathRate: r.deathRate };
     }
-    return { type: 'wp-sync', world: regions.world, countries: byIso3 };
+    return { type: 'wp-sync', world: regions.world, countries: byIso3, epoch: window.WP_EPOCH };
   }
 
   function setHD(active) {
