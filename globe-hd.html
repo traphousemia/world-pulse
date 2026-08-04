@@ -40,6 +40,12 @@
 
   /* ---------- legend ---------- */
   #legend{display:none}
+
+  /* ---------- world population ---------- */
+  #worldpop{bottom:20px;left:22px;background:var(--panel);border:1px solid var(--panel-line);
+    border-radius:10px;padding:11px 15px;backdrop-filter:blur(10px)}
+  .wp-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;margin-bottom:4px}
+  .wp-count{font-family:var(--mono);font-size:19px;font-weight:500;color:var(--ink);letter-spacing:-.01em}
   #legend .lg-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
   #legend canvas{width:100%;height:10px;border-radius:5px;display:block}
   #ticks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9.5px;color:var(--dim);margin-top:5px}
@@ -65,16 +71,16 @@
   .btn.active{color:var(--amber);border-color:rgba(255,181,71,.55)}
 
   /* ---------- right panel ---------- */
-  #panel{top:20px;right:22px;width:288px;display:flex;flex-direction:column;gap:10px;max-height:calc(100vh - 96px)}
+  #panel{top:20px;right:22px;width:200px;display:flex;flex-direction:column;gap:10px;max-height:calc(100vh - 96px)}
   .card{background:var(--panel);border:1px solid var(--panel-line);border-radius:12px;backdrop-filter:blur(10px);padding:13px 14px}
   #searchwrap{position:relative}
-  #search{width:100%;background:rgba(8,12,20,.6);border:1px solid var(--panel-line);border-radius:9px;color:var(--ink);
-    font-family:var(--mono);font-size:12px;padding:9px 11px}
+  #search{width:100%;background:rgba(8,12,20,.6);border:1px solid var(--panel-line);border-radius:8px;color:var(--ink);
+    font-family:var(--mono);font-size:10.5px;padding:7px 9px}
   #search::placeholder{color:var(--dim)}
   #search:focus{outline:none;border-color:rgba(255,181,71,.55)}
   #results{position:absolute;top:calc(100% + 5px);left:0;right:0;background:rgba(10,14,23,.97);border:1px solid var(--panel-line);
     border-radius:9px;overflow:hidden;display:none;z-index:9}
-  #results div{padding:8px 11px;font-family:var(--mono);font-size:11.5px;cursor:pointer;display:flex;justify-content:space-between;gap:8px}
+  #results div{padding:7px 9px;font-family:var(--mono);font-size:10.5px;cursor:pointer;display:flex;justify-content:space-between;gap:8px}
   #results div:hover{background:rgba(255,181,71,.12)}
   #results span{color:var(--dim)}
 
@@ -161,6 +167,7 @@
 
 <div id="citylabels" aria-hidden="true"></div>
 <div class="hud" id="controls">
+  <button class="btn" id="b-back" title="Back to low detail">&#8617;</button>
   <div id="viewtabs" role="tablist" aria-label="Basemap view">
     <button class="seg active" role="tab" aria-selected="true" data-v="night">Night</button>
     <button class="seg" role="tab" aria-selected="false" data-v="day">Day</button>
@@ -168,6 +175,11 @@
   <button class="btn active" id="b-rotate" aria-pressed="true">&#10074;&#10074; Pause spin</button>
   <button class="btn" id="b-layer">Layer: Heat map</button>
   <button class="btn" id="b-reset">Reset view</button>
+</div>
+
+<div class="hud" id="worldpop">
+  <div class="wp-label">World Population</div>
+  <div class="wp-count" id="wp-count">&mdash;</div>
 </div>
 
 <div id="tip"></div>
@@ -883,6 +895,32 @@ document.querySelectorAll('#viewtabs .seg').forEach(tab=>{
 });
 
 /* ---------- buttons ------------------------------ */
+const bBack=document.getElementById('b-back');
+if(window.self!==window.top){
+  bBack.addEventListener('click',()=>window.parent.postMessage('wp-low-detail','*'));
+}else{
+  bBack.style.display='none';
+}
+
+/* ---------- live world population ---------------- */
+(function(){
+  const el=document.getElementById('wp-count');
+  if(!el)return;
+  let basePop=0;
+  for(const iso in POP)basePop+=POP[iso].p||0;
+  // approximate current global rate (~0.9%/yr) applied to the 2023 base so the
+  // counter keeps ticking forward from today instead of freezing at old data
+  const perSecond=basePop*0.009/(365.25*24*3600);
+  const start=Date.now();
+  function fmt(n){return Math.round(n).toLocaleString('en-US');}
+  function tick(){
+    const elapsed=(Date.now()-start)/1000;
+    el.textContent=fmt(basePop+perSecond*elapsed);
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
 const bRot=document.getElementById('b-rotate');
 bRot.addEventListener('click',()=>{
   autoRotate=!autoRotate;

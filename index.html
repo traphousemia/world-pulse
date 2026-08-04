@@ -244,6 +244,11 @@
   }
   .detail-toggle:hover { border-color: var(--blue); color: var(--text); }
 
+  .region-bar.hd-hidden,
+  .ad-slot.hd-hidden {
+    display: none;
+  }
+
   .hd-frame-wrap {
     position: absolute;
     inset: 0;
@@ -1595,6 +1600,8 @@
   const wrap = document.getElementById('hdFrameWrap');
   const frame = document.getElementById('hdFrame');
   const stage = document.getElementById('stage');
+  const regionBar = document.querySelector('.region-bar');
+  const adTop = document.getElementById('ad-top');
   const lowDetailEls = [
     document.getElementById('globeCanvas'),
     document.querySelector('.core-ring'),
@@ -1609,6 +1616,7 @@
     wrap.classList.toggle('active', active);
     stage.classList.toggle('hd-active', active);
     lowDetailEls.forEach(el => { if (el) el.style.visibility = active ? 'hidden' : ''; });
+    regionBar.classList.toggle('hd-hidden', active);
     toggle.textContent = active ? '← Low Detail' : 'High Detail →';
     if (active && !hdLoaded) {
       frame.src = 'globe-hd.html';
