@@ -238,8 +238,16 @@ const fmtNet=(g,p)=>{
 const fmtRate=g=>g==null?'no data':(g>0?'+':g<0?'−':'')+Math.abs(g).toFixed(2)+'%';
 
 /* Precompute per-country: growth, bboxes, centroid, rank */
-const ranked=Object.entries(POP).sort((a,b)=>b[1].g-a[1].g);
-const rankOf={}; ranked.forEach(([iso],idx)=>rankOf[iso]=idx+1);
+let ranked=Object.entries(POP).sort((a,b)=>b[1].g-a[1].g);
+let rankOf={}; ranked.forEach(([iso],idx)=>rankOf[iso]=idx+1);
+function recomputeRanking(){
+  const effective=iso=>{
+    const wp=wpSync&&wpSync.countries[iso];
+    return wp?(wp.birthRate-wp.deathRate)/10:(POP[iso]?POP[iso].g:-Infinity);
+  };
+  ranked=Object.keys(POP).map(iso=>[iso,POP[iso]]).sort((a,b)=>effective(b[0])-effective(a[0]));
+  rankOf={}; ranked.forEach(([iso],idx)=>rankOf[iso]=idx+1);
+}
 for(const c of COUNTRIES){
   const d=POP[c.i];
   c.g=d?d.g:null; c.pop=d?d.p:null; c.year=d?d.y:null;
@@ -800,10 +808,12 @@ function select(c,fly){
   if(t!=null)D.marker.style.left='calc('+(t*100).toFixed(1)+'% - 1.5px)';
   D.card.style.display='block';
   if(fly)flyTo(c.centroid[0],c.centroid[1]);
+  if(window.self!==window.top)window.parent.postMessage({type:'wp-select',iso3:c.i},'*');
 }
 function clearSelect(){
   if(selectedIso){selectedIso=null;drawOverlay();}
   D.card.style.display='none';
+  if(window.self!==window.top)window.parent.postMessage({type:'wp-select',iso3:null},'*');
 }
 document.getElementById('d-close').addEventListener('click',clearSelect);
 
@@ -959,6 +969,11 @@ function countryDeathsPerYr(c){return c._wp?Math.round(countryPop(c)*c._wp.death
       basePop=wpSync.world.pop;
       perSecond=basePop*(wpSync.world.birthRate-wpSync.world.deathRate)/1000/(365.25*24*3600);
       start=Date.now();
+    }
+    recomputeRanking();
+    if(selectedIso){
+      const c=COUNTRIES.find(k=>k.i===selectedIso);
+      if(c)select(c,false);
     }
   });
 })();

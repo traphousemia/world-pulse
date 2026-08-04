@@ -1620,7 +1620,9 @@
     const growthPct = (r.birthRate - r.deathRate) / 10;
     document.getElementById('rateGrowthValue').textContent = (growthPct >= 0 ? '+' : '') + growthPct.toFixed(2) + '%';
     document.getElementById('rateGrowthIcon').innerHTML = growthPct >= 0 ? '&uarr;' : '&darr;';
+    if (regionSelectEl.value !== key) regionSelectEl.value = key;
   }
+  window.WP_setRegion = setRegion;
 
   const EPOCH = new Date('2025-01-01T00:00:00Z').getTime();
   function yearStartMs() {
@@ -1808,9 +1810,24 @@
     }
   }
 
+  // Reverse ISO3 -> region slug lookup, built once the region data is ready
+  let iso3ToSlug = null;
+  function slugForIso3(iso3) {
+    if (!iso3ToSlug) {
+      iso3ToSlug = {};
+      const iso3Map = window.WP_REGION_ISO3 || {};
+      for (const key in iso3Map) iso3ToSlug[iso3Map[key]] = key;
+    }
+    return iso3ToSlug[iso3] || null;
+  }
+
   toggle.addEventListener('click', () => setHD(!hdActive));
   window.addEventListener('message', (e) => {
     if (e.data === 'wp-low-detail') setHD(false);
+    if (e.data && e.data.type === 'wp-select') {
+      const slug = e.data.iso3 ? slugForIso3(e.data.iso3) : null;
+      if (window.WP_setRegion) window.WP_setRegion(slug || 'world');
+    }
   });
 
   // High detail is the default view on load
