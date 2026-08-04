@@ -221,8 +221,27 @@
   .region-bar {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
     padding: 18px 28px 10px;
   }
+  .detail-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(18,18,30,0.85);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    text-decoration: none;
+    transition: border-color .15s, color .15s;
+  }
+  .detail-toggle:hover { border-color: var(--blue); color: var(--text); }
   #regionSelect {
     appearance: none;
     -webkit-appearance: none;
@@ -808,6 +827,7 @@
 <!-- Region picker — right under the header -->
 <div class="region-bar">
   <select id="regionSelect" aria-label="Choose a country or region"></select>
+  <a class="detail-toggle" href="globe-hd.html">High Detail &rarr;</a>
 </div>
 
 <!-- Top Ad Slot -->
