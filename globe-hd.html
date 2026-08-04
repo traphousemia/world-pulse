@@ -681,7 +681,7 @@ function updateCityLabels(){
 
 /* ================= interaction =================== */
 let autoRotate=true, dragging=false, vy=0;
-let camDist=315;
+let camDist=410;
 const MIN_D=103, MAX_D=650;
 const dragSens=()=>0.0045*Math.max(0.13,(camDist-100)/215);
 const raycaster=new THREE.Raycaster(), mouseNDC=new THREE.Vector2();
@@ -1005,7 +1005,7 @@ document.getElementById('b-reset').addEventListener('click',()=>{
   const twoPi=Math.PI*2;
   let dy=(HOME.ry-globe.rotation.y)%twoPi;
   if(dy>Math.PI)dy-=twoPi; if(dy<-Math.PI)dy+=twoPi;
-  flyAnim={t:0,y0:globe.rotation.y,y1:globe.rotation.y+dy,x0:globe.rotation.x,x1:HOME.rx,d0:camDist,d1:315};
+  flyAnim={t:0,y0:globe.rotation.y,y1:globe.rotation.y+dy,x0:globe.rotation.x,x1:HOME.rx,d0:camDist,d1:410};
   clearSelect();
 });
 
