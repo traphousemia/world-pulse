@@ -1,0 +1,37 @@
+name: Daily news sweep
+
+on:
+  schedule:
+    # 13:00 UTC = 9:00 AM America/New_York (EDT). Runs once a day.
+    - cron: "0 13 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run news sweep (no LLM/API calls — pure feed parsing)
+        run: python3 scripts/fetch_news.py
+
+      - name: Commit and push if anything new was published
+        run: |
+          git config user.name "worldpulse-news-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git add news/ sitemap.xml
+          git commit -m "Auto: daily news sweep $(date -u +%Y-%m-%d)"
+          git push
