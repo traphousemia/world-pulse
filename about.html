@@ -188,6 +188,21 @@
   .legal a:hover { text-decoration: underline; }
   .legal strong { color: var(--text); }
 
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 8px 0 20px;
+  }
+  .article-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px; text-decoration: none; color: var(--text); display: block;
+    transition: border-color .15s;
+  }
+  .article-card:hover { border-color: var(--blue); }
+  .article-card h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .article-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
+
   .contact-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -272,6 +287,31 @@
 
   <h2>Why We Built This</h2>
   <p>Population trends — aging societies, slowing growth, the shrinking gap between birth and death rates — are some of the most consequential slow-moving stories in the world, and they rarely get shown at a human, moment-to-moment scale. We wanted a page that makes that scale viscerally clear.</p>
+
+  <h2>Explainers</h2>
+  <p>Deeper dives on the data and methodology behind the counters above.</p>
+  <div class="article-grid">
+    <a class="article-card" href="world-population-clock-explained.html">
+      <h3>How the World Population Clock Works</h3>
+      <p>Why every live population counter shows a slightly different number, and the exact formula behind them.</p>
+    </a>
+    <a class="article-card" href="world-death-toll-causes-of-death.html">
+      <h3>World Death Toll Today: What's Actually Killing People</h3>
+      <p>A sourced breakdown of leading causes of death worldwide, from cardiovascular disease to war.</p>
+    </a>
+    <a class="article-card" href="birth-rate-vs-death-rate.html">
+      <h3>Birth Rate vs. Death Rate: What Drives Population Growth</h3>
+      <p>Crude birth rate, death rate, fertility rate, and how they combine into a growth rate.</p>
+    </a>
+    <a class="article-card" href="population-heat-map-explained.html">
+      <h3>Population Density Heat Maps Explained</h3>
+      <p>Why people cluster where they do, and which countries are the most and least densely populated.</p>
+    </a>
+    <a class="article-card" href="when-will-population-peak.html">
+      <h3>When Will World Population Peak?</h3>
+      <p>UN growth projections, the demographic transition, and countries already shrinking today.</p>
+    </a>
+  </div>
 
   <h2>Get in Touch</h2>
   <p>Questions, corrections, or feedback on the data or the site itself are welcome.</p>
