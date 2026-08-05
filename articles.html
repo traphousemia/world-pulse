@@ -123,21 +123,6 @@
   .related li { margin-bottom: 10px; }
   .related a { font-weight: 600; }
 
-  .article-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 18px;
-    margin-top: 24px;
-  }
-  .article-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-    padding: 22px; text-decoration: none; color: var(--text); display: block;
-    transition: border-color .15s;
-  }
-  .article-card:hover { border-color: var(--blue); }
-  .article-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
-  .article-card p { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin: 0; }
-
   .news-list { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
   .news-item {
     background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
@@ -208,30 +193,7 @@
     <p class="news-empty">Loading recent news&hellip;</p>
   </div>
 
-  <h2>Explainers</h2>
-  <p>Deep dives on the data behind World Pulse's live counters — how population clocks work, what actually drives growth and decline, and how to read the world death toll without misreading it.</p>
-  <div class="article-grid">
-      <a class="article-card" href="world-population-clock-explained.html">
-        <h3>How the World Population Clock Works</h3>
-        <p>Why every live population counter shows a slightly different number, and the exact formula behind them.</p>
-      </a>
-      <a class="article-card" href="world-death-toll-causes-of-death.html">
-        <h3>World Death Toll Today: What's Actually Killing People</h3>
-        <p>A sourced breakdown of leading causes of death worldwide, from cardiovascular disease to war.</p>
-      </a>
-      <a class="article-card" href="birth-rate-vs-death-rate.html">
-        <h3>Birth Rate vs. Death Rate: What Drives Population Growth</h3>
-        <p>Crude birth rate, death rate, fertility rate, and how they combine into a growth rate.</p>
-      </a>
-      <a class="article-card" href="population-heat-map-explained.html">
-        <h3>Population Density Heat Maps Explained</h3>
-        <p>Why people cluster where they do, and which countries are the most and least densely populated.</p>
-      </a>
-      <a class="article-card" href="when-will-population-peak.html">
-        <h3>When Will World Population Peak?</h3>
-        <p>UN growth projections, the demographic transition, and countries already shrinking today.</p>
-      </a>
-  </div>
+  <p style="margin-top: 28px;">Looking for the methodology explainers instead? They've moved to the <a href="about.html#explainers">About page</a>.</p>
 </main>
 
 <script>
