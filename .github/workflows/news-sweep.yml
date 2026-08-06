@@ -2,8 +2,10 @@ name: Daily news sweep
 
 on:
   schedule:
-    # 13:00 UTC = 9:00 AM America/New_York (EDT). Runs once a day.
+    # 13:00 UTC = 9:00 AM America/New_York (EDT)
     - cron: "0 13 * * *"
+    # 01:00 UTC = 9:00 PM America/New_York (EDT), same calendar day
+    - cron: "0 1 * * *"
   workflow_dispatch: {}
 
 permissions:
