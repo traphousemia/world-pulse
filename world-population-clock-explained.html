@@ -24,11 +24,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<script>
+  // Google Consent Mode v2 — must run BEFORE the ad/analytics scripts load.
+  // Defaults to "denied" for a first-time visitor; a returning visitor who
+  // already accepted gets consent restored immediately from localStorage.
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var wpConsent = (function(){ try { return localStorage.getItem('wp_cookie_consent'); } catch(e){ return null; } })();
+  var wpGranted = wpConsent === 'accepted';
+  gtag('consent', 'default', {
+    'ad_storage': wpGranted ? 'granted' : 'denied',
+    'ad_user_data': wpGranted ? 'granted' : 'denied',
+    'ad_personalization': wpGranted ? 'granted' : 'denied',
+    'analytics_storage': wpGranted ? 'granted' : 'denied',
+    'wait_for_update': 500
+  });
+</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1766368165161679" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q762BNE94L"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-Q762BNE94L');
 </script>
@@ -152,6 +166,56 @@
     .legal { padding: 40px 20px 72px; }
     .legal h1 { font-size: 26px; }
   }
+
+  /* Cookie Banner */
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 16px 24px;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.3);
+  }
+  .cookie-banner.visible { display: flex; }
+  .cookie-banner p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0;
+  }
+  .cookie-banner a { color: var(--blue); text-decoration: none; }
+  .cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    font-family: inherit;
+  }
+  .cookie-btn-accept {
+    background: var(--blue);
+    color: #06060C;
+    border-color: var(--blue);
+  }
+  .cookie-btn-decline {
+    background: transparent;
+    color: var(--text);
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -166,6 +230,15 @@
 </script>
 </head>
 <body>
+
+<!-- Cookie Consent Banner -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <p>This site uses cookies to serve ads and analyze traffic, including cookies from Google. By continuing to use this site, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+  <div class="cookie-actions">
+    <button id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
+    <button id="cookieDecline" class="cookie-btn cookie-btn-decline">Decline</button>
+  </div>
+</div>
 
 <header class="header">
   <a class="logo" href="index.html">
@@ -314,6 +387,49 @@
 
   loadCountries().then(features => { countries = features; }).catch(() => {});
   draw();
+})();
+</script>
+
+<script>
+// ── Cookie consent ──
+// Notice-and-choice banner wired to Google Consent Mode v2 (see the
+// gtag('consent', 'default', ...) call in <head>). Accept grants
+// ad_storage/ad_user_data/ad_personalization/analytics_storage; Decline
+// explicitly denies them so AdSense/GA respect the choice immediately.
+(function () {
+  const KEY = 'wp_cookie_consent';
+  const banner = document.getElementById('cookieBanner');
+  const stored = localStorage.getItem(KEY);
+
+  if (!stored) {
+    banner.classList.add('visible');
+  }
+
+  document.getElementById('cookieAccept').addEventListener('click', () => {
+    localStorage.setItem(KEY, 'accepted');
+    banner.classList.remove('visible');
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
+  });
+
+  document.getElementById('cookieDecline').addEventListener('click', () => {
+    localStorage.setItem(KEY, 'declined');
+    banner.classList.remove('visible');
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+    }
+  });
 })();
 </script>
 

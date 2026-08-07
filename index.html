@@ -25,11 +25,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<script>
+  // Google Consent Mode v2 — must run BEFORE the ad/analytics scripts load.
+  // Defaults to "denied" for a first-time visitor; a returning visitor who
+  // already accepted gets consent restored immediately from localStorage.
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var wpConsent = (function(){ try { return localStorage.getItem('wp_cookie_consent'); } catch(e){ return null; } })();
+  var wpGranted = wpConsent === 'accepted';
+  gtag('consent', 'default', {
+    'ad_storage': wpGranted ? 'granted' : 'denied',
+    'ad_user_data': wpGranted ? 'granted' : 'denied',
+    'ad_personalization': wpGranted ? 'granted' : 'denied',
+    'analytics_storage': wpGranted ? 'granted' : 'denied',
+    'wait_for_update': 500
+  });
+</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1766368165161679" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q762BNE94L"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-Q762BNE94L');
 </script>
@@ -1914,12 +1928,10 @@ document.getElementById('year').textContent = new Date().getFullYear();
 })();
 
 // ── Cookie consent ──
-// NOTE: This is a lightweight notice-and-choice banner. It is NOT a full
-// Google-certified Consent Management Platform (CMP). If this site serves
-// visitors in the EEA/UK, Google's policies require a certified CMP
-// (see: google.com/about/company/consentmanagement) to legally serve
-// personalized/non-personalized ads under GDPR — install one before
-// activating AdSense for EU traffic.
+// Notice-and-choice banner wired to Google Consent Mode v2 (see the
+// gtag('consent', 'default', ...) call in <head>). Accept grants
+// ad_storage/ad_user_data/ad_personalization/analytics_storage; Decline
+// explicitly denies them so AdSense/GA respect the choice immediately.
 (function () {
   const KEY = 'wp_cookie_consent';
   const banner = document.getElementById('cookieBanner');
@@ -1932,12 +1944,27 @@ document.getElementById('year').textContent = new Date().getFullYear();
   document.getElementById('cookieAccept').addEventListener('click', () => {
     localStorage.setItem(KEY, 'accepted');
     banner.classList.remove('visible');
-    // AdSense/analytics scripts that require consent should be loaded here.
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
   });
 
   document.getElementById('cookieDecline').addEventListener('click', () => {
     localStorage.setItem(KEY, 'declined');
     banner.classList.remove('visible');
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+    }
   });
 })();
 </script>
