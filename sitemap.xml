@@ -70,4 +70,14 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://worldpulse.fyi/news/2026-08-07-m-6-8-the-2026-kumamoto-region-japan-earthquake.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldpulse.fyi/news/2026-08-07-m-5-8-194-km-nw-of-oula-xiuma-china.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

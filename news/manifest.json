@@ -1,5 +1,31 @@
 [
   {
+    "slug": "2026-08-07-m-6-8-the-2026-kumamoto-region-japan-earthquake",
+    "title": "M 6.8 - The 2026 Kumamoto Region, Japan Earthquake",
+    "date": "2026-08-07",
+    "summary": "A magnitude 6.8 earthquake struck The 2026 Kumamoto Region, Japan Earthquake, per USGS.",
+    "url": "/news/2026-08-07-m-6-8-the-2026-kumamoto-region-japan-earthquake.html",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tgb9"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-07-m-5-8-194-km-nw-of-oula-xiuma-china",
+    "title": "M 5.8 - 194 km NW of Oula Xiuma, China",
+    "date": "2026-08-07",
+    "summary": "A magnitude 5.8 earthquake struck 194 km NW of Oula Xiuma, China, per USGS.",
+    "url": "/news/2026-08-07-m-5-8-194-km-nw-of-oula-xiuma-china.html",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tga9"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-06-m-6-3-south-of-the-kermadec-islands",
     "title": "M 6.3 - south of the Kermadec Islands",
     "date": "2026-08-06",
