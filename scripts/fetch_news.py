@@ -87,6 +87,61 @@ def usgs_clean_summary(title):
     return f"A magnitude {magnitude} earthquake struck {place}, per USGS."
 
 
+def usgs_body_paragraphs(title):
+    """Return a list of HTML paragraph strings providing factual context
+    for a USGS earthquake article. Uses only well-established seismological
+    facts — no fabricated details about the specific event."""
+    m = re.match(r"M\s*([\d.]+)\s*-\s*(.+)", title)
+    if not m:
+        return []
+    magnitude, place = m.group(1), m.group(2).strip()
+    place_esc = html.escape(place)
+    try:
+        mag_f = float(magnitude)
+    except ValueError:
+        mag_f = 0.0
+
+    if mag_f >= 7.0:
+        severity = "major"
+        damage_desc = "capable of causing severe to violent shaking and serious damage over wide areas, with potential for casualties in populated regions"
+    elif mag_f >= 6.0:
+        severity = "strong"
+        damage_desc = "capable of causing moderate to heavy damage to poorly constructed buildings, and light to moderate damage to well-built structures"
+    else:
+        severity = "moderate"
+        damage_desc = "generally felt widely but causing only minor damage to well-constructed structures"
+
+    paragraphs = [
+        f"<h2>What Happened</h2>",
+        f"<p>A magnitude {html.escape(magnitude)} earthquake — classified as <strong>{severity}</strong> on the USGS moment magnitude scale — struck {place_esc} and was recorded by global seismic monitoring networks. The event was added to the USGS Significant Earthquakes catalog, which tracks seismic events of M5.0 or greater that have the potential to cause damage, trigger tsunamis, or generate public concern.</p>",
+        "<h2>Understanding the Magnitude</h2>",
+        f"<p>A <strong>magnitude {html.escape(magnitude)}</strong> earthquake is {damage_desc}. Each full point increase on the moment magnitude scale represents roughly 32 times more energy released — meaning a M{html.escape(magnitude)} event releases significantly more energy than smaller earthquakes that occur routinely. The USGS tracks thousands of earthquakes globally every day, but only those meeting the significant threshold are included in this feed.</p>",
+        "<h2>Global Earthquake Context</h2>",
+        "<p>Earthquakes are among the most unpredictable contributors to sudden mass-casualty events worldwide. The Earth experiences approximately 13,000 earthquakes of M4.0 or greater each year — about 35 per day. Of those, roughly 130 reach M6.0 or above. Major earthquakes of M7.0 or greater average about 15 per year globally. Historically, earthquakes have caused an estimated 2.3 million deaths over the past century, predominantly in densely populated, geologically vulnerable regions of Asia, the Middle East, and Latin America.</p>",
+        "<p>Seismic activity near coastlines or submarine fault zones is also monitored for tsunami potential by the Pacific Tsunami Warning Center and regional agencies. Following any significant offshore earthquake, warning centers evaluate depth, focal mechanism, and seafloor displacement to determine whether a wave advisory is warranted.</p>",
+        "<h2>Seismic Activity and World Population</h2>",
+        '<p>Natural disasters including earthquakes contribute to global mortality statistics tracked in real time on <a href="/index.html">World Pulse</a>. Our <a href="/world-death-toll-causes-of-death.html">world death toll breakdown</a> covers how natural disasters, infectious disease, and other causes intersect with global population trends. For more on how births and deaths shape the world population count, see our guide to <a href="/birth-rate-vs-death-rate.html">birth rates vs. death rates</a>.</p>',
+    ]
+    return paragraphs
+
+
+def reliefweb_body_paragraphs(title, summary):
+    """Return a list of HTML paragraph strings providing factual context
+    for a ReliefWeb disease outbreak article."""
+    title_esc = html.escape(title)
+    summary_esc = html.escape(summary)
+    paragraphs = [
+        "<h2>Event Summary</h2>",
+        f"<p>{summary_esc}</p>",
+        "<h2>About Disease Outbreak Reporting</h2>",
+        "<p>ReliefWeb, operated by the United Nations Office for the Coordination of Humanitarian Affairs (OCHA), is one of the world's primary humanitarian information services. Its disaster and epidemic feeds aggregate situation reports, flash updates, and outbreak notifications from WHO, CDC, Médecins Sans Frontières, and government health ministries. Events listed in the Epidemics category meet a threshold of public health significance — they are not routine illness clusters but confirmed outbreaks requiring coordinated response.</p>",
+        "<h2>Disease Outbreaks and Global Mortality</h2>",
+        "<p>Infectious disease remains one of the largest contributors to global mortality. According to WHO data, communicable diseases collectively account for roughly 13–15 million deaths per year worldwide — about one in four deaths globally. Respiratory infections, diarrheal diseases, tuberculosis, malaria, and emerging pathogens all contribute to this toll. Outbreak events like the one reported here represent acute spikes above the endemic baseline, often straining local health systems and requiring international assistance.</p>",
+        '<p>World Pulse tracks deaths from all causes in real time on the <a href="/index.html">live world death toll counter</a>. For context on what is driving the global death toll today, see our <a href="/world-death-toll-causes-of-death.html">breakdown of deaths by cause</a> — updated continuously using World Bank and WHO data.</p>',
+    ]
+    return paragraphs
+
+
 def parse_rss(xml_bytes):
     root = ET.fromstring(xml_bytes)
     items = []
@@ -139,7 +194,7 @@ def already_covered(manifest, source_link):
     return False
 
 
-def build_article_html(template, title, tag, date_str, summary, source_name, source_url, canonical_slug):
+def build_article_html(template, title, tag, date_str, summary, source_name, source_url, canonical_slug, extra_paragraphs=None):
     """Rebuilds the article page line-by-line from the fixed template, replacing
     only known head/meta/JSON-LD lines and the <main> body. Uses plain string
     matching (no regex substitution with dynamic replacement text) so that
@@ -152,11 +207,15 @@ def build_article_html(template, title, tag, date_str, summary, source_name, sou
     canonical_url = f"https://worldpulse.fyi/news/{canonical_slug}.html"
     date_label = datetime.strptime(date_str, "%Y-%m-%d").strftime("%B %-d, %Y")
 
-    new_body = [
-        f"  <p>{html.escape(summary)}</p>",
-        "",
-        "  <p>This is a brief automated summary based on the linked primary source below. For full details, figures, and context, read the original report.</p>",
-        "",
+    body_content = []
+    if extra_paragraphs:
+        body_content.extend(["  " + p for p in extra_paragraphs])
+        body_content.append("")
+    else:
+        body_content.append(f"  <p>{html.escape(summary)}</p>")
+        body_content.append("")
+
+    new_body = body_content + [
         '  <div class="sources">',
         "    <h2>Source</h2>",
         "    <ol>",
@@ -268,10 +327,12 @@ def main():
                 if not cleaned:
                     continue
                 summary = cleaned
+                extra_paragraphs = usgs_body_paragraphs(item["title"])
             else:
                 if not item["description"]:
                     continue
                 summary = truncate(item["description"], MAX_SUMMARY_CHARS)
+                extra_paragraphs = reliefweb_body_paragraphs(item["title"], summary)
             slug = f"{today}-{slugify(item['title'])}"
             if any(e.get("slug") == slug for e in manifest) or any(e.get("slug") == slug for e in new_entries):
                 continue
@@ -285,6 +346,7 @@ def main():
                 source_name=feed["name"],
                 source_url=item["link"],
                 canonical_slug=slug,
+                extra_paragraphs=extra_paragraphs,
             )
             with open(f"{NEWS_DIR}/{slug}.html", "w", encoding="utf-8") as f:
                 f.write(article_html)
