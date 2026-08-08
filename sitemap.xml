@@ -80,4 +80,14 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://worldpulse.fyi/news/2026-08-08-m-5-6-57-km-wnw-of-skwentna-alaska.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldpulse.fyi/news/2026-08-08-m-5-7-199-km-nw-of-oula-xiuma-china.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

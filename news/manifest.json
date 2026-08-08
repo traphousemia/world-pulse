@@ -1,5 +1,31 @@
 [
   {
+    "slug": "2026-08-08-m-5-6-57-km-wnw-of-skwentna-alaska",
+    "title": "M 5.6 - 57 km WNW of Skwentna, Alaska",
+    "date": "2026-08-08",
+    "summary": "A magnitude 5.6 earthquake struck 57 km WNW of Skwentna, Alaska, per USGS.",
+    "url": "/news/2026-08-08-m-5-6-57-km-wnw-of-skwentna-alaska.html",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026powmkf"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-08-m-5-7-199-km-nw-of-oula-xiuma-china",
+    "title": "M 5.7 - 199 km NW of Oula Xiuma, China",
+    "date": "2026-08-08",
+    "summary": "A magnitude 5.7 earthquake struck 199 km NW of Oula Xiuma, China, per USGS.",
+    "url": "/news/2026-08-08-m-5-7-199-km-nw-of-oula-xiuma-china.html",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tga6"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-07-m-6-8-the-2026-kumamoto-region-japan-earthquake",
     "title": "M 6.8 - The 2026 Kumamoto Region, Japan Earthquake",
     "date": "2026-08-07",
