@@ -90,4 +90,14 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://worldpulse.fyi/news/2026-08-09-m-5-0-38-km-sse-of-spearman-texas.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldpulse.fyi/news/2026-08-09-m-5-5-4-km-ssw-of-chupaca-peru.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
