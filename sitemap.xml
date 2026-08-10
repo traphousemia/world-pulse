@@ -100,4 +100,14 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://worldpulse.fyi/news/2026-08-10-m-7-4-5-km-s-of-san-jos-del-palmar-colombia.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldpulse.fyi/news/2026-08-10-m-6-4-96-km-sw-of-puerto-madero-mexico.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

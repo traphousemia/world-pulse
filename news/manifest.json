@@ -1,5 +1,31 @@
 [
   {
+    "slug": "2026-08-10-m-7-4-5-km-s-of-san-jos-del-palmar-colombia",
+    "title": "M 7.4 - 5 km S of San José del Palmar, Colombia",
+    "date": "2026-08-10",
+    "summary": "A magnitude 7.4 earthquake struck 5 km S of San José del Palmar, Colombia, per USGS.",
+    "url": "/news/2026-08-10-m-7-4-5-km-s-of-san-jos-del-palmar-colombia.html",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tjl2"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-10-m-6-4-96-km-sw-of-puerto-madero-mexico",
+    "title": "M 6.4 - 96 km SW of Puerto Madero, Mexico",
+    "date": "2026-08-10",
+    "summary": "A magnitude 6.4 earthquake struck 96 km SW of Puerto Madero, Mexico, per USGS.",
+    "url": "/news/2026-08-10-m-6-4-96-km-sw-of-puerto-madero-mexico.html",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000t1cc"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-09-m-5-0-38-km-sse-of-spearman-texas",
     "title": "M 5.0 - 38 km SSE of Spearman, Texas",
     "date": "2026-08-09",
