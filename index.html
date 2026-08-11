@@ -468,6 +468,49 @@
   }
   .page-intro strong { color: var(--text); font-weight: 600; }
 
+  /* Explore-more guide cards (internal linking) */
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .guide-card {
+    display: block;
+    padding: 20px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    text-decoration: none;
+    transition: border-color .18s ease, transform .18s ease;
+  }
+  .guide-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-2px);
+  }
+  .guide-card h3 {
+    font-size: 16px;
+    font-weight: 650;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .guide-card p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+  }
+  .sidebar-links { list-style: none; padding: 0; margin: 10px 0 0; }
+  .sidebar-links li { margin-bottom: 9px; }
+  .sidebar-links a {
+    font-size: 13.5px;
+    color: var(--blue);
+    text-decoration: none;
+    line-height: 1.5;
+  }
+  .sidebar-links a:hover { text-decoration: underline; }
+
   /* Rate cards */
   .rate-cards {
     display: grid;
@@ -1207,6 +1250,36 @@
         </div>
       </div>
 
+      <!-- Explore More: internal links to guides + news -->
+      <h2 class="section-title" id="guides">Explore Our Guides</h2>
+      <p class="page-intro" style="margin-bottom:20px">In-depth explainers on how world population is measured, what drives births and deaths, and where global demographics are heading.</p>
+      <div class="guide-grid">
+        <a class="guide-card" href="world-population-clock-explained.html">
+          <h3>How the World Population Clock Works</h3>
+          <p>Why every population counter shows a slightly different number, and how the live estimate is actually calculated.</p>
+        </a>
+        <a class="guide-card" href="world-death-toll-causes-of-death.html">
+          <h3>World Death Toll: Leading Causes of Death</h3>
+          <p>What actually kills people worldwide each year — heart disease, cancer, accidents, and more, by the numbers.</p>
+        </a>
+        <a class="guide-card" href="birth-rate-vs-death-rate.html">
+          <h3>Birth Rate vs. Death Rate Explained</h3>
+          <p>How the gap between births and deaths drives population growth, and why some countries are already shrinking.</p>
+        </a>
+        <a class="guide-card" href="population-heat-map-explained.html">
+          <h3>Population Density Heat Maps Explained</h3>
+          <p>How to read the color-coded globe, and why density tells a very different story than total population.</p>
+        </a>
+        <a class="guide-card" href="when-will-population-peak.html">
+          <h3>When Will World Population Peak?</h3>
+          <p>UN projections put the peak near 10.3 billion in the 2080s. Here's what drives that forecast — and what could change it.</p>
+        </a>
+        <a class="guide-card" href="articles.html">
+          <h3>Recent World Population News</h3>
+          <p>Fact-checked summaries of earthquakes, disease outbreaks, and events affecting global population — updated daily.</p>
+        </a>
+      </div>
+
       <!-- Data Source -->
       <div class="source-note">
         <p><strong>Data sources:</strong> World Bank Open Data (SP.POP.TOTL, SP.DYN.CBRT.IN, SP.DYN.CDRT.IN), UN Population Division World Population Prospects 2024 revision. Population figure is the official 2025 estimate (8,215,424,893). Birth and death rates are 2023 actuals (16.33 and 7.59 per 1,000 respectively). Counters are computed in real time using these official annual rates converted to per-second increments.</p>
@@ -1228,6 +1301,18 @@
       <div class="source-note" style="margin-bottom:24px">
         <p style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px">How it works</p>
         <p>This page uses official World Bank data to compute births and deaths every second. The world population counter starts from the UN's 2025 baseline and ticks forward at the net growth rate of ~2.5 people per second.</p>
+      </div>
+
+      <div class="source-note" style="margin-bottom:24px">
+        <p style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px">Popular guides</p>
+        <ul class="sidebar-links">
+          <li><a href="world-population-clock-explained.html">How the world population clock works</a></li>
+          <li><a href="world-death-toll-causes-of-death.html">What causes the most deaths worldwide</a></li>
+          <li><a href="birth-rate-vs-death-rate.html">Birth rate vs. death rate</a></li>
+          <li><a href="when-will-population-peak.html">When will world population peak?</a></li>
+          <li><a href="population-heat-map-explained.html">Population heat maps explained</a></li>
+          <li><a href="articles.html">Recent population news &rarr;</a></li>
+        </ul>
       </div>
 
       <div class="ad-slot-sidebar" id="ad-sidebar2" style="margin-bottom:24px">
