@@ -1,5 +1,31 @@
 [
   {
+    "slug": "2026-08-12-m-4-3-18-km-wsw-of-johannesburg-ca",
+    "title": "M 4.3 - 18 km WSW of Johannesburg, CA",
+    "date": "2026-08-12",
+    "summary": "A magnitude 4.3 earthquake struck 18 km WSW of Johannesburg, CA, per USGS.",
+    "url": "/news/2026-08-12-m-4-3-18-km-wsw-of-johannesburg-ca.html",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41292687"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-12-m-6-3-southeast-of-the-loyalty-islands",
+    "title": "M 6.3 - southeast of the Loyalty Islands",
+    "date": "2026-08-12",
+    "summary": "A magnitude 6.3 earthquake struck southeast of the Loyalty Islands, per USGS.",
+    "url": "/news/2026-08-12-m-6-3-southeast-of-the-loyalty-islands.html",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000t01n"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-11-m-7-3-52-km-w-of-puerto-madero-mexico",
     "title": "M 7.3 - 52 km W of Puerto Madero, Mexico",
     "date": "2026-08-11",

@@ -120,4 +120,14 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://worldpulse.fyi/news/2026-08-12-m-4-3-18-km-wsw-of-johannesburg-ca.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldpulse.fyi/news/2026-08-12-m-6-3-southeast-of-the-loyalty-islands.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
