@@ -11,6 +11,11 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://worldpulse.fyi/population-by-country.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://worldpulse.fyi/articles.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -67,56 +72,6 @@
   </url>
   <url>
     <loc>https://worldpulse.fyi/news/2026-08-06-m-6-3-32-km-sw-of-sarangani-philippines.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldpulse.fyi/news/2026-08-07-m-6-8-the-2026-kumamoto-region-japan-earthquake.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldpulse.fyi/news/2026-08-07-m-5-8-194-km-nw-of-oula-xiuma-china.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldpulse.fyi/news/2026-08-08-m-5-6-57-km-wnw-of-skwentna-alaska.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldpulse.fyi/news/2026-08-08-m-5-7-199-km-nw-of-oula-xiuma-china.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldpulse.fyi/news/2026-08-09-m-5-0-38-km-sse-of-spearman-texas.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldpulse.fyi/news/2026-08-09-m-5-5-4-km-ssw-of-chupaca-peru.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldpulse.fyi/news/2026-08-10-m-7-4-5-km-s-of-san-jos-del-palmar-colombia.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldpulse.fyi/news/2026-08-10-m-6-4-96-km-sw-of-puerto-madero-mexico.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldpulse.fyi/news/2026-08-11-m-7-3-52-km-w-of-puerto-madero-mexico.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldpulse.fyi/news/2026-08-11-m-6-2-32-km-wsw-of-sarangani-philippines.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birth Rate vs. Death Rate: What Drives Population Growth — World Pulse</title>
-<meta name="description" content="The difference between crude birth rate, death rate, and fertility rate, how they combine into a population growth rate, and why some countries are growing fast while others are already shrinking.">
-<meta name="keywords" content="birth rate vs death rate, population growth rate, crude birth rate, fertility rate, replacement level fertility, what drives population growth, birth rate by country, death rate by country">
+<title>Population by Country 2026 — Live Population of Every Country | World Pulse</title>
+<meta name="description" content="Live population of every country in the world, updating every second. Sortable table of 217 countries and territories with births today, deaths today, and annual growth, based on World Bank and UN data.">
+<meta name="keywords" content="population by country, countries by population, world population by country, list of countries by population, population of every country, largest countries by population, most populated countries, country population 2026, live population by country, population ranking, fastest growing countries, shrinking population countries">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Birth Rate vs. Death Rate: What Drives Population Growth — World Pulse">
-<meta property="og:description" content="The difference between crude birth rate, death rate, and fertility rate, how they combine into a population growth rate, and why some countries are growing fast while others are already shrinking.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://worldpulse.fyi/birth-rate-vs-death-rate.html">
+<meta property="og:title" content="Population by Country — Live Population of Every Country">
+<meta property="og:description" content="Live population of every country in the world, updating every second. Sortable table of 217 countries with births, deaths, and growth.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://worldpulse.fyi/population-by-country.html">
 <meta property="og:image" content="https://worldpulse.fyi/og-image.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Birth Rate vs. Death Rate: What Drives Population Growth — World Pulse">
-<meta name="twitter:description" content="The difference between crude birth rate, death rate, and fertility rate, how they combine into a population growth rate, and why some countries are growing fast while others are already shrinking.">
+<meta name="twitter:title" content="Population by Country — Live Population of Every Country">
+<meta name="twitter:description" content="Live population of every country in the world, updating every second. Sortable table of 217 countries.">
 <meta name="twitter:image" content="https://worldpulse.fyi/og-image.png?v=2">
-<link rel="canonical" href="https://worldpulse.fyi/birth-rate-vs-death-rate.html">
+<link rel="canonical" href="https://worldpulse.fyi/population-by-country.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
@@ -45,6 +45,18 @@
 <script>
   gtag('js', new Date());
   gtag('config', 'G-Q762BNE94L');
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Population by Country — Live Population of Every Country",
+  "description": "Live population of every country in the world, updating every second, with births today, deaths today, and annual growth for 217 countries and territories.",
+  "url": "https://worldpulse.fyi/population-by-country.html",
+  "isPartOf": { "@type": "WebSite", "name": "World Pulse", "url": "https://worldpulse.fyi/" },
+  "publisher": { "@type": "Organization", "name": "World Pulse", "url": "https://worldpulse.fyi/" }
+}
 </script>
 <style>
   :root {
@@ -217,17 +229,80 @@
     color: var(--text);
   }
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Birth Rate vs. Death Rate: What Actually Drives Population Growth",
-  "description": "The difference between crude birth rate, death rate, and fertility rate, how they combine into a population growth rate, and why some countries are growing fast while others are already shrinking.",
-  "url": "https://worldpulse.fyi/birth-rate-vs-death-rate.html",
-  "publisher": { "@id": "https://worldpulse.fyi/#organization" },
-  "mainEntityOfPage": "https://worldpulse.fyi/birth-rate-vs-death-rate.html"
-}
-</script>
+<style>
+  /* Population-by-country table */
+  .pbc-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin: 0 0 18px;
+  }
+  .pbc-search {
+    flex: 1 1 240px;
+    padding: 11px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+  }
+  .pbc-search::placeholder { color: var(--muted); }
+  .pbc-search:focus { outline: none; border-color: var(--blue); }
+  .pbc-count { font-size: 13px; color: var(--muted); }
+  .pbc-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  table.pbc {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 660px;
+  }
+  table.pbc th, table.pbc td {
+    padding: 12px 14px;
+    text-align: right;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border);
+  }
+  table.pbc th:first-child, table.pbc td:first-child,
+  table.pbc th:nth-child(2), table.pbc td:nth-child(2) {
+    text-align: left;
+  }
+  table.pbc thead th {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1;
+  }
+  table.pbc thead th:hover { color: var(--text); }
+  table.pbc thead th[aria-sort="descending"]::after { content: " \2193"; color: var(--blue); }
+  table.pbc thead th[aria-sort="ascending"]::after  { content: " \2191"; color: var(--blue); }
+  table.pbc tbody tr:last-child td { border-bottom: none; }
+  table.pbc tbody tr:hover { background: rgba(255,255,255,.02); }
+  .pbc-rank { color: var(--muted); font-variant-numeric: tabular-nums; width: 1%; }
+  .pbc-flag { margin-right: 8px; }
+  .pbc-name { color: var(--text); font-weight: 550; }
+  .pbc-pop { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .pbc-pos { color: #34D399; font-variant-numeric: tabular-nums; }
+  .pbc-neg { color: #F87171; font-variant-numeric: tabular-nums; }
+  .pbc-num { font-variant-numeric: tabular-nums; color: var(--muted); }
+  .pbc-empty { padding: 28px; text-align: center; color: var(--muted); font-size: 14px; }
+  @media (max-width: 600px) {
+    table.pbc th, table.pbc td { padding: 10px 11px; font-size: 13px; }
+  }
+</style>
 </head>
 <body>
 
@@ -247,8 +322,7 @@
   </a>
   <nav class="header-nav">
     <a href="index.html">Home</a>
-    <a href="population-by-country.html">Countries</a>
-    <a href="articles.html" class="active">Articles</a>
+    <a href="articles.html">Articles</a>
     <a href="about.html">About</a>
     <a href="privacy.html">Privacy</a>
   </nav>
@@ -269,41 +343,53 @@
   </nav>
 </header>
 
-<main class="legal">
-  <h1>Birth Rate vs. Death Rate: What Actually Drives Population Growth</h1>
-  <p class="updated">A demographics primer</p>
+<main class="legal" style="max-width:1000px;">
+  <h1>Population by Country — Live Population of Every Country</h1>
+  <p class="updated">Live figures for 217 countries and territories &middot; Updated every second</p>
 
-      <p>Every country's population is the result of one simple subtraction, repeated continuously: births minus deaths, plus or minus migration. The two rates that matter most — <strong>birth rate</strong> and <strong>death rate</strong> — sound self-explanatory, but the way demographers actually measure them, and how they combine into a growth rate, is worth understanding if you want to read population data correctly.</p>
+  <p>This table shows the <strong>live population of every country</strong> in the world, counting up in real time. Population figures start from World Bank and UN Population Division baselines and tick forward continuously using each country's own birth and death rates &mdash; the same method behind the <a href="/">world population clock</a> on our homepage.</p>
 
-      <h2>Crude birth rate and crude death rate</h2>
-      <p>The <strong>crude birth rate</strong> is the number of live births per 1,000 people in a population per year. The <strong>crude death rate</strong> is the number of deaths per 1,000 people per year. Both are "crude" in the technical sense — simple to calculate, but sensitive to a country's age structure. A country with a young population will have a naturally low crude death rate even if its healthcare system is mediocre, simply because young people are less likely to die in any given year. That's part of why the same crude rates can mean different things in different countries.</p>
+  <p>Sort by any column to see which countries are largest, which are growing fastest, and which are already shrinking. Roughly two-thirds of the world lives in just the top twenty countries on this list, while dozens of nations now record more deaths than births each year.</p>
 
-      <h2>How growth rate is calculated</h2>
-      <p>Subtract the crude death rate from the crude birth rate and divide by 10, and you get the annual <strong>population growth rate</strong> as a percentage. A country with a birth rate of 30 per 1,000 and a death rate of 8 per 1,000 has a growth rate of (30 − 8) ÷ 10 = 2.2% per year — a rapidly growing population. A country with a birth rate of 8 and a death rate of 13 has a growth rate of −0.5% — a shrinking one.</p>
+  <div class="pbc-controls">
+    <input type="search" class="pbc-search" id="pbcSearch" placeholder="Search for a country…" aria-label="Search countries">
+    <span class="pbc-count" id="pbcCount"></span>
+  </div>
 
-      <div class="callout">
-        <strong>Growth rate (%) = (Birth rate − Death rate) ÷ 10</strong><br>
-        This is the same calculation World Pulse uses to drive its per-country <a href="index.html">live counters</a> — pick any country from the dropdown and its birth rate, death rate, and resulting growth rate all update together.
-      </div>
+  <div class="pbc-wrap">
+    <table class="pbc" id="pbcTable">
+      <thead>
+        <tr>
+          <th data-key="rank" scope="col">#</th>
+          <th data-key="name" scope="col">Country</th>
+          <th data-key="pop" scope="col" aria-sort="descending">Live population</th>
+          <th data-key="births" scope="col">Births today</th>
+          <th data-key="deaths" scope="col">Deaths today</th>
+          <th data-key="growth" scope="col">Growth / year</th>
+        </tr>
+      </thead>
+      <tbody id="pbcBody"></tbody>
+    </table>
+  </div>
+  <p class="pbc-empty" id="pbcEmpty" hidden>No country matches that search.</p>
 
-      <h2>Birth rate isn't the same as fertility rate</h2>
-      <p>These two get conflated constantly. Crude birth rate measures births per 1,000 people in the <em>total</em> population — men, women, children, everyone. The <strong>total fertility rate</strong> measures something more specific: the average number of children a woman would have over her lifetime, given current age-specific birth rates.</p>
-      <p>Fertility rate is the number demographers actually use to talk about long-term population trajectory, because it strips out the effect of age structure. A population needs a fertility rate of roughly <strong>2.1 births per woman</strong> — "replacement level" — to hold steady in the long run without immigration. Below that, and a population eventually shrinks, even if it's still growing today because of population momentum from past generations.</p>
+  <h2 style="margin-top:36px">How these numbers are calculated</h2>
+  <p>Every figure here is computed in your browser, not fetched from a server. Each country has a baseline population from the World Bank's <em>SP.POP.TOTL</em> series, plus a crude birth rate (<em>SP.DYN.CBRT.IN</em>) and crude death rate (<em>SP.DYN.CDRT.IN</em>), both expressed per 1,000 people per year.</p>
+  <p>To produce a live count, the annual rates are converted into per-second increments and projected forward from a fixed 2025 baseline. A country with a population of 10 million and a birth rate of 20 per 1,000, for example, adds about 200,000 births a year &mdash; roughly one birth every 158 seconds. "Births today" and "deaths today" reset at midnight UTC.</p>
+  <p>These are <strong>projections, not censuses</strong>. No country counts every birth and death as it happens, so all live population counters &mdash; including ours &mdash; are best understood as well-grounded estimates of the current total rather than exact headcounts. For a fuller explanation of the method and its limits, see <a href="/world-population-clock-explained.html">how the world population clock works</a>.</p>
 
-      <h2>Why some countries grow fast and others are already shrinking</h2>
-      <p>The gap between birth rate and death rate — and therefore growth rate — varies enormously by country, mostly tracking what demographers call the <strong>demographic transition</strong>: as a country develops economically, death rates fall first (better healthcare, sanitation, nutrition), then birth rates fall a generation or two later (urbanization, education, especially for women, and access to family planning). Countries early in that transition — much of sub-Saharan Africa — still have high birth rates and fast growth. Countries further along — Japan, South Korea, much of Europe — have birth rates below death rates and are already shrinking.</p>
+  <h2 style="margin-top:36px">Why some countries are shrinking</h2>
+  <p>A country's population grows when births exceed deaths and shrinks when the reverse is true. In the table above, countries with a negative growth figure are losing population through natural change alone &mdash; before accounting for migration, which these figures do not model.</p>
+  <p>Japan, Italy, and much of Eastern Europe now sit in this category, the result of fertility rates that fell below the replacement level of about 2.1 children per woman decades ago combined with populations that have aged since. Meanwhile most of the fastest-growing countries are in sub-Saharan Africa, where birth rates remain high and median ages are young. Our guide to <a href="/birth-rate-vs-death-rate.html">birth rates vs. death rates</a> covers why that gap matters more than total population for predicting a country's future.</p>
 
-      <p>You can see this directly: switch the region on <a href="index.html">World Pulse's home page</a> between, say, Niger and Japan, and watch the growth rate flip from strongly positive to negative.</p>
-
-      <div class="related">
-        <h2>Related reading</h2>
-        <ul>
-          <li><a href="when-will-population-peak.html">When Will World Population Peak?</a></li>
-          <li><a href="world-population-clock-explained.html">How the World Population Clock Works</a></li>
-          <li><a href="population-heat-map-explained.html">Population Density Heat Maps Explained</a></li>
-        </ul>
-      </div>
-
+  <h2 style="margin-top:36px">Related</h2>
+  <ul>
+    <li><a href="/">Live world population clock</a> &mdash; the global counter and interactive 3D globe</li>
+    <li><a href="/world-population-clock-explained.html">How the world population clock works</a></li>
+    <li><a href="/birth-rate-vs-death-rate.html">Birth rate vs. death rate explained</a></li>
+    <li><a href="/when-will-population-peak.html">When will world population peak?</a></li>
+    <li><a href="/population-heat-map-explained.html">Population density heat maps explained</a></li>
+  </ul>
 </main>
 
 <footer class="footer">
@@ -317,24 +403,6 @@
   <p>&copy; <span id="year"></span> World Pulse. All rights reserved.</p>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script>
-(function () {
-  const toggle = document.getElementById('menuToggle');
-  const menu = document.getElementById('mobileMenu');
-  if (!toggle || !menu) return;
-  toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-  menu.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-      menu.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-})();
-</script>
 <script src="/vendor/d3-array.min.js"></script>
 <script src="/vendor/d3-geo.min.js"></script>
 <script src="/vendor/topojson-client.min.js"></script>
@@ -425,6 +493,111 @@
       });
     }
   });
+})();
+</script>
+
+
+<script src="/vendor/regions-data.js"></script>
+<script>
+// ── Live population-by-country table ──
+// Same projection model as the homepage counters: annual World Bank rates
+// converted to per-second increments, projected forward from a fixed epoch.
+(function () {
+  const EPOCH = new Date('2025-01-01T00:00:00Z').getTime();
+  const YEAR_MS = 365.25 * 24 * 3600 * 1000;
+  const DATA = window.WP_REGIONS_DATA || {};
+
+  const rows = Object.keys(DATA)
+    .filter(k => k !== 'world')
+    .map(k => {
+      const r = DATA[k];
+      const net = (r.birthRate - r.deathRate) / 1000;   // fractional growth / yr
+      return {
+        slug: k,
+        name: r.label,
+        flag: r.flag,
+        base: r.pop,
+        birthPerYr: r.pop * (r.birthRate / 1000),
+        deathPerYr: r.pop * (r.deathRate / 1000),
+        growthPerYr: r.pop * net,
+      };
+    });
+
+  const tbody   = document.getElementById('pbcBody');
+  const search  = document.getElementById('pbcSearch');
+  const countEl = document.getElementById('pbcCount');
+  const emptyEl = document.getElementById('pbcEmpty');
+  const thead   = document.querySelector('#pbcTable thead');
+
+  let sortKey = 'pop', sortDir = -1, query = '';
+
+  const nf  = new Intl.NumberFormat('en-US');
+  const nf1 = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
+
+  function livePop(r, now) {
+    return r.base + r.growthPerYr * ((now - EPOCH) / YEAR_MS);
+  }
+  function todayFraction(now) {
+    const d = new Date(now);
+    const midnight = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+    return (now - midnight) / (24 * 3600 * 1000);
+  }
+
+  function visibleRows(now) {
+    const q = query.trim().toLowerCase();
+    let list = q ? rows.filter(r => r.name.toLowerCase().includes(q)) : rows.slice();
+    const frac = todayFraction(now);
+    list.forEach(r => {
+      r._pop    = livePop(r, now);
+      r._births = r.birthPerYr / 365.25 * frac;
+      r._deaths = r.deathPerYr / 365.25 * frac;
+      r._growth = r.growthPerYr;
+    });
+    const key = { pop: '_pop', births: '_births', deaths: '_deaths', growth: '_growth' }[sortKey];
+    if (key) list.sort((a, b) => (a[key] - b[key]) * sortDir);
+    else if (sortKey === 'name') list.sort((a, b) => a.name.localeCompare(b.name) * sortDir);
+    return list;
+  }
+
+  function render() {
+    const now = Date.now();
+    const list = visibleRows(now);
+
+    emptyEl.hidden = list.length > 0;
+    countEl.textContent = query.trim()
+      ? list.length + ' of ' + rows.length + ' countries'
+      : rows.length + ' countries and territories';
+
+    tbody.innerHTML = list.map((r, i) => {
+      const g = r._growth;
+      const gCls = g >= 0 ? 'pbc-pos' : 'pbc-neg';
+      const gTxt = (g >= 0 ? '+' : '\u2212') + nf1.format(Math.abs(g));
+      return '<tr>'
+        + '<td class="pbc-rank">' + (i + 1) + '</td>'
+        + '<td><span class="pbc-flag">' + r.flag + '</span><span class="pbc-name">' + r.name + '</span></td>'
+        + '<td class="pbc-pop">' + nf.format(Math.floor(r._pop)) + '</td>'
+        + '<td class="pbc-pos">+' + nf1.format(Math.floor(r._births)) + '</td>'
+        + '<td class="pbc-neg">\u2212' + nf1.format(Math.floor(r._deaths)) + '</td>'
+        + '<td class="' + gCls + '">' + gTxt + '</td>'
+        + '</tr>';
+    }).join('');
+  }
+
+  thead.addEventListener('click', e => {
+    const th = e.target.closest('th');
+    if (!th || !th.dataset.key || th.dataset.key === 'rank') return;
+    const key = th.dataset.key;
+    if (key === sortKey) sortDir = -sortDir;
+    else { sortKey = key; sortDir = (key === 'name') ? 1 : -1; }
+    thead.querySelectorAll('th').forEach(h => h.removeAttribute('aria-sort'));
+    th.setAttribute('aria-sort', sortDir === 1 ? 'ascending' : 'descending');
+    render();
+  });
+
+  search.addEventListener('input', () => { query = search.value; render(); });
+
+  render();
+  setInterval(render, 1000);
 })();
 </script>
 
