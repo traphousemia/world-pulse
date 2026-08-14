@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-08-14-m-3-8-3-km-n-of-san-leandro-ca",
+    "title": "M 3.8 - 3 km N of San Leandro, CA",
+    "date": "2026-08-14",
+    "summary": "A magnitude 3.8 earthquake struck 3 km N of San Leandro, CA, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75417557"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-14-m-6-8-the-2026-kumamoto-region-japan-earthquake",
+    "title": "M 6.8 - The 2026 Kumamoto Region, Japan Earthquake",
+    "date": "2026-08-14",
+    "summary": "A magnitude 6.8 earthquake struck The 2026 Kumamoto Region, Japan Earthquake, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tgb9"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-13-m-7-4-5-km-s-of-san-jos-del-palmar-colombia",
     "title": "M 7.4 - 5 km S of San José del Palmar, Colombia",
     "date": "2026-08-13",
