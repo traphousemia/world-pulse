@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-08-15-m-6-9-15-km-nnw-of-pematangsiantar-indonesia",
+    "title": "M 6.9 - 15 km NNW of Pematangsiantar, Indonesia",
+    "date": "2026-08-15",
+    "summary": "A magnitude 6.9 earthquake struck 15 km NNW of Pematangsiantar, Indonesia, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyk"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-15-m-7-7-68-km-nnw-of-ende-indonesia",
+    "title": "M 7.7 - 68 km NNW of Ende, Indonesia",
+    "date": "2026-08-15",
+    "summary": "A magnitude 7.7 earthquake struck 68 km NNW of Ende, Indonesia, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkt2"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-14-m-3-8-3-km-n-of-san-leandro-ca",
     "title": "M 3.8 - 3 km N of San Leandro, CA",
     "date": "2026-08-14",
