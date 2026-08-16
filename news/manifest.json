@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-08-16-m-5-2-1-km-sw-of-otura-spain",
+    "title": "M 5.2 - 1 km SW of Otura, Spain",
+    "date": "2026-08-16",
+    "summary": "A magnitude 5.2 earthquake struck 1 km SW of Otura, Spain, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkv2"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-16-m-5-8-194-km-nw-of-oula-xiuma-china",
+    "title": "M 5.8 - 194 km NW of Oula Xiuma, China",
+    "date": "2026-08-16",
+    "summary": "A magnitude 5.8 earthquake struck 194 km NW of Oula Xiuma, China, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tga9"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-15-m-6-9-15-km-nnw-of-pematangsiantar-indonesia",
     "title": "M 6.9 - 15 km NNW of Pematangsiantar, Indonesia",
     "date": "2026-08-15",
