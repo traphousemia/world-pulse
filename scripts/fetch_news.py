@@ -27,16 +27,30 @@ REPO_ROOT = __file__.rsplit('/scripts/', 1)[0]
 MANIFEST_PATH = f"{REPO_ROOT}/news/manifest.json"
 
 MAX_NEW_ITEMS_PER_RUN = 2
+# One item per feed per run, so a high-volume feed can't monopolise the list.
+MAX_PER_FEED_PER_RUN = 1
 MAX_SUMMARY_CHARS = 280
 # Keep the roundup recent; older entries drop off rather than accumulating.
 MAX_MANIFEST_ITEMS = 40
 
 FEEDS = [
     {
+        "name": "WHO — Disease Outbreak News",
+        "url": "https://www.who.int/feeds/entity/csr/don/en/rss.xml",
+        "kind": "rss",
+        "tag": "Disease Outbreak",
+    },
+    {
         "name": "ReliefWeb — Epidemics",
         "url": "https://reliefweb.int/disasters/rss.xml?search=type.name.exact:%22Epidemic%22",
         "kind": "rss",
         "tag": "Disease Outbreak",
+    },
+    {
+        "name": "ReliefWeb — Famine & Food Insecurity",
+        "url": "https://reliefweb.int/disasters/rss.xml?search=type.name.exact:%22Food%20Insecurity%22",
+        "kind": "rss",
+        "tag": "Humanitarian",
     },
     {
         "name": "USGS — Significant Earthquakes",
@@ -155,6 +169,7 @@ def main():
     for feed in FEEDS:
         if published_this_run >= MAX_NEW_ITEMS_PER_RUN:
             break
+        taken_from_this_feed = 0
         try:
             raw = fetch(feed["url"])
             items = parse_rss(raw) if feed["kind"] == "rss" else parse_atom(raw)
@@ -164,6 +179,8 @@ def main():
 
         for item in items:
             if published_this_run >= MAX_NEW_ITEMS_PER_RUN:
+                break
+            if taken_from_this_feed >= MAX_PER_FEED_PER_RUN:
                 break
             if already_covered(manifest, item["link"]):
                 continue
@@ -194,6 +211,7 @@ def main():
             }
             new_entries.append(entry)
             published_this_run += 1
+            taken_from_this_feed += 1
             print(f"Listed: {item['title']}")
 
     if not new_entries:
