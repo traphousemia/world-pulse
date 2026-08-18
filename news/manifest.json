@@ -1,5 +1,125 @@
 [
   {
+    "slug": "2026-08-17-m-5-7-199-km-nw-of-oula-xiuma-china",
+    "title": "M 5.7 - 199 km NW of Oula Xiuma, China",
+    "date": "2026-08-17",
+    "summary": "A magnitude 5.7 earthquake struck 199 km NW of Oula Xiuma, China, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tga6"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-17-m-5-0-38-km-sse-of-spearman-texas",
+    "title": "M 5.0 - 38 km SSE of Spearman, Texas",
+    "date": "2026-08-17",
+    "summary": "A magnitude 5.0 earthquake struck 38 km SSE of Spearman, Texas, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ojlaky"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-16-m-5-2-1-km-sw-of-otura-spain",
+    "title": "M 5.2 - 1 km SW of Otura, Spain",
+    "date": "2026-08-16",
+    "summary": "A magnitude 5.2 earthquake struck 1 km SW of Otura, Spain, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkv2"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-16-m-5-8-194-km-nw-of-oula-xiuma-china",
+    "title": "M 5.8 - 194 km NW of Oula Xiuma, China",
+    "date": "2026-08-16",
+    "summary": "A magnitude 5.8 earthquake struck 194 km NW of Oula Xiuma, China, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tga9"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-15-m-6-9-15-km-nnw-of-pematangsiantar-indonesia",
+    "title": "M 6.9 - 15 km NNW of Pematangsiantar, Indonesia",
+    "date": "2026-08-15",
+    "summary": "A magnitude 6.9 earthquake struck 15 km NNW of Pematangsiantar, Indonesia, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyk"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-15-m-7-7-68-km-nnw-of-ende-indonesia",
+    "title": "M 7.7 - 68 km NNW of Ende, Indonesia",
+    "date": "2026-08-15",
+    "summary": "A magnitude 7.7 earthquake struck 68 km NNW of Ende, Indonesia, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkt2"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-14-m-3-8-3-km-n-of-san-leandro-ca",
+    "title": "M 3.8 - 3 km N of San Leandro, CA",
+    "date": "2026-08-14",
+    "summary": "A magnitude 3.8 earthquake struck 3 km N of San Leandro, CA, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75417557"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-14-m-6-8-the-2026-kumamoto-region-japan-earthquake",
+    "title": "M 6.8 - The 2026 Kumamoto Region, Japan Earthquake",
+    "date": "2026-08-14",
+    "summary": "A magnitude 6.8 earthquake struck The 2026 Kumamoto Region, Japan Earthquake, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tgb9"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-13-m-7-4-5-km-s-of-san-jos-del-palmar-colombia",
+    "title": "M 7.4 - 5 km S of San José del Palmar, Colombia",
+    "date": "2026-08-13",
+    "summary": "A magnitude 7.4 earthquake struck 5 km S of San José del Palmar, Colombia, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tjl2"
+      }
+    ]
+  },
+  {
+    "slug": "2026-08-13-m-5-6-57-km-wnw-of-skwentna-alaska",
+    "title": "M 5.6 - 57 km WNW of Skwentna, Alaska",
+    "date": "2026-08-13",
+    "summary": "A magnitude 5.6 earthquake struck 57 km WNW of Skwentna, Alaska, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026powmkf"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-06-m-6-3-south-of-the-kermadec-islands",
     "title": "M 6.3 - south of the Kermadec Islands",
     "date": "2026-08-06",
