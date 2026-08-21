@@ -115,7 +115,28 @@ Do **not** place ads:
 There is no Cloudflare ad network. Their publisher product is **Pay Per Crawl**,
 which charges AI companies for crawling your content — a different thing
 entirely, in private beta, and aimed at publishers with content AI firms want to
-license. Not applicable at this site's traffic.
+license.
+
+**Considered and deliberately declined, Aug 2026.** Cloudflare is not in this
+site's path at all: nameservers are Porkbun, the site is served directly by
+GitHub Pages (no `cf-ray` header), and MX points at ImprovMX. Pay Per Crawl runs
+at Cloudflare's proxy layer, so adopting it means migrating DNS wholesale —
+re-creating 4 GitHub Pages A records and 2 ImprovMX MX records, enabling
+proxying, and setting SSL to *Full* (Flexible causes a redirect loop with GitHub
+Pages).
+
+Reasons against, at this stage:
+
+- Breaking the MX records kills `contact@worldpulse.fyi`, which AdSense requires
+- A crawler-control layer works against the current priority, which is getting
+  the 14 unindexed pages crawled
+- Up to 48h propagation downtime mid-application
+- The content is derived from public World Bank and UN data, so there is nothing
+  proprietary for an AI company to license
+- Private beta: acceptance is not guaranteed
+
+Worth revisiting only after AdSense approval, and only if the site develops
+genuinely original data worth licensing.
 
 If AdSense keeps failing, the realistic alternatives that accept smaller sites
 are **Ezoic** (accepts low traffic, Google-certified partner, approves in days)
