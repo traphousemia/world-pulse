@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-08-19-m-5-9-270-km-wsw-of-yanglong-china",
+    "title": "M 5.9 - 270 km WSW of Yanglong, China",
+    "date": "2026-08-19",
+    "summary": "A magnitude 5.9 earthquake struck 270 km WSW of Yanglong, China, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tlrj"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-17-m-5-7-199-km-nw-of-oula-xiuma-china",
     "title": "M 5.7 - 199 km NW of Oula Xiuma, China",
     "date": "2026-08-17",
