@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-08-21-m-6-7-31-km-nw-of-aniso-peru",
+    "title": "M 6.7 - 31 km NW of Aniso, Peru",
+    "date": "2026-08-21",
+    "summary": "A magnitude 6.7 earthquake struck 31 km NW of Aniso, Peru, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tm81"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-19-m-5-9-270-km-wsw-of-yanglong-china",
     "title": "M 5.9 - 270 km WSW of Yanglong, China",
     "date": "2026-08-19",
