@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-08-23-m-3-9-1-km-wsw-of-hope-alaska",
+    "title": "M 3.9 - 1 km WSW of Hope, Alaska",
+    "date": "2026-08-23",
+    "summary": "A magnitude 3.9 earthquake struck 1 km WSW of Hope, Alaska, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026qoynpe"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-21-m-6-7-31-km-nw-of-aniso-peru",
     "title": "M 6.7 - 31 km NW of Aniso, Peru",
     "date": "2026-08-21",
