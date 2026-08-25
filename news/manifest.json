@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-08-25-m-5-8-4-km-n-of-toride-japan",
+    "title": "M 5.8 - 4 km N of Toride, Japan",
+    "date": "2026-08-25",
+    "summary": "A magnitude 5.8 earthquake struck 4 km N of Toride, Japan, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmta"
+      }
+    ]
+  },
+  {
     "slug": "2026-08-23-m-3-9-1-km-wsw-of-hope-alaska",
     "title": "M 3.9 - 1 km WSW of Hope, Alaska",
     "date": "2026-08-23",
