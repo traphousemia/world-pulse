@@ -236,6 +236,22 @@
     background: transparent;
     color: var(--text);
   }
+
+  .faq { margin-top: 40px; }
+  .faq h2 { margin-bottom: 6px; }
+  .faq details {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--surface); padding: 0 18px; margin-bottom: 10px;
+  }
+  .faq summary {
+    cursor: pointer; padding: 15px 0; font-weight: 600;
+    font-size: 15px; color: var(--text); list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--blue); font-size: 20px; font-weight: 400; flex-shrink: 0; }
+  .faq details[open] summary::after { content: "\2212"; }
+  .faq details > p { padding: 0 0 16px; margin: 0; font-size: 15px; color: #C8C8D6; line-height: 1.7; }
 </style>
 <style>
   table.dt { width:100%; border-collapse:collapse; font-size:14px; margin:18px 0 22px; min-width:420px; }
@@ -250,6 +266,30 @@
   .keyfig b { display:block; font-size:23px; font-weight:700; color:var(--text); letter-spacing:-.02em; margin-bottom:3px; }
   .keyfig span { font-size:12.5px; color:var(--muted); line-height:1.45; display:block; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many international migrants are there?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 281 million people live outside their country of birth, roughly 3.6% of the world — a share broadly stable for decades."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does migration change the world population?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Migration redistributes people between countries; only births and deaths change the global total."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -334,6 +374,19 @@
   <p>The second is climate. Estimates of climate-driven displacement vary widely and should be treated with caution &mdash; most projections concern internal movement within countries rather than international migration &mdash; but the direction is not seriously disputed.</p>
   <p>What is far less predictable is policy, which is why long-range migration projections carry much wider error bars than fertility or mortality projections do.</p>
 
+
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>How many international migrants are there?</summary>
+      <p>About 281 million people live outside their country of birth, roughly 3.6% of the world — a share broadly stable for decades.</p>
+    </details>
+    <details>
+      <summary>Does migration change the world population?</summary>
+      <p>No. Migration redistributes people between countries; only births and deaths change the global total.</p>
+    </details>
+  </section>
 
   <div class="related">
     <h2>Related reading</h2>

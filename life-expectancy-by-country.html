@@ -236,6 +236,22 @@
     background: transparent;
     color: var(--text);
   }
+
+  .faq { margin-top: 40px; }
+  .faq h2 { margin-bottom: 6px; }
+  .faq details {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--surface); padding: 0 18px; margin-bottom: 10px;
+  }
+  .faq summary {
+    cursor: pointer; padding: 15px 0; font-weight: 600;
+    font-size: 15px; color: var(--text); list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--blue); font-size: 20px; font-weight: 400; flex-shrink: 0; }
+  .faq details[open] summary::after { content: "\2212"; }
+  .faq details > p { padding: 0 0 16px; margin: 0; font-size: 15px; color: #C8C8D6; line-height: 1.7; }
 </style>
 <style>
   table.dt { width:100%; border-collapse:collapse; font-size:14px; margin:18px 0 22px; min-width:420px; }
@@ -250,6 +266,38 @@
   .keyfig b { display:block; font-size:23px; font-weight:700; color:var(--text); letter-spacing:-.02em; margin-bottom:3px; }
   .keyfig span { font-size:12.5px; color:var(--muted); line-height:1.45; display:block; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the average life expectancy in the world?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 73 years, up roughly 25 years since 1950."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which country has the highest life expectancy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Japan, Switzerland, Singapore, Spain, Italy, and Australia all exceed 84 years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does life expectancy mean most people die at that age?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is an average across everyone born in a year, including infant deaths, so high child mortality pulls it down sharply. Adults who survive childhood typically live well beyond it."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -332,6 +380,23 @@
   <p>Longer-run reversals happen too. Russia's male life expectancy fell sharply through the 1990s amid economic collapse and rising alcohol-related deaths. The United States saw several consecutive years of decline in the 2010s driven substantially by drug overdoses.</p>
   <p>These reversals matter for population projections: rising life expectancy is one of the two forces holding total population up while <a href="/global-fertility-rate-decline.html">fertility falls</a>. For what people are actually dying of, see our <a href="/world-death-toll-causes-of-death.html">breakdown of deaths by cause</a>.</p>
 
+
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>What is the average life expectancy in the world?</summary>
+      <p>About 73 years, up roughly 25 years since 1950.</p>
+    </details>
+    <details>
+      <summary>Which country has the highest life expectancy?</summary>
+      <p>Japan, Switzerland, Singapore, Spain, Italy, and Australia all exceed 84 years.</p>
+    </details>
+    <details>
+      <summary>Does life expectancy mean most people die at that age?</summary>
+      <p>No. It is an average across everyone born in a year, including infant deaths, so high child mortality pulls it down sharply. Adults who survive childhood typically live well beyond it.</p>
+    </details>
+  </section>
 
   <div class="related">
     <h2>Related reading</h2>

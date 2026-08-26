@@ -236,6 +236,22 @@
     background: transparent;
     color: var(--text);
   }
+
+  .faq { margin-top: 40px; }
+  .faq h2 { margin-bottom: 6px; }
+  .faq details {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--surface); padding: 0 18px; margin-bottom: 10px;
+  }
+  .faq summary {
+    cursor: pointer; padding: 15px 0; font-weight: 600;
+    font-size: 15px; color: var(--text); list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--blue); font-size: 20px; font-weight: 400; flex-shrink: 0; }
+  .faq details[open] summary::after { content: "\2212"; }
+  .faq details > p { padding: 0 0 16px; margin: 0; font-size: 15px; color: #C8C8D6; line-height: 1.7; }
 </style>
 <style>
   table.dt { width:100%; border-collapse:collapse; font-size:14px; margin:18px 0 22px; min-width:420px; }
@@ -250,6 +266,30 @@
   .keyfig b { display:block; font-size:23px; font-weight:700; color:var(--text); letter-spacing:-.02em; margin-bottom:3px; }
   .keyfig span { font-size:12.5px; color:var(--muted); line-height:1.45; display:block; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the global child mortality rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 37 deaths per 1,000 live births before age five, or under 1 in 25. In 1950 it was roughly 1 in 4."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do most children die of?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Preterm birth complications, pneumonia, birth asphyxia, diarrhoeal disease, and malaria. Roughly half of under-five deaths now happen in the first 28 days of life."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -338,6 +378,19 @@
   <p>Improvement has not been uniform. Sub-Saharan Africa still accounts for the majority of under-five deaths, and several countries facing conflict or state collapse have seen progress halt or reverse. A child born in the worst-affected countries is still roughly <strong>30 times</strong> more likely to die before five than one born in Western Europe.</p>
   <p>For how child deaths sit within total global mortality, see our <a href="/world-death-toll-causes-of-death.html">deaths by cause breakdown</a>.</p>
 
+
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>What is the global child mortality rate?</summary>
+      <p>About 37 deaths per 1,000 live births before age five, or under 1 in 25. In 1950 it was roughly 1 in 4.</p>
+    </details>
+    <details>
+      <summary>What do most children die of?</summary>
+      <p>Preterm birth complications, pneumonia, birth asphyxia, diarrhoeal disease, and malaria. Roughly half of under-five deaths now happen in the first 28 days of life.</p>
+    </details>
+  </section>
 
   <div class="related">
     <h2>Related reading</h2>

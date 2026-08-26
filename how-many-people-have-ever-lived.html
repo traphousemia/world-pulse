@@ -236,6 +236,22 @@
     background: transparent;
     color: var(--text);
   }
+
+  .faq { margin-top: 40px; }
+  .faq h2 { margin-bottom: 6px; }
+  .faq details {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--surface); padding: 0 18px; margin-bottom: 10px;
+  }
+  .faq summary {
+    cursor: pointer; padding: 15px 0; font-weight: 600;
+    font-size: 15px; color: var(--text); list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--blue); font-size: 20px; font-weight: 400; flex-shrink: 0; }
+  .faq details[open] summary::after { content: "\2212"; }
+  .faq details > p { padding: 0 0 16px; margin: 0; font-size: 15px; color: #C8C8D6; line-height: 1.7; }
 </style>
 <style>
   table.dt { width:100%; border-collapse:collapse; font-size:14px; margin:18px 0 22px; min-width:420px; }
@@ -250,6 +266,38 @@
   .keyfig b { display:block; font-size:23px; font-weight:700; color:var(--text); letter-spacing:-.02em; margin-bottom:3px; }
   .keyfig span { font-size:12.5px; color:var(--muted); line-height:1.45; display:block; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many people have ever lived on Earth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 117 billion people have been born since modern humans appeared, according to the Population Reference Bureau. The roughly 8.2 billion alive today are about 7% of that total."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are more people alive today than have ever died?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The living are roughly 7% of all humans ever born. The claim that the living outnumber the dead is a persistent myth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the total so much larger than today's population?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because infant mortality was extraordinarily high for most of history. Birth rates of 40 to 50 per 1,000 were common, but close to half of children died before age five, so enormous numbers of births never became long lives."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -332,6 +380,23 @@
   <p>One genuinely counterintuitive point: the living have never been a larger share of the total than they are now. Longer lives and a large recent population mean each passing year adds proportionally fewer deaths to the cumulative tally than it once did. In 1900 the living were roughly 2% of all humans ever born; today it is around 7%.</p>
   <p>If population peaks near 10.3 billion in the 2080s as the UN projects, that share will keep edging up for a few more decades before the cumulative total reasserts itself. For the mechanics of how today's figure is tracked, see <a href="/world-population-clock-explained.html">how the world population clock works</a>.</p>
 
+
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>How many people have ever lived on Earth?</summary>
+      <p>About 117 billion people have been born since modern humans appeared, according to the Population Reference Bureau. The roughly 8.2 billion alive today are about 7% of that total.</p>
+    </details>
+    <details>
+      <summary>Are more people alive today than have ever died?</summary>
+      <p>No. The living are roughly 7% of all humans ever born. The claim that the living outnumber the dead is a persistent myth.</p>
+    </details>
+    <details>
+      <summary>Why is the total so much larger than today&#x27;s population?</summary>
+      <p>Because infant mortality was extraordinarily high for most of history. Birth rates of 40 to 50 per 1,000 were common, but close to half of children died before age five, so enormous numbers of births never became long lives.</p>
+    </details>
+  </section>
 
   <div class="related">
     <h2>Related reading</h2>

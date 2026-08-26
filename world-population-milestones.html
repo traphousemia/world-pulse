@@ -236,6 +236,22 @@
     background: transparent;
     color: var(--text);
   }
+
+  .faq { margin-top: 40px; }
+  .faq h2 { margin-bottom: 6px; }
+  .faq details {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--surface); padding: 0 18px; margin-bottom: 10px;
+  }
+  .faq summary {
+    cursor: pointer; padding: 15px 0; font-weight: 600;
+    font-size: 15px; color: var(--text); list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--blue); font-size: 20px; font-weight: 400; flex-shrink: 0; }
+  .faq details[open] summary::after { content: "\2212"; }
+  .faq details > p { padding: 0 0 16px; margin: 0; font-size: 15px; color: #C8C8D6; line-height: 1.7; }
 </style>
 <style>
   table.dt { width:100%; border-collapse:collapse; font-size:14px; margin:18px 0 22px; min-width:420px; }
@@ -250,6 +266,38 @@
   .keyfig b { display:block; font-size:23px; font-weight:700; color:var(--text); letter-spacing:-.02em; margin-bottom:3px; }
   .keyfig span { font-size:12.5px; color:var(--muted); line-height:1.45; display:block; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When did the world population reach 8 billion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The UN designated 15 November 2022 as the Day of Eight Billion, though the genuine uncertainty runs to months either way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long did it take to reach the first billion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roughly all of prior human history, reaching about 1 billion around 1804. The second billion took 123 more years; the eighth took 11."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will the world population reach 9 billion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Around 2037 on UN projections — about 15 years after the eighth billion, the first time an interval has widened rather than shrunk."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -337,6 +385,23 @@
   <p>That conclusion is genuinely uncertain. Projections 60 years out hinge on fertility assumptions, and a swing of half a child per woman moves the 2100 figure by billions. Some models have population peaking earlier and lower, in the 2060s below 10 billion; others push past 11 billion. What nearly all of them share is the shape: a curve that flattens, then turns. See <a href="/when-will-population-peak.html">when will world population peak</a> for how those scenarios differ.</p>
   <p>The current total is ticking over on our <a href="/">live population clock</a>.</p>
 
+
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>When did the world population reach 8 billion?</summary>
+      <p>The UN designated 15 November 2022 as the Day of Eight Billion, though the genuine uncertainty runs to months either way.</p>
+    </details>
+    <details>
+      <summary>How long did it take to reach the first billion?</summary>
+      <p>Roughly all of prior human history, reaching about 1 billion around 1804. The second billion took 123 more years; the eighth took 11.</p>
+    </details>
+    <details>
+      <summary>When will the world population reach 9 billion?</summary>
+      <p>Around 2037 on UN projections — about 15 years after the eighth billion, the first time an interval has widened rather than shrunk.</p>
+    </details>
+  </section>
 
   <div class="related">
     <h2>Related reading</h2>

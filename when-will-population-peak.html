@@ -216,6 +216,22 @@
     background: transparent;
     color: var(--text);
   }
+
+  .faq { margin-top: 40px; }
+  .faq h2 { margin-bottom: 6px; }
+  .faq details {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--surface); padding: 0 18px; margin-bottom: 10px;
+  }
+  .faq summary {
+    cursor: pointer; padding: 15px 0; font-weight: 600;
+    font-size: 15px; color: var(--text); list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--blue); font-size: 20px; font-weight: 400; flex-shrink: 0; }
+  .faq details[open] summary::after { content: "\2212"; }
+  .faq details > p { padding: 0 0 16px; margin: 0; font-size: 15px; color: #C8C8D6; line-height: 1.7; }
 </style>
 <script type="application/ld+json">
 {
@@ -226,6 +242,30 @@
   "url": "https://worldpulse.fyi/when-will-population-peak.html",
   "publisher": { "@id": "https://worldpulse.fyi/#organization" },
   "mainEntityOfPage": "https://worldpulse.fyi/when-will-population-peak.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When will the world population peak?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The UN's medium-variant projection has world population peaking at about 10.3 billion in the mid-2080s, then slowly declining."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will the world population ever reach 11 billion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Probably not on current projections. Most models have population peaking near 10.3 billion, meaning the tenth billion would be the last one added."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -299,7 +339,20 @@
       <h2>The demographic transition, in one paragraph</h2>
       <p>The pattern behind all of this is called the <strong>demographic transition</strong>: as countries develop, death rates fall first (healthcare, sanitation, nutrition), followed a generation or two later by falling birth rates (urbanization, education — especially for women — and access to family planning). Nearly every country goes through this transition eventually; they're just at different points on the curve. Sub-Saharan Africa, still early in the transition, is where nearly all remaining global growth will come from over the next 50 years. Most of the rest of the world is already at or approaching the end of it.</p>
 
-      <div class="related">
+    
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>When will the world population peak?</summary>
+      <p>The UN&#x27;s medium-variant projection has world population peaking at about 10.3 billion in the mid-2080s, then slowly declining.</p>
+    </details>
+    <details>
+      <summary>Will the world population ever reach 11 billion?</summary>
+      <p>Probably not on current projections. Most models have population peaking near 10.3 billion, meaning the tenth billion would be the last one added.</p>
+    </details>
+  </section>
+
+  <div class="related">
         <h2>Related reading</h2>
         <ul>
           <li><a href="birth-rate-vs-death-rate.html">Birth Rate vs. Death Rate: What Actually Drives Population Growth</a></li>

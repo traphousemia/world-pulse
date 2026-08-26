@@ -138,6 +138,21 @@ Reasons against, at this stage:
 Worth revisiting only after AdSense approval, and only if the site develops
 genuinely original data worth licensing.
 
-If AdSense keeps failing, the realistic alternatives that accept smaller sites
-are **Ezoic** (accepts low traffic, Google-certified partner, approves in days)
-and **Media.net**. Both can run instead of, or alongside, AdSense.
+## There is no lower-barrier network (checked Aug 2026)
+
+Applied to Ezoic and was rejected: they now require **250,000 active users per
+month**. Their Incubator Program takes sites below that, but accepts only ~20
+publishers per month worldwide.
+
+Current minimums, for reference:
+
+| Network | Monthly minimum |
+|---|---|
+| **Google AdSense** | **none** |
+| Monumetric | 10,000 pageviews |
+| Mediavine | 50,000 sessions |
+| Raptive | 100,000 pageviews |
+| Ezoic | 250,000 users |
+
+AdSense has the lowest barrier of any reputable network. Every alternative wants
+more traffic, not less, so there is no shortcut around building an audience.

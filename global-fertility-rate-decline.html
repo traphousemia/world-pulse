@@ -236,6 +236,22 @@
     background: transparent;
     color: var(--text);
   }
+
+  .faq { margin-top: 40px; }
+  .faq h2 { margin-bottom: 6px; }
+  .faq details {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--surface); padding: 0 18px; margin-bottom: 10px;
+  }
+  .faq summary {
+    cursor: pointer; padding: 15px 0; font-weight: 600;
+    font-size: 15px; color: var(--text); list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--blue); font-size: 20px; font-weight: 400; flex-shrink: 0; }
+  .faq details[open] summary::after { content: "\2212"; }
+  .faq details > p { padding: 0 0 16px; margin: 0; font-size: 15px; color: #C8C8D6; line-height: 1.7; }
 </style>
 <style>
   table.dt { width:100%; border-collapse:collapse; font-size:14px; margin:18px 0 22px; min-width:420px; }
@@ -250,6 +266,38 @@
   .keyfig b { display:block; font-size:23px; font-weight:700; color:var(--text); letter-spacing:-.02em; margin-bottom:3px; }
   .keyfig span { font-size:12.5px; color:var(--muted); line-height:1.45; display:block; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why are birth rates falling worldwide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mainly because child mortality collapsed, so families no longer need many births to raise a few adults. Urbanisation, women's education and employment, contraception, and later childbearing all reinforce it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is replacement level fertility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 2.1 children per woman: two to replace the parents plus a fraction for children who die before reproductive age. Below that, a population eventually shrinks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which country has the lowest birth rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "South Korea, with a fertility rate below 0.8 — the lowest ever recorded for a country not at war."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -340,6 +388,23 @@
   <p>It also reshapes who lives where. Nearly all population growth for the rest of this century is expected in sub-Saharan Africa, where fertility remains above 4 in many countries. Meanwhile more than half the world's population already lives in a country below replacement level &mdash; a threshold crossed quietly, and one most people are unaware of.</p>
   <p>You can see the birth and death rates behind these trends country by country in the <a href="/population-by-country.html">live population table</a>, or read how the two interact in <a href="/birth-rate-vs-death-rate.html">birth rate vs. death rate</a>.</p>
 
+
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>Why are birth rates falling worldwide?</summary>
+      <p>Mainly because child mortality collapsed, so families no longer need many births to raise a few adults. Urbanisation, women&#x27;s education and employment, contraception, and later childbearing all reinforce it.</p>
+    </details>
+    <details>
+      <summary>What is replacement level fertility?</summary>
+      <p>About 2.1 children per woman: two to replace the parents plus a fraction for children who die before reproductive age. Below that, a population eventually shrinks.</p>
+    </details>
+    <details>
+      <summary>Which country has the lowest birth rate?</summary>
+      <p>South Korea, with a fertility rate below 0.8 — the lowest ever recorded for a country not at war.</p>
+    </details>
+  </section>
 
   <div class="related">
     <h2>Related reading</h2>
