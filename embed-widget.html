@@ -3,14 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Page Not Found — World Pulse</title>
-<meta name="description" content="That page doesn't exist. Find the live world population clock, population by country, and our explainers on global demographics.">
-<meta name="robots" content="noindex, follow">
+<title>Embed a Live World Population Counter — Free Widget | World Pulse</title>
+<meta name="description" content="Free embeddable world population counter for your website. One line of HTML, ticks in real time, no signup, no tracking, 4KB. Works with WordPress, Squarespace, Wix and plain HTML.">
+<meta name="keywords" content="world population widget, embed population counter, live population counter widget, population clock widget, free website widget, embeddable counter, world population iframe">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Embed a Live World Population Counter — Free Widget">
+<meta property="og:description" content="Free live world population counter for your site. One line of HTML, no signup, no tracking.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://worldpulse.fyi/embed-widget.html">
+<meta property="og:image" content="https://worldpulse.fyi/og-image.png?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Embed a Live World Population Counter — Free Widget">
+<meta name="twitter:description" content="Free live world population counter for your site. One line of HTML.">
+<meta name="twitter:image" content="https://worldpulse.fyi/og-image.png?v=2">
+<link rel="canonical" href="https://worldpulse.fyi/embed-widget.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var wpConsent = (function(){ try { return localStorage.getItem('wp_cookie_consent'); } catch(e){ return null; } })();
+  var wpGranted = wpConsent === 'accepted';
+  gtag('consent', 'default', {
+    'ad_storage': wpGranted ? 'granted' : 'denied',
+    'ad_user_data': wpGranted ? 'granted' : 'denied',
+    'ad_personalization': wpGranted ? 'granted' : 'denied',
+    'analytics_storage': wpGranted ? 'granted' : 'denied',
+    'wait_for_update': 500
+  });
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1766368165161679" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q762BNE94L"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-Q762BNE94L');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Embed the Live World Population Counter",
+  "description": "Free embeddable live world population counter widget. One line of HTML, no signup, no tracking.",
+  "url": "https://worldpulse.fyi/embed-widget.html",
+  "isPartOf": { "@type": "WebSite", "name": "World Pulse", "url": "https://worldpulse.fyi/" }
+}
+</script>
 <style>
   :root {
     --bg: #0a0a12;
@@ -181,9 +223,51 @@
     background: transparent;
     color: var(--text);
   }
+
+  .faq { margin-top: 40px; }
+  .faq h2 { margin-bottom: 6px; }
+  .faq details {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--surface); padding: 0 18px; margin-bottom: 10px;
+  }
+  .faq summary {
+    cursor: pointer; padding: 15px 0; font-weight: 600;
+    font-size: 15px; color: var(--text); list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--blue); font-size: 20px; font-weight: 400; flex-shrink: 0; }
+  .faq details[open] summary::after { content: "\2212"; }
+  .faq details > p { padding: 0 0 16px; margin: 0; font-size: 15px; color: #C8C8D6; line-height: 1.7; }
+</style>
+<style>
+  .embed-demo { border:1px solid var(--border); border-radius:14px; overflow:hidden; margin:22px 0; background:var(--bg); }
+  .embed-demo iframe { display:block; width:100%; height:250px; border:0; }
+  .codebox { position:relative; margin:14px 0 26px; }
+  .codebox pre {
+    background:#0d0d16; border:1px solid var(--border); border-radius:12px;
+    padding:16px; overflow-x:auto; font-size:12.5px; line-height:1.65;
+    color:#C8C8D6; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .copy-btn {
+    position:absolute; top:10px; right:10px; padding:6px 13px; font-size:12px;
+    font-weight:600; border-radius:8px; border:1px solid var(--border);
+    background:var(--surface); color:var(--text); cursor:pointer; font-family:inherit;
+  }
+  .copy-btn:hover { border-color:var(--blue); color:var(--blue); }
+  .copy-btn.done { color:var(--green); border-color:var(--green); }
 </style>
 </head>
 <body>
+
+<!-- Cookie Consent Banner -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <p>This site uses cookies to serve ads and analyze traffic, including cookies from Google. By continuing to use this site, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+  <div class="cookie-actions">
+    <button id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
+    <button id="cookieDecline" class="cookie-btn cookie-btn-decline">Decline</button>
+  </div>
+</div>
 
 <header class="header">
   <a class="logo" href="index.html">
@@ -216,28 +300,41 @@
 </header>
 
 <main class="legal">
-  <h1>Page not found</h1>
-  <p class="updated">That URL doesn't exist, or it has been removed.</p>
+  <h1>Embed the Live World Population Counter</h1>
+  <p class="updated">Free, no signup, no tracking &middot; Works on any website</p>
 
-  <p>If you followed a link here, it may point to a page we've since taken down. Everything below is live:</p>
+  <p>Put a live world population counter on your own site. It ticks in real time, matches the counter on our homepage, and takes one line of HTML. Free for any use, including commercial.</p>
 
-  <h2>Live data</h2>
+  <h2>Preview</h2>
+  <div class="embed-demo">
+    <iframe src="/embed.html" title="Live world population counter" loading="lazy"></iframe>
+  </div>
+
+  <h2>Copy this</h2>
+  <div class="codebox">
+    <button class="copy-btn" id="copyBtn">Copy</button>
+    <pre id="embedCode">&lt;iframe src="https://worldpulse.fyi/embed.html"
+        width="100%" height="250" frameborder="0"
+        title="Live world population counter"
+        loading="lazy"&gt;&lt;/iframe&gt;</pre>
+  </div>
+
+  <p>Paste it into any HTML page, blog post, or CMS block. It works in WordPress (Custom HTML block), Squarespace (Code block), Wix, Ghost, Notion embeds, and plain HTML.</p>
+
+  <h2>Why it will not slow your page down</h2>
   <ul>
-    <li><a href="/">World population clock</a> &mdash; live counter and interactive 3D globe</li>
-    <li><a href="/population-by-country.html">Population by country</a> &mdash; all 217 countries, updating every second</li>
+    <li><strong>No network requests.</strong> The counter is computed in the browser from a fixed baseline and annual birth and death rates. It never calls an API, so it cannot hang or fail.</li>
+    <li><strong>4KB total.</strong> Smaller than most images on a page.</li>
+    <li><strong>Loads lazily.</strong> The <code>loading="lazy"</code> attribute means it only loads if a reader scrolls to it.</li>
+    <li><strong>No cookies, no tracking, no analytics.</strong> Nothing is set in your visitors' browsers, so it raises no GDPR obligations for you.</li>
   </ul>
 
-  <h2>Most read</h2>
-  <ul>
-    <li><a href="/world-population-by-year.html">World population by year, 1950 to 2025</a></li>
-    <li><a href="/most-populous-countries.html">The most populous countries in the world</a></li>
-    <li><a href="/how-many-people-have-ever-lived.html">How many people have ever lived on Earth?</a></li>
-    <li><a href="/global-fertility-rate-decline.html">Why birth rates are falling almost everywhere</a></li>
-    <li><a href="/world-population-2050.html">World population in 2050</a></li>
-  </ul>
+  <h2>Where the numbers come from</h2>
+  <p>The baseline is the World Bank's total population series, advanced forward using crude birth and death rates from the same source. It is a projection, not a census &mdash; no country counts births and deaths as they happen, so every live population counter works this way, including the US Census Bureau's. Our <a href="/world-population-clock-explained.html">explainer on how population clocks work</a> covers the method and its limits in full.</p>
 
-  <h2>Everything else</h2>
-  <p>The <a href="/about.html#explainers">About page</a> lists all our explainers, and <a href="/articles.html">Articles</a> carries recent global health and disaster reporting.</p>
+  <h2>Terms</h2>
+  <p>Use it anywhere, on as many pages as you like, commercial or not. The only condition is that you leave the "Live data by World Pulse" credit link in place. That link is how we cover the cost of keeping this free.</p>
+  <p>Questions, or want a different size or colour scheme? Email <a href="mailto:contact@worldpulse.fyi">contact@worldpulse.fyi</a>.</p>
 </main>
 
 <footer class="footer">
@@ -247,7 +344,6 @@
     <a href="about.html">About &amp; Contact</a>
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Use</a>
-    <a href="embed-widget.html">Embed our counter</a>
   </div>
   <p>&copy; <span id="year"></span> World Pulse. All rights reserved.</p>
 </footer>
@@ -345,6 +441,24 @@
 })();
 </script>
 
+
+
+<script>
+document.getElementById('copyBtn').addEventListener('click', function () {
+  var txt = document.getElementById('embedCode').textContent;
+  var btn = this;
+  function done() { btn.textContent = 'Copied'; btn.classList.add('done');
+    setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1800); }
+  function fallback() {
+    var ta = document.createElement('textarea');
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+  if (navigator.clipboard) { navigator.clipboard.writeText(txt).then(done, fallback); }
+  else { fallback(); }
+});
+</script>
 
 </body>
 </html>
