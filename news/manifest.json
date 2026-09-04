@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-09-04-m-6-3-84-km-ssw-of-nikolski-alaska",
+    "title": "M 6.3 - 84 km SSW of Nikolski, Alaska",
+    "date": "2026-09-04",
+    "summary": "A magnitude 6.3 earthquake struck 84 km SSW of Nikolski, Alaska, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt"
+      }
+    ]
+  },
+  {
     "slug": "2026-09-03-m-5-4-21-km-wnw-of-jiangyou-china",
     "title": "M 5.4 - 21 km WNW of Jiangyou, China",
     "date": "2026-09-03",
