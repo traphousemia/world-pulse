@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-09-17-m-6-5-165-km-w-of-nikolski-alaska",
+    "title": "M 6.5 - 165 km W of Nikolski, Alaska",
+    "date": "2026-09-17",
+    "summary": "A magnitude 6.5 earthquake struck 165 km W of Nikolski, Alaska, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ti1p"
+      }
+    ]
+  },
+  {
     "slug": "2026-09-12-m-6-5-126-km-nne-of-teluknaga-indonesia",
     "title": "M 6.5 - 126 km NNE of Teluknaga, Indonesia",
     "date": "2026-09-12",
