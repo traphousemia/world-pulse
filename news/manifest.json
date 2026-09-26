@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-09-26-m-6-6-80-km-ene-of-tadine-new-caledonia",
+    "title": "M 6.6 - 80 km ENE of Tadine, New Caledonia",
+    "date": "2026-09-26",
+    "summary": "A magnitude 6.6 earthquake struck 80 km ENE of Tadine, New Caledonia, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000txpi"
+      }
+    ]
+  },
+  {
     "slug": "2026-09-20-m-6-4-49-km-nne-of-kainantu-papua-new-guinea",
     "title": "M 6.4 - 49 km NNE of Kainantu, Papua New Guinea",
     "date": "2026-09-20",
