@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-09-30-m-4-2-6-km-wnw-of-wauna-washington",
+    "title": "M 4.2 - 6 km WNW of Wauna, Washington",
+    "date": "2026-09-30",
+    "summary": "A magnitude 4.2 earthquake struck 6 km WNW of Wauna, Washington, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714111952"
+      }
+    ]
+  },
+  {
     "slug": "2026-09-26-m-6-6-80-km-ene-of-tadine-new-caledonia",
     "title": "M 6.6 - 80 km ENE of Tadine, New Caledonia",
     "date": "2026-09-26",
