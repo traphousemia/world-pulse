@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-02-m-4-7-5-km-nne-of-korumburra-australia",
+    "title": "M 4.7 - 5 km NNE of Korumburra, Australia",
+    "date": "2026-10-02",
+    "summary": "A magnitude 4.7 earthquake struck 5 km NNE of Korumburra, Australia, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tz1y"
+      }
+    ]
+  },
+  {
     "slug": "2026-09-30-m-4-2-6-km-wnw-of-wauna-washington",
     "title": "M 4.2 - 6 km WNW of Wauna, Washington",
     "date": "2026-09-30",
