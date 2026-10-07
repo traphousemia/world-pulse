@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-07-m-5-5-92-km-nnw-of-aleneva-alaska",
+    "title": "M 5.5 - 92 km NNW of Aleneva, Alaska",
+    "date": "2026-10-07",
+    "summary": "A magnitude 5.5 earthquake struck 92 km NNW of Aleneva, Alaska, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026tuxgky"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-02-m-4-7-5-km-nne-of-korumburra-australia",
     "title": "M 4.7 - 5 km NNE of Korumburra, Australia",
     "date": "2026-10-02",
