@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-08-m-6-3-102-km-ne-of-norsup-vanuatu",
+    "title": "M 6.3 - 102 km NE of Norsup, Vanuatu",
+    "date": "2026-10-08",
+    "summary": "A magnitude 6.3 earthquake struck 102 km NE of Norsup, Vanuatu, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u0xi"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-07-m-5-5-92-km-nnw-of-aleneva-alaska",
     "title": "M 5.5 - 92 km NNW of Aleneva, Alaska",
     "date": "2026-10-07",
