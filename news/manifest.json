@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-09-m-7-7-12-km-wsw-of-pitaloza-arriba-panama",
+    "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama",
+    "date": "2026-10-09",
+    "summary": "A magnitude 7.7 earthquake struck 12 km WSW of Pitaloza Arriba, Panama, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u18k"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-08-m-6-3-102-km-ne-of-norsup-vanuatu",
     "title": "M 6.3 - 102 km NE of Norsup, Vanuatu",
     "date": "2026-10-08",
