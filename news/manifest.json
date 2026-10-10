@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-10-m-6-0-7-km-n-of-la-tronosa-panama",
+    "title": "M 6.0 - 7 km N of La Tronosa, Panama",
+    "date": "2026-10-10",
+    "summary": "A magnitude 6.0 earthquake struck 7 km N of La Tronosa, Panama, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1cf"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-09-m-7-7-12-km-wsw-of-pitaloza-arriba-panama",
     "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama",
     "date": "2026-10-09",
