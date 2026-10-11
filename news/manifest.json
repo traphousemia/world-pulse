@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-11-m-6-6-14-km-w-of-r-o-grande-panama",
+    "title": "M 6.6 - 14 km W of Río Grande, Panama",
+    "date": "2026-10-11",
+    "summary": "A magnitude 6.6 earthquake struck 14 km W of Río Grande, Panama, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u19w"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-10-m-6-0-7-km-n-of-la-tronosa-panama",
     "title": "M 6.0 - 7 km N of La Tronosa, Panama",
     "date": "2026-10-10",
