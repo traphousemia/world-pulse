@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-12-m-5-8-1-km-s-of-el-cacao-panama",
+    "title": "M 5.8 - 1 km S of El Cacao, Panama",
+    "date": "2026-10-12",
+    "summary": "A magnitude 5.8 earthquake struck 1 km S of El Cacao, Panama, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u18x"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-11-m-6-6-14-km-w-of-r-o-grande-panama",
     "title": "M 6.6 - 14 km W of Río Grande, Panama",
     "date": "2026-10-11",
