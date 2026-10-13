@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-13-m-6-8-central-mid-atlantic-ridge",
+    "title": "M 6.8 - central Mid-Atlantic Ridge",
+    "date": "2026-10-13",
+    "summary": "A magnitude 6.8 earthquake struck central Mid-Atlantic Ridge, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u214"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-12-m-5-8-1-km-s-of-el-cacao-panama",
     "title": "M 5.8 - 1 km S of El Cacao, Panama",
     "date": "2026-10-12",
