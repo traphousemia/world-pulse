@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-15-m-6-1-17-km-w-of-r-o-grande-panama",
+    "title": "M 6.1 - 17 km W of Río Grande, Panama",
+    "date": "2026-10-15",
+    "summary": "A magnitude 6.1 earthquake struck 17 km W of Río Grande, Panama, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1wn"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-14-m-6-7-central-mid-atlantic-ridge",
     "title": "M 6.7 - central Mid-Atlantic Ridge",
     "date": "2026-10-14",
