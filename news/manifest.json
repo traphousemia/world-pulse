@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-16-m-6-9-76-km-ne-of-ozernovskiy-russia",
+    "title": "M 6.9 - 76 km NE of Ozernovskiy, Russia",
+    "date": "2026-10-16",
+    "summary": "A magnitude 6.9 earthquake struck 76 km NE of Ozernovskiy, Russia, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u2mq"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-15-m-6-1-17-km-w-of-r-o-grande-panama",
     "title": "M 6.1 - 17 km W of Río Grande, Panama",
     "date": "2026-10-15",
