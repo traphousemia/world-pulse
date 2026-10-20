@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-20-m-6-3-197-km-nw-of-port-olry-vanuatu",
+    "title": "M 6.3 - 197 km NW of Port-Olry, Vanuatu",
+    "date": "2026-10-20",
+    "summary": "A magnitude 6.3 earthquake struck 197 km NW of Port-Olry, Vanuatu, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u3jl"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-17-m-5-7-48-km-wnw-of-khuzdar-pakistan",
     "title": "M 5.7 - 48 km WNW of Khuzdar, Pakistan",
     "date": "2026-10-17",
