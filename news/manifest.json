@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-22-m-7-0-191-km-ene-of-nagqu-china",
+    "title": "M 7.0 - 191 km ENE of Nagqu, China",
+    "date": "2026-10-22",
+    "summary": "A magnitude 7.0 earthquake struck 191 km ENE of Nagqu, China, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u43g"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-20-m-6-3-197-km-nw-of-port-olry-vanuatu",
     "title": "M 6.3 - 197 km NW of Port-Olry, Vanuatu",
     "date": "2026-10-20",
