@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-25-m-6-5-bonin-islands-japan-region",
+    "title": "M 6.5 - Bonin Islands, Japan region",
+    "date": "2026-10-25",
+    "summary": "A magnitude 6.5 earthquake struck Bonin Islands, Japan region, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4r9"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-24-m-6-3-170-km-nw-of-port-olry-vanuatu",
     "title": "M 6.3 - 170 km NW of Port-Olry, Vanuatu",
     "date": "2026-10-24",
@@ -465,19 +477,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ti8i"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-06-m-6-3-32-km-sw-of-sarangani-philippines",
-    "title": "M 6.3 - 32 km SW of Sarangani, Philippines",
-    "date": "2026-08-06",
-    "summary": "A magnitude 6.3 earthquake struck 32 km SW of Sarangani, Philippines, per USGS.",
-    "url": "/news/2026-08-06-m-6-3-32-km-sw-of-sarangani-philippines.html",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ti6x"
       }
     ]
   }
