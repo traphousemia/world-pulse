@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-10-26-m-6-9-197-km-wnw-of-port-olry-vanuatu",
+    "title": "M 6.9 - 197 km WNW of Port-Olry, Vanuatu",
+    "date": "2026-10-26",
+    "summary": "A magnitude 6.9 earthquake struck 197 km WNW of Port-Olry, Vanuatu, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4j2"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-25-m-6-5-bonin-islands-japan-region",
     "title": "M 6.5 - Bonin Islands, Japan region",
     "date": "2026-10-25",
@@ -464,19 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026powmkf"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-06-m-6-3-south-of-the-kermadec-islands",
-    "title": "M 6.3 - south of the Kermadec Islands",
-    "date": "2026-08-06",
-    "summary": "A magnitude 6.3 earthquake struck south of the Kermadec Islands, per USGS.",
-    "url": "/news/2026-08-06-m-6-3-south-of-the-kermadec-islands.html",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ti8i"
       }
     ]
   }
