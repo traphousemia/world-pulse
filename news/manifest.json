@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-11-09-m-6-4-30-km-wsw-of-lata-solomon-islands",
+    "title": "M 6.4 - 30 km WSW of Lata, Solomon Islands",
+    "date": "2026-11-09",
+    "summary": "A magnitude 6.4 earthquake struck 30 km WSW of Lata, Solomon Islands, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tx16"
+      }
+    ]
+  },
+  {
     "slug": "2026-10-29-m-6-4-southeast-of-easter-island",
     "title": "M 6.4 - southeast of Easter Island",
     "date": "2026-10-29",
@@ -464,18 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tgb9"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-13-m-7-4-5-km-s-of-san-jos-del-palmar-colombia",
-    "title": "M 7.4 - 5 km S of San José del Palmar, Colombia",
-    "date": "2026-08-13",
-    "summary": "A magnitude 7.4 earthquake struck 5 km S of San José del Palmar, Colombia, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tjl2"
       }
     ]
   }
