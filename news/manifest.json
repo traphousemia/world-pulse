@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-11-16-m-6-6-148-km-wsw-of-tual-indonesia",
+    "title": "M 6.6 - 148 km WSW of Tual, Indonesia",
+    "date": "2026-11-16",
+    "summary": "A magnitude 6.6 earthquake struck 148 km WSW of Tual, Indonesia, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tymu"
+      }
+    ]
+  },
+  {
     "slug": "2026-11-09-m-6-4-30-km-wsw-of-lata-solomon-islands",
     "title": "M 6.4 - 30 km WSW of Lata, Solomon Islands",
     "date": "2026-11-09",
@@ -464,18 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75417557"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-14-m-6-8-the-2026-kumamoto-region-japan-earthquake",
-    "title": "M 6.8 - The 2026 Kumamoto Region, Japan Earthquake",
-    "date": "2026-08-14",
-    "summary": "A magnitude 6.8 earthquake struck The 2026 Kumamoto Region, Japan Earthquake, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tgb9"
       }
     ]
   }
