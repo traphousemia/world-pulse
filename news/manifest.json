@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-11-18-bangladesh-dengue-outbreak-sep-2026",
+    "title": "Bangladesh: Dengue Outbreak - Sep 2026",
+    "date": "2026-11-18",
+    "summary": "Affected country: Bangladesh Glide: EP-2026-000174-BGD More than 51,000 dengue cases and 149 deaths were recorded from the beginning of 2026 to 13 September, according to the Directorate General of Health Services (DGHS). [...] During the first 14 days of September, the country…",
+    "sources": [
+      {
+        "name": "ReliefWeb — Epidemics",
+        "url": "https://reliefweb.int/disaster/ep-2026-000174-bgd"
+      }
+    ]
+  },
+  {
+    "slug": "2026-11-18-m-5-3-16-km-ese-of-comand-u-romania",
+    "title": "M 5.3 - 16 km ESE of Comandău, Romania",
+    "date": "2026-11-18",
+    "summary": "A magnitude 5.3 earthquake struck 16 km ESE of Comandău, Romania, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tyw8"
+      }
+    ]
+  },
+  {
     "slug": "2026-11-16-m-6-6-148-km-wsw-of-tual-indonesia",
     "title": "M 6.6 - 148 km WSW of Tual, Indonesia",
     "date": "2026-11-16",
@@ -452,30 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyk"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-15-m-7-7-68-km-nnw-of-ende-indonesia",
-    "title": "M 7.7 - 68 km NNW of Ende, Indonesia",
-    "date": "2026-08-15",
-    "summary": "A magnitude 7.7 earthquake struck 68 km NNW of Ende, Indonesia, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkt2"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-14-m-3-8-3-km-n-of-san-leandro-ca",
-    "title": "M 3.8 - 3 km N of San Leandro, CA",
-    "date": "2026-08-14",
-    "summary": "A magnitude 3.8 earthquake struck 3 km N of San Leandro, CA, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75417557"
       }
     ]
   }
