@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-11-19-malawi-measles-outbreak-jul-2026",
+    "title": "Malawi: Measles Outbreak - Jul 2026",
+    "date": "2026-11-19",
+    "summary": "Affected country: Malawi Glide: EP-2026-000200-MWI Malawi is facing a significant measles outbreak that has evolved from sporadic cases reported earlier in 2026 into sustained community transmission across several districts. By Epidemiological Week 27, the Ministry of Health had…",
+    "sources": [
+      {
+        "name": "ReliefWeb — Epidemics",
+        "url": "https://reliefweb.int/disaster/ep-2026-000200-mwi"
+      }
+    ]
+  },
+  {
     "slug": "2026-11-18-bangladesh-dengue-outbreak-sep-2026",
     "title": "Bangladesh: Dengue Outbreak - Sep 2026",
     "date": "2026-11-18",
@@ -464,18 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tga9"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-15-m-6-9-15-km-nnw-of-pematangsiantar-indonesia",
-    "title": "M 6.9 - 15 km NNW of Pematangsiantar, Indonesia",
-    "date": "2026-08-15",
-    "summary": "A magnitude 6.9 earthquake struck 15 km NNW of Pematangsiantar, Indonesia, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkyk"
       }
     ]
   }
