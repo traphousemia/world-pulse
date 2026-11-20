@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-11-20-guinea-bissau-mpox-outbreak-jul-2026",
+    "title": "Guinea-Bissau: Mpox Outbreak - Jul 2026",
+    "date": "2026-11-20",
+    "summary": "Affected country: Guinea-Bissau Glide: EP-2026-000177-GNB The Ministry of Public Health declared Guinea-Bissau’s first mpox outbreak on 4 July 2026. By 20 July, three laboratory-confirmed cases had been reported: two in Bissau, including the first confirmed case in Cuntum, and…",
+    "sources": [
+      {
+        "name": "ReliefWeb — Epidemics",
+        "url": "https://reliefweb.int/disaster/ep-2026-000177-gnb"
+      }
+    ]
+  },
+  {
+    "slug": "2026-11-20-m-3-9-1-km-nw-of-commerce-ca",
+    "title": "M 3.9 - 1 km NW of Commerce, CA",
+    "date": "2026-11-20",
+    "summary": "A magnitude 3.9 earthquake struck 1 km NW of Commerce, CA, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41364111"
+      }
+    ]
+  },
+  {
     "slug": "2026-11-19-malawi-measles-outbreak-jul-2026",
     "title": "Malawi: Measles Outbreak - Jul 2026",
     "date": "2026-11-19",
@@ -452,30 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ojlaky"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-16-m-5-2-1-km-sw-of-otura-spain",
-    "title": "M 5.2 - 1 km SW of Otura, Spain",
-    "date": "2026-08-16",
-    "summary": "A magnitude 5.2 earthquake struck 1 km SW of Otura, Spain, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkv2"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-16-m-5-8-194-km-nw-of-oula-xiuma-china",
-    "title": "M 5.8 - 194 km NW of Oula Xiuma, China",
-    "date": "2026-08-16",
-    "summary": "A magnitude 5.8 earthquake struck 194 km NW of Oula Xiuma, China, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tga9"
       }
     ]
   }
