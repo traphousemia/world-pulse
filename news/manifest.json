@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-11-21-central-african-republic-cholera-outbreak-jun-2026",
+    "title": "Central African Republic: Cholera Outbreak - Jun 2026",
+    "date": "2026-11-21",
+    "summary": "Affected country: Central African Republic Glide: EP-2026-000107-CAF On 26 June 2026, the Ministry of Health and Population declared a cholera outbreak after laboratory confirmation of cases in Bimbo and Mbaïki health districts. As of 1 July, 214 suspected cases and 24 community…",
+    "sources": [
+      {
+        "name": "ReliefWeb — Epidemics",
+        "url": "https://reliefweb.int/disaster/ep-2026-000107-caf"
+      }
+    ]
+  },
+  {
+    "slug": "2026-11-21-m-5-9-238-km-sw-of-yanglong-china",
+    "title": "M 5.9 - 238 km SW of Yanglong, China",
+    "date": "2026-11-21",
+    "summary": "A magnitude 5.9 earthquake struck 238 km SW of Yanglong, China, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucly"
+      }
+    ]
+  },
+  {
     "slug": "2026-11-20-guinea-bissau-mpox-outbreak-jul-2026",
     "title": "Guinea-Bissau: Mpox Outbreak - Jul 2026",
     "date": "2026-11-20",
@@ -452,30 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tlrj"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-17-m-5-7-199-km-nw-of-oula-xiuma-china",
-    "title": "M 5.7 - 199 km NW of Oula Xiuma, China",
-    "date": "2026-08-17",
-    "summary": "A magnitude 5.7 earthquake struck 199 km NW of Oula Xiuma, China, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tga6"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-17-m-5-0-38-km-sse-of-spearman-texas",
-    "title": "M 5.0 - 38 km SSE of Spearman, Texas",
-    "date": "2026-08-17",
-    "summary": "A magnitude 5.0 earthquake struck 38 km SSE of Spearman, Texas, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ojlaky"
       }
     ]
   }
