@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-11-22-cameroon-cholera-outbreak-jun-2026",
+    "title": "Cameroon: Cholera Outbreak - Jun 2026",
+    "date": "2026-11-22",
+    "summary": "Affected country: Cameroon Glide: EP-2026-000180-CMR Cameroon's Far North Region is facing a rapidly expanding outbreak. Since late June, more than 1,250 cases and 31 deaths have been reported across nine health districts. The outbreak has already surpassed the scale of recent…",
+    "sources": [
+      {
+        "name": "ReliefWeb — Epidemics",
+        "url": "https://reliefweb.int/disaster/ep-2026-000180-cmr"
+      }
+    ]
+  },
+  {
+    "slug": "2026-11-22-m-6-8-105-km-ne-of-lospalos-timor-leste",
+    "title": "M 6.8 - 105 km NE of Lospalos, Timor Leste",
+    "date": "2026-11-22",
+    "summary": "A magnitude 6.8 earthquake struck 105 km NE of Lospalos, Timor Leste, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucij"
+      }
+    ]
+  },
+  {
     "slug": "2026-11-21-central-african-republic-cholera-outbreak-jun-2026",
     "title": "Central African Republic: Cholera Outbreak - Jun 2026",
     "date": "2026-11-21",
@@ -452,30 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026qoynpe"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-21-m-6-7-31-km-nw-of-aniso-peru",
-    "title": "M 6.7 - 31 km NW of Aniso, Peru",
-    "date": "2026-08-21",
-    "summary": "A magnitude 6.7 earthquake struck 31 km NW of Aniso, Peru, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tm81"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-19-m-5-9-270-km-wsw-of-yanglong-china",
-    "title": "M 5.9 - 270 km WSW of Yanglong, China",
-    "date": "2026-08-19",
-    "summary": "A magnitude 5.9 earthquake struck 270 km WSW of Yanglong, China, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tlrj"
       }
     ]
   }
