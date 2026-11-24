@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-11-24-chad-cholera-outbreak-jun-2026",
+    "title": "Chad: Cholera Outbreak - Jun 2026",
+    "date": "2026-11-24",
+    "summary": "Affected country: Chad Glide: EP-2026-000134-TCD On 16 June, the Ministry of Public Health and Prevention declared a cholera outbreak in Karal health district, Haraz-al-Biar department (bordering the Lac province and the far-northern Cameroon region), an area hosting more than…",
+    "sources": [
+      {
+        "name": "ReliefWeb — Epidemics",
+        "url": "https://reliefweb.int/disaster/ep-2026-000134-tcd"
+      }
+    ]
+  },
+  {
+    "slug": "2026-11-24-m-6-5-vanuatu-region",
+    "title": "M 6.5 - Vanuatu region",
+    "date": "2026-11-24",
+    "summary": "A magnitude 6.5 earthquake struck Vanuatu region, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucvm"
+      }
+    ]
+  },
+  {
     "slug": "2026-11-22-cameroon-cholera-outbreak-jun-2026",
     "title": "Cameroon: Cholera Outbreak - Jun 2026",
     "date": "2026-11-22",
@@ -452,30 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tna9"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-25-m-5-8-4-km-n-of-toride-japan",
-    "title": "M 5.8 - 4 km N of Toride, Japan",
-    "date": "2026-08-25",
-    "summary": "A magnitude 5.8 earthquake struck 4 km N of Toride, Japan, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmta"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-23-m-3-9-1-km-wsw-of-hope-alaska",
-    "title": "M 3.9 - 1 km WSW of Hope, Alaska",
-    "date": "2026-08-23",
-    "summary": "A magnitude 3.9 earthquake struck 1 km WSW of Hope, Alaska, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026qoynpe"
       }
     ]
   }
