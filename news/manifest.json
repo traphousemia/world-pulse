@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-11-24-central-eastern-africa-ebola-outbreak-may-2026",
+    "title": "Central/Eastern Africa: Ebola Outbreak - May 2026",
+    "date": "2026-11-24",
+    "summary": "Affected countries: Democratic Republic of the Congo, Kenya, Nigeria, Uganda Glide: EP-2026-000071-COD On 15 May 2026, the Democratic Republic of the Congo declared its 17th Ebola disease outbreak after laboratory testing confirmed Bundibugyo virus disease in Ituri Province…",
+    "sources": [
+      {
+        "name": "ReliefWeb — Epidemics",
+        "url": "https://reliefweb.int/disaster/ep-2026-000071-cod"
+      }
+    ]
+  },
+  {
+    "slug": "2026-11-24-m-4-2-10-km-wsw-of-point-mackenzie-alaska",
+    "title": "M 4.2 - 10 km WSW of Point MacKenzie, Alaska",
+    "date": "2026-11-24",
+    "summary": "A magnitude 4.2 earthquake struck 10 km WSW of Point MacKenzie, Alaska, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026xhgksb"
+      }
+    ]
+  },
+  {
     "slug": "2026-11-24-chad-cholera-outbreak-jun-2026",
     "title": "Chad: Cholera Outbreak - Jun 2026",
     "date": "2026-11-24",
@@ -452,30 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt"
-      }
-    ]
-  },
-  {
-    "slug": "2026-09-03-m-5-4-21-km-wnw-of-jiangyou-china",
-    "title": "M 5.4 - 21 km WNW of Jiangyou, China",
-    "date": "2026-09-03",
-    "summary": "A magnitude 5.4 earthquake struck 21 km WNW of Jiangyou, China, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdw6"
-      }
-    ]
-  },
-  {
-    "slug": "2026-08-26-m-4-9-4-km-nne-of-jal-l-b-d-afghanistan",
-    "title": "M 4.9 - 4 km NNE of Jalālābād, Afghanistan",
-    "date": "2026-08-26",
-    "summary": "A magnitude 4.9 earthquake struck 4 km NNE of Jalālābād, Afghanistan, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tna9"
       }
     ]
   }
