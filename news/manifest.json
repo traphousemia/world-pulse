@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-11-25-sri-lanka-dengue-outbreak-may-2026",
+    "title": "Sri Lanka: Dengue Outbreak - May 2026",
+    "date": "2026-11-25",
+    "summary": "Affected country: Sri Lanka Glide: EP-2026-000085-LKA Dengue cases have been on the rise in the country since the beginning of the year. Following a massive seasonal surge triggered by heavy rains in mid-May 2026, the epidemic trajectory accelerated significantly. Driven by the…",
+    "sources": [
+      {
+        "name": "ReliefWeb — Epidemics",
+        "url": "https://reliefweb.int/disaster/ep-2026-000085-lka"
+      }
+    ]
+  },
+  {
+    "slug": "2026-11-25-m-6-4-mauritius-reunion-region",
+    "title": "M 6.4 - Mauritius - Reunion region",
+    "date": "2026-11-25",
+    "summary": "A magnitude 6.4 earthquake struck Mauritius - Reunion region, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ud6h"
+      }
+    ]
+  },
+  {
     "slug": "2026-11-24-central-eastern-africa-ebola-outbreak-may-2026",
     "title": "Central/Eastern Africa: Ebola Outbreak - May 2026",
     "date": "2026-11-24",
@@ -452,30 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tgrk"
-      }
-    ]
-  },
-  {
-    "slug": "2026-09-06-m-3-7-20-km-e-of-castle-rock-washington",
-    "title": "M 3.7 - 20 km E of Castle Rock, Washington",
-    "date": "2026-09-06",
-    "summary": "A magnitude 3.7 earthquake struck 20 km E of Castle Rock, Washington, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714095342"
-      }
-    ]
-  },
-  {
-    "slug": "2026-09-04-m-6-3-84-km-ssw-of-nikolski-alaska",
-    "title": "M 6.3 - 84 km SSW of Nikolski, Alaska",
-    "date": "2026-09-04",
-    "summary": "A magnitude 6.3 earthquake struck 84 km SSW of Nikolski, Alaska, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdvt"
       }
     ]
   }
