@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-11-26-bangladesh-measles-outbreak-mar-2026",
+    "title": "Bangladesh: Measles Outbreak - Mar 2026",
+    "date": "2026-11-26",
+    "summary": "Affected country: Bangladesh Glide: EP-2026-000048-BGD The Bangladesh Directorate General of Health Services (DGHS) reported that 118 children have died across the country since March 15 with suspected measles. During the same period, 5,940 children were hospitalised with…",
+    "sources": [
+      {
+        "name": "ReliefWeb — Epidemics",
+        "url": "https://reliefweb.int/disaster/ep-2026-000048-bgd"
+      }
+    ]
+  },
+  {
+    "slug": "2026-11-26-m-6-7-7-km-ene-of-carhuamayo-peru",
+    "title": "M 6.7 - 7 km ENE of Carhuamayo, Peru",
+    "date": "2026-11-26",
+    "summary": "A magnitude 6.7 earthquake struck 7 km ENE of Carhuamayo, Peru, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucfm"
+      }
+    ]
+  },
+  {
     "slug": "2026-11-25-sri-lanka-dengue-outbreak-may-2026",
     "title": "Sri Lanka: Dengue Outbreak - May 2026",
     "date": "2026-11-25",
@@ -452,30 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tiqc"
-      }
-    ]
-  },
-  {
-    "slug": "2026-09-17-m-6-5-165-km-w-of-nikolski-alaska",
-    "title": "M 6.5 - 165 km W of Nikolski, Alaska",
-    "date": "2026-09-17",
-    "summary": "A magnitude 6.5 earthquake struck 165 km W of Nikolski, Alaska, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ti1p"
-      }
-    ]
-  },
-  {
-    "slug": "2026-09-12-m-6-5-126-km-nne-of-teluknaga-indonesia",
-    "title": "M 6.5 - 126 km NNE of Teluknaga, Indonesia",
-    "date": "2026-09-12",
-    "summary": "A magnitude 6.5 earthquake struck 126 km NNE of Teluknaga, Indonesia, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tgrk"
       }
     ]
   }
