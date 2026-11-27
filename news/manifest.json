@@ -1,5 +1,29 @@
 [
   {
+    "slug": "2026-11-27-suriname-chikungunya-virus-outbreak-mar-2026",
+    "title": "Suriname: Chikungunya Virus Outbreak - Mar 2026",
+    "date": "2026-11-27",
+    "summary": "Affected country: Suriname Glide: EP-2026-000037-SUR On March 4, 2026 Suriname's Ministry of Health has confirmed a significant increase in the cases of chikungunya virus (CHIK V) following the previous declaration of outbreak in late January. Based on the Central Laboratory of…",
+    "sources": [
+      {
+        "name": "ReliefWeb — Epidemics",
+        "url": "https://reliefweb.int/disaster/ep-2026-000037-sur"
+      }
+    ]
+  },
+  {
+    "slug": "2026-11-27-m-5-0-10-km-nw-of-pinnacles-ca",
+    "title": "M 5.0 - 10 km NW of Pinnacles, CA",
+    "date": "2026-11-27",
+    "summary": "A magnitude 5.0 earthquake struck 10 km NW of Pinnacles, CA, per USGS.",
+    "sources": [
+      {
+        "name": "USGS — Significant Earthquakes",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75468702"
+      }
+    ]
+  },
+  {
     "slug": "2026-11-26-bangladesh-measles-outbreak-mar-2026",
     "title": "Bangladesh: Measles Outbreak - Mar 2026",
     "date": "2026-11-26",
@@ -452,30 +476,6 @@
       {
         "name": "USGS — Significant Earthquakes",
         "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714111952"
-      }
-    ]
-  },
-  {
-    "slug": "2026-09-26-m-6-6-80-km-ene-of-tadine-new-caledonia",
-    "title": "M 6.6 - 80 km ENE of Tadine, New Caledonia",
-    "date": "2026-09-26",
-    "summary": "A magnitude 6.6 earthquake struck 80 km ENE of Tadine, New Caledonia, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000txpi"
-      }
-    ]
-  },
-  {
-    "slug": "2026-09-20-m-6-4-49-km-nne-of-kainantu-papua-new-guinea",
-    "title": "M 6.4 - 49 km NNE of Kainantu, Papua New Guinea",
-    "date": "2026-09-20",
-    "summary": "A magnitude 6.4 earthquake struck 49 km NNE of Kainantu, Papua New Guinea, per USGS.",
-    "sources": [
-      {
-        "name": "USGS — Significant Earthquakes",
-        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tiqc"
       }
     ]
   }
